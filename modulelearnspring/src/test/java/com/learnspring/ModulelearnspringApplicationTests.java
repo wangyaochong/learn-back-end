@@ -1,4 +1,4 @@
-package com.modulelearnspring;
+package com.learnspring;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +11,7 @@ public class ModulelearnspringApplicationTests {
 
 	@Test
 	public void contextLoads() {
+
 	}
 
 }
