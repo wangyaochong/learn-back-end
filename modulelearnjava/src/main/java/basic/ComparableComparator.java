@@ -1,4 +1,4 @@
-package java8.basic;
+package basic;
 
 import org.junit.Test;
 

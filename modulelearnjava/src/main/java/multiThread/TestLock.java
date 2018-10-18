@@ -1,14 +1,11 @@
-package java8.multiThread;
+package multiThread;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
 
 public class TestLock {
 

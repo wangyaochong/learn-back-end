@@ -1,6 +1,4 @@
-package java8.multiThread;
-
-import java.util.concurrent.TimeUnit;
+package multiThread;
 
 public class TestSleepAndLock {
 
