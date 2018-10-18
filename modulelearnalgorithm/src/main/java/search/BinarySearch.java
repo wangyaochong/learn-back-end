@@ -1,4 +1,4 @@
-package sort;
+package search;
 
 import org.junit.Test;
 

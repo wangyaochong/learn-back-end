@@ -3,19 +3,23 @@ package java8.multiThread;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 
 public class TestLock {
 
     List<Integer> result=new ArrayList<>();
+    Object o=new Object();
     public void addToList(int x){
-//        synchronized (this){
+        synchronized (o){
             if(!result.contains(x)){
                 result.add(x);
             }
-//        }
+        }
     }
 
     @Test
