@@ -1,4 +1,4 @@
-package i_o.bio;
+package io.bio;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

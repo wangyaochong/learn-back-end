@@ -7,21 +7,32 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class BaseProxy implements InvocationHandler {
+public class JdkProxy implements InvocationHandler {
     Object object;
-    public BaseProxy(Object target){
-        this.object=target;
+
+    public JdkProxy(Object target) {
+        this.object = target;
     }
+
+    public JdkProxy() {
+    }
+
+    public Object bind(Object target) {
+        this.object = target;
+        return Proxy.newProxyInstance(target.getClass().getClassLoader(),
+                target.getClass().getInterfaces(), this);
+    }
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("MyInvocationHandler invoke begin");
         Class<?> aClass = proxy.getClass();
         System.out.println(aClass);
-        System.out.println("proxy: "+ aClass.getName());
-        System.out.println("method: "+ method.getName());
-        if(args!=null){
-            for(Object o : args){
-                System.out.println("arg: "+ o);
+        System.out.println("proxy: " + aClass.getName());
+        System.out.println("method: " + method.getName());
+        if (args != null) {
+            for (Object o : args) {
+                System.out.println("arg: " + o);
             }
         }
 
@@ -34,10 +45,7 @@ public class BaseProxy implements InvocationHandler {
 
     public static void main(String[] args) {
         Base base = new Base();
-        BaseProxy baseProxy=new BaseProxy(base);
-        Class<?>[] interfaces = base.getClass().getInterfaces();
-        System.out.println(interfaces);
-        IBase o = (IBase) Proxy.newProxyInstance(base.getClass().getClassLoader(), interfaces, baseProxy);
+        IBase o = (IBase) new JdkProxy().bind(base);
         String s = o.methodAop("asd");
         System.out.println(o);
     }

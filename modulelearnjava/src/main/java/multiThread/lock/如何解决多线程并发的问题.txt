@@ -1,0 +1,2 @@
+1、使用synchronized
+2、使用lock对象

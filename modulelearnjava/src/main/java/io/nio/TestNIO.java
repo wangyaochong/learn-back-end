@@ -1,6 +1,6 @@
-package i_o.nio;
+package io.nio;
 
-import i_o.bio.TestIO;
+import io.bio.TestIO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.util.StopWatch;
