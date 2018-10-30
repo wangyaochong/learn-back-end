@@ -29,8 +29,15 @@ public class p38_CountandSay {
     }
 
     public String countAndSay(int n) {
-        return solve2("1",n-1);
+        return solve("1",n-1);
     }
+
+    /**
+     * String会比StringBuilder慢很多
+     * @param current
+     * @param count
+     * @return
+     */
     public String solve2(String current,int count){
         if(count>0){
             String string=new String();
