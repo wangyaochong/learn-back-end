@@ -9,10 +9,11 @@
 	<modules>
 		<module>moduleapp</module>
 		<module>modulecore</module>
-        <module>modulelearnjava</module>
+        <module>learn-java</module>
         <module>modulelearnspring</module>
-		<module>modulelearnalgorithm</module>
-	</modules>
+		<module>learn-algorithm</module>
+        <module>spring-mvc</module>
+    </modules>
 	<packaging>pom</packaging>
 
 	<name>learn-java-always</name>
