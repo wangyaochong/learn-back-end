@@ -1,4 +1,4 @@
-package forCollection;
+package forCollection.list;
 
 import org.junit.Test;
 import util.UtilFile;
@@ -12,6 +12,9 @@ public class ForArrayList {
 
     /**
      * transient关键字，使用自定义的序列化方法，因为ArrayList可能有很多空的数据，全部序列化会浪费内存
+     * 扩容时每次都是增加当前长度的1/2，如果扩充1/2 后不够，则扩充到目标长度
+     *
+     *
      */
 
     @Test

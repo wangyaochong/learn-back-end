@@ -32,7 +32,10 @@ public class p39_CombinationSum_Recursion {
 
     @Test
     public void test(){
-        List<List<Integer>> lists = combinationSum(new int[]{2, 3, 6, 7}, 7);
+//        List<List<Integer>> lists = combinationSum(new int[]{2, 3, 6, 7}, 7);
+//        System.out.println(lists);
+
+        List<List<Integer>> lists = combinationSum(new int[]{10,1,2,7,6,1,5}, 8);
         System.out.println(lists);
     }
 

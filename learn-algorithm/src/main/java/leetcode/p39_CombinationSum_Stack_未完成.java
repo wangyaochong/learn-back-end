@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class p39_CombinationSum_Stack {
+public class p39_CombinationSum_Stack_未完成 {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<Integer> oneResult=new ArrayList<>();
         List<List<Integer>> result=new ArrayList<>();

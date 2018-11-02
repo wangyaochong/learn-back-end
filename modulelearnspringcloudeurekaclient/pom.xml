@@ -26,7 +26,11 @@
 	</properties>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>com.wangyaochong</groupId>
+			<artifactId>modulecore</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
