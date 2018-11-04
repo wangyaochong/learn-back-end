@@ -14,7 +14,8 @@
 		<module>learn-algorithm</module>
         <module>spring-mvc</module>
         <module>learn-mybatis-spring-mvc</module>
-    </modules>
+		<module>learn-mybatis-simple</module>
+	</modules>
 	<packaging>pom</packaging>
 
 	<name>learn-java-always</name>
