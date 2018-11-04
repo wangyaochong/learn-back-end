@@ -13,6 +13,7 @@
         <module>modulelearnspring</module>
 		<module>learn-algorithm</module>
         <module>spring-mvc</module>
+        <module>learn-mybatis-spring-mvc</module>
     </modules>
 	<packaging>pom</packaging>
 
