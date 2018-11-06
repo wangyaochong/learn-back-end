@@ -27,7 +27,7 @@
     </select>
 
     <select id="selectAllUser" resultType="UserM">
-        select id,name,age,email_address from user
+        select id,name,age,email_address,sex from user
     </select>
 
 

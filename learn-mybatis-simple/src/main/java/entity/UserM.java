@@ -1,6 +1,7 @@
 package entity;
 
 
+import enums.EnumSex;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,4 +16,7 @@ public class UserM {
     Integer age;
     String emailAddress;
 
+    EnumSex sex;
+
+    String forObjectFactory;
 }

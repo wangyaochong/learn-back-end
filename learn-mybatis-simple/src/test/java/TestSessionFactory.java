@@ -30,6 +30,19 @@ public class TestSessionFactory {
         session.close();
     }
     @Test
+    public void testGetAll(){
+        // 2、创建SqlSessionFactory()
+        SqlSessionFactory sessionFactory = SessionFactoryService.getFromConfigFile("mybatis-config.xml");
+        SqlSession session = null;
+        session = sessionFactory.openSession();
+        UserMapperWithXml mapper = session.getMapper(UserMapperWithXml.class);
+        List<UserM> userMS = mapper.selectAllUser();
+        System.out.println(userMS);
+
+        session.close();
+    }
+
+    @Test
     public void testGetFromCode(){
         SqlSessionFactory sessionFactory = SessionFactoryService.getFromCode();
         SqlSession session = null;
