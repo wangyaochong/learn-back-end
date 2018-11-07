@@ -46,6 +46,12 @@
         <property name="specialName" value="mySpecialName"/>
     </objectFactory>
 
+    <!--&lt;!&ndash;&lt;!&ndash;这里的 DB_VENDOR 会通过 DatabaseMetaData#getDatabaseProductName()，这是底层jdbc的实现，可以看@TestDataBaseMetaData&ndash;&gt;-->
+    <!--<databaseIdProvider type="DB_VENDOR">-->
+        <!--<property name="MySQL" value="mysql"/>-->
+        <!--<property name="Oracle" value="oracle"/>-->
+    <!--</databaseIdProvider>-->
+    <!---->
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
