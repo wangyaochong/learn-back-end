@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class p40_CombinationSumII {
+public class p40_CombinationSumII {//一个数字（同一个下标）只能使用一次
     @Test
     public void test(){
         List<List<Integer>> lists = combinationSum2(new int[]{10,1,2,7,6,1,5}, 8);
