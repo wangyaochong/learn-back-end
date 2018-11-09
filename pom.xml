@@ -12,7 +12,7 @@
         <module>learn-java</module>
         <module>modulelearnspring</module>
 		<module>learn-algorithm</module>
-        <module>spring-mvc</module>
+        <module>spring-mvc-inner</module>
         <module>learn-mybatis-spring-mvc</module>
 		<module>learn-mybatis-simple</module>
 	</modules>

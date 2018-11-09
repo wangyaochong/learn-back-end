@@ -20,6 +20,18 @@
         <property name="suffix" value=".jsp"/>
     </bean>
     <mvc:default-servlet-handler/>
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+    <bean name="person" class="src.bean.Person">
+        <property name="name" value="王耀冲"/>
+        <property name="age" value="25"/>
+    </bean>
 
 </beans>

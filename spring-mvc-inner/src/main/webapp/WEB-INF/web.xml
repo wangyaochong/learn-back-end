@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
+
+    <!--
+
+讲讲ContextLoaderListener与DispatcherServlet所创建的上下文ApplicationContext的区别：
+1、ContextLoaderListener中创建ApplicationContext主要用于整个Web应用程序需要共享的一些组件，比如DAO，数据库的ConnectionFactory等。
+而由DispatcherServlet创建的ApplicationContext主要用于和该Servlet相关的一些组件，比如Controller、ViewResovler等。
+2、对于作用范围而言，在DispatcherServlet中可以引用由ContextLoaderListener所创建的ApplicationContext，而反过来不行。
+
+这两个ApplicationContext都是通过ServletContext的setAttribute方法放到ServletContext中的，
+从web.xml的配置可知ContextLoaderListener会先于DispatcherServlet创建ApplicationContext，
+DispatcherServlet在创建ApplicationContext时会先找到由ContextLoaderListener所创建的ApplicationContext，
+再将后者的ApplicationContext作为参数传给DispatcherServlet的ApplicationContext的setParent()方法，
+作为它的父上下文，在Spring源代可以看出。
+
+    -->
+
+
+
+    <!--使用自定义的上下文加载器-->
+    <listener>
+        <listener-class>src.my.MySpringContextLoaderListener</listener-class>
+    </listener>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:beans.xml,classpath:beans2.xml</param-value>
+    </context-param>
+
+    <!--使用自定义的初始化类-->
+    <context-param>
+        <param-name>contextInitializerClasses</param-name>
+        <param-value>src.my.MyApplicationInitializer</param-value>
+    </context-param>
+
+
+    <servlet>
+        <servlet-name>springMVC</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springMVC.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>springMVC</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>
