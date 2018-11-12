@@ -1,4 +1,4 @@
-package com.example.cloudstream.spring;
+package com.example.cloudstream.simpleExample;
 
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Source;
