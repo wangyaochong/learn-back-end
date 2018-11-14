@@ -1,12 +1,14 @@
 package src.bean;
 
-import lombok.Data;
 
 
 public class CircularBean {
     Long cirId;
     String beanName;
     TestBean testBean;
+
+
+
 
     public Long getCirId() {
         return cirId;

@@ -1,14 +1,17 @@
 package src.bean;
 
 import lombok.Data;
+import lombok.ToString;
 
-
+@Data
 public class TestBean {
     Long id;
     String name;
 
+    @ToString.Exclude
     CircularBean circularBean;
 
+    OuterSpringClass outerSpringClass;
 
     public Long getId() {
         return id;
@@ -33,4 +36,5 @@ public class TestBean {
     public void setCircularBean(CircularBean circularBean) {
         this.circularBean = circularBean;
     }
+
 }
