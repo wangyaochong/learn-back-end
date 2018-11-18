@@ -1,4 +1,4 @@
-package enums;
+package com.example.learnmybatis.enums;
 
 public enum EnumSex {
     MALE(0,"男性"),
