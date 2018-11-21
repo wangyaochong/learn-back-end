@@ -11,6 +11,16 @@ public class p60_PermutationSequence_现在这种解法太慢了 {
         System.out.println(getPermutation(4, 9));
     }
 
+    @Test
+    public void testClassForName() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        System.out.println(Class.forName("java.lang.Integer").newInstance());
+        ArrayList<Object> o = (ArrayList<Object>) Class.forName("java.util.ArrayList").newInstance();
+        o.add("1");
+        System.out.println(o);
+        System.out.println();
+    }
+
+
     public String getPermutation(int n, int k) {
         List<Character> candidates = new ArrayList<>();
         for (int i = 0; i < n; i++) {
