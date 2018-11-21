@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class p51NQueens {
+public class p51_NQueens {
     public List<List<String>> solveNQueens(int n) {
         List<Integer> rowLeft = new LinkedList<>();
         List<Integer> colLeft = new LinkedList<>();
@@ -63,7 +63,7 @@ public class p51NQueens {
 
     @Test
     public void test() {
-        System.out.println(solveNQueens(4));
+        System.out.println(solveNQueens(1));
     }
 
 }
