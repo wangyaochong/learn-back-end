@@ -7,7 +7,10 @@ import src.bean.Person;
 import src.bean.PersonWrapper;
 import src.bean.TestBean;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class TestSpring {
 
@@ -45,5 +48,13 @@ public class TestSpring {
         System.out.println(Arrays.deepToString(new int[][]{{1, 2},{ 3, 4}}));
     }
 
+
+    @Test
+    public void testStream() {
+        List<String> test = new ArrayList<>();
+        List<String> collect = test.stream().filter(e -> e.equals("123")).collect(Collectors.toList());
+        System.out.println(collect);
+
+    }
 
 }
