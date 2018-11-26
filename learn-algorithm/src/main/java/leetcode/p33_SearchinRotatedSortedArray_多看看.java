@@ -2,7 +2,7 @@ package leetcode;
 
 import org.junit.Test;
 
-public class p33_important_SearchinRotatedSortedArray {
+public class p33_SearchinRotatedSortedArray_多看看 {
     @Test
     public void test(){
         System.out.println(search(new int[]{5,1,3}, 5));
