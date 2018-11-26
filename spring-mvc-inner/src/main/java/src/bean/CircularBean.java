@@ -1,13 +1,14 @@
 package src.bean;
 
+import lombok.ToString;
 
-
+//@Data
 public class CircularBean {
     Long cirId;
     String beanName;
+
+    @ToString.Exclude
     TestBean testBean;
-
-
 
 
     public Long getCirId() {

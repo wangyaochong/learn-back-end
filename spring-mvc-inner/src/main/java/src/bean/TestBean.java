@@ -1,9 +1,8 @@
 package src.bean;
 
-import lombok.Data;
 import lombok.ToString;
 
-@Data
+//@Data
 public class TestBean {
     Long id;
     String name;
