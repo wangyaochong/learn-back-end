@@ -2,7 +2,7 @@ package leetcode;
 
 import leetcode.base.ListNode;
 import leetcode.util.UtilListNode;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class p82_RemoveDuplicatesfromSortedListII {
     public ListNode deleteDuplicates(ListNode head) {
@@ -27,8 +27,7 @@ public class p82_RemoveDuplicatesfromSortedListII {
         return listNode.next;
     }
 
-    @
-            Test
+    @Test
     public void test(){
         System.out.println(deleteDuplicates(UtilListNode.fromArray(new int[]{1, 2, 3, 3, 4, 4, 5})));
         System.out.println(deleteDuplicates(UtilListNode.fromArray(new int[]{0,1,1,1,2,2,3,3,4})));
