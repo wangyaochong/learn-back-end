@@ -5,12 +5,12 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class p119 {
+public class p119_PascalsTriangleII {
     public List<Integer> getRow(int numRows) {
         List<Integer> oneRow = new ArrayList<>();
-        for (int x = 1; x <= numRows; x++) {
+        for (int x = 0; x <= numRows; x++) {
             oneRow.add(1);
-            for (int i = 1; i < x; i++) {
+            for (int i = x - 1; i >= 1; i--) {
                 oneRow.set(i, oneRow.get(i - 1) + oneRow.get(i));
             }
         }
@@ -19,6 +19,6 @@ public class p119 {
 
     @Test
     public void test() {
-        System.out.println(getRow(2));
+        System.out.println(getRow(5));
     }
 }
