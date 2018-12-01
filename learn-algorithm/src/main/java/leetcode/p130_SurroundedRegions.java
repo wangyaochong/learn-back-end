@@ -14,7 +14,7 @@ public class p130_SurroundedRegions {
             search(board, i, j - 1);
         }
     }
-
+    
     public void solve(char[][] board) {
         for (int i = 0; i < board.length; i++) {
             search(board, i, 0);
