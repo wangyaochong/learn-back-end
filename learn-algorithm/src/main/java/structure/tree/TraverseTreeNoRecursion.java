@@ -1,6 +1,6 @@
 package structure.tree;
 
-import leetcode.base.TreeNode;
+import leetcode.base.definition.TreeNode;
 import org.junit.Test;
 
 import java.util.ArrayList;

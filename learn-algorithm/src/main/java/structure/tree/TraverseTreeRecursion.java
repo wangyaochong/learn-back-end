@@ -1,11 +1,7 @@
 package structure.tree;
 
-import com.sun.jmx.remote.internal.ArrayQueue;
-import leetcode.base.ListNode;
-import leetcode.base.TreeNode;
+import leetcode.base.definition.TreeNode;
 import org.junit.Test;
-
-import java.util.*;
 
 public class TraverseTreeRecursion {
 
