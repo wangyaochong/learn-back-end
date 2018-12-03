@@ -25,9 +25,7 @@ public class TestLambda {
     @Test
     public void test() {
         LockService lockService = new LockService();
-        lockService.executeInLock(() -> {
-            anyMethod("test", 123);
-        });
+        lockService.executeInLock(() -> anyMethod("test", 123));
     }
 
     public void anyMethod(String name, Integer age) {
