@@ -4,12 +4,14 @@ import org.junit.Test;
 
 public class TestLambda {
 
-    @FunctionalInterface
-    interface AnyMethod {
-        void execute();
-    }
 
-    class LockService {
+    static class LockService {
+
+        @FunctionalInterface
+        interface AnyMethod {
+            void execute();
+        }
+
         public void executeInLock(AnyMethod method) {
             try {
                 System.out.println("尝试获取锁");
