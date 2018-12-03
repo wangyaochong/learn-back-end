@@ -10,7 +10,7 @@
 		<module>moduleapp</module>
 		<module>modulecore</module>
         <module>learn-java</module>
-        <module>modulelearnspring</module>
+		<module>learn-spring-boot</module>
 		<module>learn-algorithm</module>
         <module>spring-mvc-inner</module>
         <module>learn-mybatis-spring-mvc</module>
@@ -79,6 +79,19 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
 		</dependency>
 	</dependencies>
 
