@@ -1,8 +1,8 @@
 package leetcode.byNumber;
 
 import leetcode.base.definition.ListNode;
-import leetcode.base.util.UtilListNode;
 import org.junit.Test;
+import util.UtilListNode;
 
 public class p83_RemoveDuplicatesfromSortedList {
     public ListNode deleteDuplicates(ListNode head) {

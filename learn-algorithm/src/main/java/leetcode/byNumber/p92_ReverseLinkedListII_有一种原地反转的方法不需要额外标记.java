@@ -1,8 +1,8 @@
 package leetcode.byNumber;
 
 import leetcode.base.definition.ListNode;
-import leetcode.base.util.UtilListNode;
 import org.junit.Test;
+import util.UtilListNode;
 
 public class p92_ReverseLinkedListII_有一种原地反转的方法不需要额外标记 {
     public ListNode reverseBetween(ListNode head, int m, int n) {

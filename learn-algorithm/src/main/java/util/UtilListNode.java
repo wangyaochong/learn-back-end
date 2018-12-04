@@ -1,4 +1,4 @@
-package leetcode.base.util;
+package util;
 
 import leetcode.base.definition.ListNode;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package search;
+package 经典算法.搜索;
 
 import org.junit.Test;
 
