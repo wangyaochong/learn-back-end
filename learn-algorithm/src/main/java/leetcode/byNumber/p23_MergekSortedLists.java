@@ -4,8 +4,6 @@ import leetcode.base.definition.ListNode;
 import org.junit.Test;
 import util.UtilListNode;
 
-import java.util.PriorityQueue;
-
 public class p23_MergekSortedLists {
     @Test
     public void test(){
