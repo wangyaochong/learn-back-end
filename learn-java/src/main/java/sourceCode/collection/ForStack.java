@@ -1,4 +1,4 @@
-package forCollection;
+package sourceCode.collection;
 
 import org.junit.Test;
 

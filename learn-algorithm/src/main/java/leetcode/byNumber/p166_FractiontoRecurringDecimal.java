@@ -2,8 +2,11 @@ package leetcode.byNumber;
 
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class p166_FractiontoRecurringDecimal {
 
@@ -49,6 +52,24 @@ public class p166_FractiontoRecurringDecimal {
     @Test
     public void test() {
         System.out.println(fractionToDecimal(0, 1));
+    }
+
+    @Test
+    public void testFilter() {
+        System.out.println(
+                Stream.of(
+                        new BigDecimal("0.1"),
+                        new BigDecimal("10"),
+                        new BigDecimal("100"),
+                        new BigDecimal("0"),
+                        new BigDecimal(-1), null)
+                        .filter(e -> e != null && e.compareTo(BigDecimal.ZERO) > 0)
+                        .collect(Collectors.toList()));
+    }
+
+    @Test
+    public void testInteger() {
+        System.out.println(new Integer(1) == new Integer(1));
     }
 
 
