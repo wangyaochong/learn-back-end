@@ -12,7 +12,7 @@ public class SpinLock {
     private AtomicReference<Thread> sign = new AtomicReference<>();
     public void lock() {
         Thread current = Thread.currentThread();
-        while (!sign.compareAndSet(null, current)) {
+        while (!sign.compareAndSet(null, current)) {//cpu会狂飙
         }
     }
     public void unlock() {
@@ -27,7 +27,7 @@ public class SpinLock {
         log.info("id={}开始执行任务",id);
         try {
             lock.lock();
-            Thread.sleep(100);
+            Thread.sleep(10000);
             log.info("id={}任务执行结束",id);
         }catch (InterruptedException e){
         } finally {
@@ -54,7 +54,7 @@ public class SpinLock {
             Thread.sleep(10);
         }
 
-        Thread.sleep(3000);
+        Thread.sleep(300000);
     }
 
     @Test

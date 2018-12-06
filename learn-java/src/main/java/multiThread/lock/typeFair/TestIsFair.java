@@ -58,8 +58,8 @@ public class TestIsFair {
     public void test() throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         for(int i=0;i<10;i++){
-//            executorService.execute(new NotFairTask(i));
-            executorService.execute(new FairTask(i));
+            executorService.execute(new NotFairTask(i));
+//            executorService.execute(new FairTask(i));
             Thread.sleep(10);
         }
 
