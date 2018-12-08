@@ -23,13 +23,13 @@ public class p200_NumberofIslands {
         if (x - 1 >= 0 && grid[x - 1][y] == '1') {
             search(grid, x - 1, y);
         }
-        if (x + 1 < grid.length && grid[x + 1][y] ==  '1') {
+        if (x + 1 < grid.length && grid[x + 1][y] == '1') {
             search(grid, x + 1, y);
         }
-        if (y - 1 >= 0 && grid[x][y - 1] ==  '1') {
+        if (y - 1 >= 0 && grid[x][y - 1] == '1') {
             search(grid, x, y - 1);
         }
-        if (y + 1 < grid[0].length && grid[x][y + 1] ==  '1') {
+        if (y + 1 < grid[0].length && grid[x][y + 1] == '1') {
             search(grid, x, y + 1);
         }
     }
