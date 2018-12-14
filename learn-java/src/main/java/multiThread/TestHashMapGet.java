@@ -21,10 +21,7 @@ public class TestHashMapGet {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         for (int i = 0; i < 10000; i++) {
             int finalI = i;
-            executorService.execute(
-                    () -> {
-                        System.out.println(result.get(finalI % 500));
-                    });
+            executorService.execute(() -> System.out.println(result.get(finalI % 500)));
         }
     }
 }
