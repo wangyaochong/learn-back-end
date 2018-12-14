@@ -1,4 +1,4 @@
-package com.learnspringboot.aconfigure;
+package com.learnspringboot.aConfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

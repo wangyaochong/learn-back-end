@@ -1,4 +1,4 @@
-package com.learnspringboot.aconfigure;
+package com.learnspringboot.aConfig;
 
 import com.learnspringboot.learnSubject.startProcess.MyEventListener;
 import org.springframework.context.annotation.Bean;
