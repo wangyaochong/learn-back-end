@@ -9,7 +9,15 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class p207_CourseSchedule_太慢了 {
+    /**
+     * 总体思路是使用拓扑排序
+     *
+     * @param numCourses
+     * @param prerequisites
+     * @return
+     */
     public boolean canFinish(int numCourses, int[][] prerequisites) {
+
         Map<Integer, Boolean> onlyOut = new HashMap<>();
         Map<Integer, Boolean> inNode = new HashMap<>();
         List<int[]> list = Arrays.stream(prerequisites).collect(Collectors.toList());

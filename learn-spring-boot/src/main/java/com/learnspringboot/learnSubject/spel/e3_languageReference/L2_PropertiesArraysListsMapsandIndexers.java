@@ -9,11 +9,9 @@ import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.SimpleEvaluationContext;
+import org.springframework.expression.spel.support.StandardEvaluationContext;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class L2_PropertiesArraysListsMapsandIndexers {
     private ExpressionParser parser = new SpelExpressionParser();
@@ -55,4 +53,26 @@ public class L2_PropertiesArraysListsMapsandIndexers {
         //map可以使用[]获取值
         System.out.println(parser.parseExpression("officers['BeiJing']").getValue(context, society, String.class));
     }
+
+    @Test
+    public void testList() {
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
+        StandardEvaluationContext standardEvaluationContext = new StandardEvaluationContext(integers);
+        ExpressionParser parser = new SpelExpressionParser();
+        int i = 0;
+        while (i < integers.size()) {
+            standardEvaluationContext.setVariable("loc", i);
+            System.out.println(parser.parseExpression("#loc>4 and #this[#loc]%2==0").getValue(standardEvaluationContext));
+            i++;
+        }
+    }
+
+    @Test
+    public void testNull() {
+        System.out.println(parser.parseExpression("null==null").getValue());
+
+    }
+
+
+
 }

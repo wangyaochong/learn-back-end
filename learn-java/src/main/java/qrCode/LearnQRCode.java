@@ -21,7 +21,6 @@ public class LearnQRCode {
             e.printStackTrace();
         }
         stopWatch.stop();
-        ;
         System.out.println(stopWatch.getLastTaskTimeMillis());
     }
 }
