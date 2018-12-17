@@ -5,4 +5,9 @@ public interface IBase {
 
     void methodAopVoid(String param);
     String myTransaction();
+
+
+    String outerMethod(String param);
+
+    String innerMethod(String param);
 }

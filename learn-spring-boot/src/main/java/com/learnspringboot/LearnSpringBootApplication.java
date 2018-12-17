@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
         //排除一些
         excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = ZExcludeTestRepo.class)}
 )
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy(exposeProxy = true)
 @EnableTransactionManagement
 
 

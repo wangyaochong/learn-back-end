@@ -11,9 +11,9 @@ import util.UtilLog;
 
 import javax.annotation.Resource;
 
-@Component
 @Aspect
 @Slf4j
+@Component
 public class AopClass {
 
     @Resource
@@ -37,6 +37,12 @@ public class AopClass {
         log.info(UtilLog.prefixLog("after return log"));
     }
 
+    @AfterReturning(pointcut = "execution(* *Aop(String))", returning = "retValue")
+    public void afterReturnLogWthReturnValue(String retValue) {
+        log.info("return value ={}", retValue);
+        log.info(UtilLog.prefixLog("after return log"));
+    }
+
     @After( "execution(* *Aop(String))")
     public void afterLog2(){
         log.info(UtilLog.prefixLog("after log 2"));
@@ -46,6 +52,7 @@ public class AopClass {
     public void returnLog(){
         log.info(UtilLog.prefixLog("return log"));
     }
+
 
     @Around("execution(* *Aop(String))")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
@@ -82,4 +89,14 @@ public class AopClass {
         }
     }
 
+
+    @After("execution(* com.learnspringboot.learnSubject.aop.Base.outerMethod(..))")
+    public void beforeExecuteOuterMethod() {
+        log.info("outerMethod 的代理方法执行了");
+    }
+
+    @After("execution(* com.learnspringboot.learnSubject.aop.Base.innerMethod(..))")
+    public void beforeExecuteInnerMethod() {
+        log.info("innerMethod 的代理方法执行了");
+    }
 }

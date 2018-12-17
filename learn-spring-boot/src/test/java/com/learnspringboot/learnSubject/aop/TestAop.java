@@ -30,4 +30,10 @@ public class TestAop {
         String s1 = base.myTransaction();
         log.info(UtilLog.prefixLog("result={}"),s);
     }
+
+    @Test
+    public void testOuterInner() {
+        base.outerMethod("你好");
+//        base.innerMethod("你好");
+    }
 }
