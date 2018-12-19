@@ -2,7 +2,7 @@ package leetcode.byNumber;
 
 import org.junit.Test;
 
-public class p26_RemoveDuplicatesfromSortedArray {
+public class p26_RemoveDuplicatesFromSortedArray {
     @Test
     public void test() {
         System.out.println(removeDuplicates(new int[]{1, 2, 2, 3, 4, 4, 5, 5, 5, 6}));

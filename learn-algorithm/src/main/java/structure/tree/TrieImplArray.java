@@ -2,14 +2,19 @@ package structure.tree;
 
 import org.junit.Test;
 
-public class Trie {
+/**
+ * 使用数组实现字典树（前缀树）
+ */
+public class TrieImplArray {
 
-    static Trie flag = new Trie();
+    static TrieImplArray flag = new TrieImplArray();
 
-    Trie[] tries;
+    TrieImplArray[] tries;
+    private final Integer arraySize = 27;
+    int count = 0;
 
-    public Trie() {
-        tries = new Trie[27];
+    public TrieImplArray() {
+        tries = new TrieImplArray[arraySize];
     }
 
     /**
@@ -20,15 +25,16 @@ public class Trie {
     }
 
     public void insertInner(String word, int loc) {
-        if (word == null || loc == word.length()) {
-            tries[26] = flag;
+        if (word == null || loc == word.length()) {//如果到达终点了
+            tries[arraySize - 1] = flag;
             return;
         }
         int i = word.charAt(loc) - 'a';
         if (tries[i] == null) {
-            tries[i] = new Trie();
+            tries[i] = new TrieImplArray();
         }
         tries[i].insertInner(word, loc + 1);
+        tries[i].count++;//当前前缀出现次数+1
     }
 
     /**
@@ -40,7 +46,7 @@ public class Trie {
 
     public boolean searchInner(String word, int loc) {
         if (word == null || word.length() == loc) {
-            return tries[26] != null;
+            return tries[arraySize - 1] != null;
         }
         int i = word.charAt(loc) - 'a';
         if (tries[i] == null) {
@@ -67,19 +73,45 @@ public class Trie {
         return tries[i].startWithInner(prefix, loc + 1);
     }
 
+    public boolean remove(String word) {
+        return removeInner(word, 0);
+    }
+
+    public boolean removeInner(String word, int loc) {
+        if (word == null || word.length() == loc) {
+            tries[arraySize - 1] = null;
+            return true;
+        }
+        int i = word.charAt(loc) - 'a';
+        if (tries[i] == null) {
+            return false;
+        }
+        boolean b = tries[i].removeInner(word, loc + 1);
+        tries[i].count--;
+        if (tries[i].count == 0) {
+            tries[i] = null;
+        }
+        return b;
+    }
+
     @Test
     public void test() {
-        Trie trie = new Trie();
+        TrieImplArray trie = new TrieImplArray();
         trie.insert("apple");
         System.out.println(trie.search("apple"));
         System.out.println(trie.search("abc"));
         System.out.println(trie.startsWith("app"));
         trie.insert("app");
         System.out.println(trie.search("app"));
+        System.out.println(trie.remove("app"));
+        System.out.println(trie.search("app"));
+        System.out.println(trie.search("apple"));
     }
 
     @Test
     public void testMaxIndex() {
         System.out.println('z' - 'a');
     }
+
+
 }
