@@ -16,4 +16,15 @@ public class TestNumberFormat {
         System.out.println(String.format("%015d", 1));
 
     }
+
+    @Test
+    public void test2() {
+        NumberFormat instance = NumberFormat.getInstance();
+        instance.setMinimumFractionDigits(2);
+        instance.setGroupingUsed(false);
+        System.out.println(instance.format(12.11));
+        System.out.println(instance.format(12.1));
+        System.out.println(instance.format(12));
+
+    }
 }
