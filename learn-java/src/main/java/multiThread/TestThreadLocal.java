@@ -12,13 +12,15 @@ public class TestThreadLocal {
     public void test() throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
         System.out.println("test");
-        for(int i=0;i<10;i++){
+        for (int i = 0; i < 20; i++) {
             final  Integer temp=i;
             executorService.submit(() -> {
                 Integer integer = threadLocal.get();
-                log.info("get count=".concat(temp.toString()).concat(", threadLocal=" + integer));
-                threadLocal.set(temp);
-                log.info("get after set count=".concat(temp.toString()).concat(", threadLocal=" + threadLocal.get()));
+                if (integer == null) {
+                    log.info("threadLocal is null");
+                    threadLocal.set(temp);
+                }
+                log.info("threadLocal={}", threadLocal.get());
             });
         }
         Thread.sleep(2000);
