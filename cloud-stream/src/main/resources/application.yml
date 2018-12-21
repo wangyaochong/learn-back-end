@@ -4,8 +4,10 @@ spring:
         default-binder: kafka
         kafka:
            binder:
-             zk-nodes: 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184
-             brokers: 127.0.0.1:9093,127.0.0.1:9094,127.0.0.1:9095
+             #             zk-nodes: 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184
+             #             brokers: 127.0.0.1:9093,127.0.0.1:9094,127.0.0.1:9095
+             zk-nodes: 10.111.10.243:2181
+             brokers: 10.111.10.243:9092
              autoCreateTopics: true
              autoAddPartitions: true
         bindings:
@@ -39,7 +41,8 @@ spring:
       charset: utf-8
       force: true
       enabled: true
-#  kafka:
-#    consumer:
-#      enable-auto-commit: false
+  kafka:
+    consumer:
+      enable-auto-commit: false
+
 

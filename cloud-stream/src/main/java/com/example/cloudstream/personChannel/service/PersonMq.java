@@ -20,6 +20,9 @@ public class PersonMq {
     @StreamListener(PersonChannel.input)
     public void receive(Person person){
         log.info("收到消息：{}",person);
+
+//         如果是抛异常，则消息可以重试3次，如果还是失败，则在程序运行期间不再处理，程序重启后还能收到该消息，重试次数可以配置
+//        throw new RuntimeException("测试消息是否重发person=" + person);
     }
     public void send(Person person){
         personChannel.output().send(MessageBuilder.withPayload(person).build());

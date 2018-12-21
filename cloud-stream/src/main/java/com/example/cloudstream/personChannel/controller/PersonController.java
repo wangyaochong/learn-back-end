@@ -1,7 +1,7 @@
 package com.example.cloudstream.personChannel.controller;
 
-import com.example.cloudstream.personChannel.service.PersonMq;
 import com.example.cloudstream.personChannel.bean.Person;
+import com.example.cloudstream.personChannel.service.PersonMq;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,8 +14,8 @@ public class PersonController {
     PersonMq personMq;
 
     @RequestMapping("/send")
-    public String send(){
-        personMq.send(new Person("王耀冲",25));
+    public String send(String name, Integer age) {
+        personMq.send(new Person(name, age));
         return "发送成功";
     }
 }
