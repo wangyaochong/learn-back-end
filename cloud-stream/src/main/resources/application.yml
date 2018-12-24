@@ -36,6 +36,15 @@ spring:
               producer:
                 partitionCount: 2
                 partitionKeyExpression: payload
+
+            settle-output:
+              destination: finance-settle_msg_dev_w
+              group: finance-settle_dev_w
+            settle-input:
+              destination: finance-settle_msg_dev_w
+              group: finance-settle_dev_w
+
+
   http:
     encoding:
       charset: utf-8
