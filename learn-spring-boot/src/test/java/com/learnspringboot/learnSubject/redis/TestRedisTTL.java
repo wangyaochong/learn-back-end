@@ -30,4 +30,11 @@ public class TestRedisTTL {
         System.out.println(redisTemplate.opsForValue().get("test"));//ttl并不会因为get重置
 
     }
+
+    @Test
+    public void testDir() {
+        redisTemplate.opsForValue().set("test:dir", "test");
+        Object o = redisTemplate.opsForValue().get("test:dir");
+        System.out.println(o);
+    }
 }
