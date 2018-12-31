@@ -37,6 +37,7 @@ public class p257_BinaryTreePaths_使用公共变量看谁快_结论是不会更
         buffer[len++] = '>';
         getResult(buffer, len, root.left);
         getResult(buffer, len, root.right);
+
     }
 
     @Test
