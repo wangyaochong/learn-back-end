@@ -10,6 +10,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 import util.UtilLog;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 
 @Aspect
 @Slf4j
@@ -103,6 +104,8 @@ public class AopClass {
 
     @Around("execution(* com.learnspringboot.learnSubject.aop.Base.methodAopForNoExecute(..))")
     public Object aroundMethodAopForNoExecute(ProceedingJoinPoint pjp) throws Throwable {
+        System.out.println("methodAopForNoExecute第一个参数=" + pjp.getArgs()[0]);
+        System.out.println("methodAopForNoExecute调用参数=" + Arrays.toString(pjp.getArgs()));
         log.info(UtilLog.prefixLog("aroundVoid before"));
 //        Object proceed = pjp.proceed();
         log.info(UtilLog.prefixLog("aroundVoid after"));
