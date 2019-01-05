@@ -36,4 +36,11 @@ public class TestAop {
         base.outerMethod("你好");
 //        base.innerMethod("你好");
     }
+
+    @Test
+    public void testNoExecute() {
+        String test = base.methodAopForNoExecute("测试不执行");
+        System.out.println(test);
+    }
+
 }

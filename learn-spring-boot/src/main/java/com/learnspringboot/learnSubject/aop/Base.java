@@ -53,4 +53,10 @@ public class Base implements IBase, ApplicationContextAware {
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
+
+    @Override
+    public String methodAopForNoExecute(String param) {
+        log.info("methodAopForNoExecute，param={}", param);
+        return "methodAopForNoExecute";
+    }
 }

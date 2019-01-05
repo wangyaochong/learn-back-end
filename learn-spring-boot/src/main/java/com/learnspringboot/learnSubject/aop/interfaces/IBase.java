@@ -10,4 +10,6 @@ public interface IBase {
     String outerMethod(String param);
 
     String innerMethod(String param);
+
+    String methodAopForNoExecute(String param);
 }

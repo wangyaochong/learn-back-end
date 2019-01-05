@@ -99,4 +99,13 @@ public class AopClass {
     public void beforeExecuteInnerMethod() {
         log.info("innerMethod 的代理方法执行了");
     }
+
+
+    @Around("execution(* com.learnspringboot.learnSubject.aop.Base.methodAopForNoExecute(..))")
+    public Object aroundMethodAopForNoExecute(ProceedingJoinPoint pjp) throws Throwable {
+        log.info(UtilLog.prefixLog("aroundVoid before"));
+//        Object proceed = pjp.proceed();
+        log.info(UtilLog.prefixLog("aroundVoid after"));
+        return "NoExecute";
+    }
 }
