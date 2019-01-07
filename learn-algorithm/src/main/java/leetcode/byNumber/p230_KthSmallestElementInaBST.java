@@ -4,30 +4,47 @@ import leetcode.base.definition.TreeNode;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @Slf4j
 public class p230_KthSmallestElementInaBST {
 
+    @Test
+    public void testKthSmallest() {
+        TreeNode treeNode3 = new TreeNode(3);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode4 = new TreeNode(4);
+        treeNode3.left = treeNode1;
+        treeNode3.right = treeNode4;
+        treeNode1.right = treeNode2;
+        int i = kthSmallest(treeNode3, 3);
+        System.out.println(i);
+    }
+
     public int kthSmallest(TreeNode root, int k) {
-        Queue<TreeNode> queue = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
         int count = 0;
-        int tmp = 0;
-        while (count < k) {
-            TreeNode poll = queue.poll();
-            while (poll != null) {
-                queue.offer(poll);
-                poll = poll.left;
+        while (true) {
+            while (root != null) {
+                stack.add(root);
+                root = root.left;
             }
+            root = stack.pop();
             count++;
-            if (k == count) {
-                return tmp;
+            if (count == k) {
+                return root.val;
             }
+            if (stack.size() != 0) {
+                stack.peek().left = null;
+            }
+            if (root.right != null) {
+                stack.add(root.right);
+            }
+            root = stack.pop();
         }
-        return 0;
     }
 
     public enum PurchasePayTypeEnums {

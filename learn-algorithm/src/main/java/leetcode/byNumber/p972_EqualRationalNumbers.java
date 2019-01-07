@@ -39,4 +39,17 @@ public class p972_EqualRationalNumbers {
         System.out.println(v);
         System.out.println(v2 == 1.0);
     }
+
+
+    public String revert(String s) {
+        if (s.length() == 0) {
+            return s;
+        }
+        return s.charAt(s.length() - 1) + revert(s.substring(0, s.length() - 1));
+    }
+
+    @Test
+    public void testRevert() {
+        System.out.println(revert("123"));
+    }
 }
