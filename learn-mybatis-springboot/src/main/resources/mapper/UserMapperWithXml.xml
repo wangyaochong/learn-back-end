@@ -4,7 +4,7 @@
 
 
     <!--可以手动建立resultMap进行映射-->
-    <resultMap id="baseResultMap" type="User">
+    <resultMap id="baseResultMap" type="com.example.learnmybatis.entity.User">
         <result column="id" property="id" />
         <result column="name" property="name" />
         <result column="age" property="age" />

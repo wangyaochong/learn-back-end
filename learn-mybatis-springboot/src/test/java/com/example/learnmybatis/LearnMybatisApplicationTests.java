@@ -2,11 +2,11 @@ package com.example.learnmybatis;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.learnmybatis.entity.User;
-import com.example.learnmybatis.mapper.KDataBackTestMapper;
-import com.example.learnmybatis.mapper.UserMapperPlus;
-import com.example.learnmybatis.mapper.UserMapperWithAnno;
-import com.example.learnmybatis.mapper.UserMapperWithXml;
-import com.example.learnmybatis.service.UserService;
+import com.example.learnmybatis.mapper.other.KDataBackTestMapper;
+import com.example.learnmybatis.mapper.other.UserMapperPlus;
+import com.example.learnmybatis.mapper.other.UserMapperWithAnno;
+import com.example.learnmybatis.mapper.other.UserMapperWithXml;
+import com.example.learnmybatis.service.impl.UserService;
 import com.example.learnmybatis.util.WrapperFactory;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -19,6 +19,7 @@ import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+
 public class LearnMybatisApplicationTests {
 
     @Resource

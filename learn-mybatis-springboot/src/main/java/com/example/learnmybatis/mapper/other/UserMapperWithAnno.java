@@ -1,4 +1,4 @@
-package com.example.learnmybatis.mapper;
+package com.example.learnmybatis.mapper.other;
 
 import com.example.learnmybatis.entity.User;
 import org.apache.ibatis.annotations.Delete;

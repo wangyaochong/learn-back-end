@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.learnmybatis.mapper.write.UserMapper">
+
+
+    <!--可以手动建立resultMap进行映射-->
+    <resultMap id="baseResultMap" type="com.example.learnmybatis.entity.User">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="email_address" property="emailAddress"/>
+    </resultMap>
+
+    <select id="selectUserById" parameterType="int" resultType="com.example.learnmybatis.entity.User">
+        select * from user where id=#{id}
+    </select>
+
+    <select id="selectAllUser" resultType="com.example.learnmybatis.entity.User">
+        select id,name,age,email_address,sex from user
+    </select>
+    <select id="updateUserById" parameterType="com.example.learnmybatis.entity.User">
+        update user set name=#{name},age=#{age},email_address=#{emailAddress} where id=#{id}
+    </select>
+</mapper>
