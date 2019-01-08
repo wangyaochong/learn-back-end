@@ -31,6 +31,9 @@ public class MyRedisLock {
     }
 
     public boolean tryLockEval(String key, int seconds) {
+        /**
+         * 对于redis集群，需要key哈希后的slot要相同
+         */
         return (boolean) redisTemplate.execute((RedisCallback) connection ->
                 //返回值是数字1，不是字符串"1"，这个需要注意！
                 connection.eval("if redis.call('setnx',KEYS[1],ARGV[1])==1 then return  redis.call('expire' , KEYS[1] , ARGV[2]) else return 0 end".getBytes(),
