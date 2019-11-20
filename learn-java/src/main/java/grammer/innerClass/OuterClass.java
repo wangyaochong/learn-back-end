@@ -38,8 +38,8 @@ public class OuterClass {
     }
 
     public static void main(String[] args) {
-        OuterClass innerClass=new OuterClass();
-        OuterClass.InnerInnerClass i=innerClass.new InnerInnerClass();//初始化普通内部类对象需要先创建外部类
+        OuterClass outerClass = new OuterClass();
+        OuterClass.InnerInnerClass i = outerClass.new InnerInnerClass();//初始化普通内部类对象需要先创建外部类
         i.displayInnerField();
     }
 }
