@@ -17,7 +17,7 @@ public class ByteStream {
                 int readLength = in.read(bytesArray);
                 while (readLength != -1) {
                     String newData = new String(bytesArray, 0, readLength);
-                    System.out.print(newData);
+                    System.out.print("读入" + newData);
                     readLength = in.read(bytesArray);
                 }
                 in.close();
@@ -31,7 +31,7 @@ public class ByteStream {
                 String outData = "" + (i + 1);
                 try {
                     out.write(outData.getBytes());
-                    System.out.println(outData);
+                    System.out.println("输出" + outData);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
