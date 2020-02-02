@@ -8,9 +8,9 @@ public class TestWriteReadLock {
         new Thread(() -> {
             readWriteLock.writeLock().lock();
             try {
-                System.out.println("开始任务1");
+                System.out.println("开始写任务1");
                 Thread.sleep(1000);
-                System.out.println("结束任务1");
+                System.out.println("结束写任务1");
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -21,9 +21,9 @@ public class TestWriteReadLock {
         new Thread(() -> {
             readWriteLock.readLock().lock();
             try {
-                System.out.println("开始任务2");
+                System.out.println("开始读任务2");
                 Thread.sleep(1000);
-                System.out.println("结束任务2");
+                System.out.println("结束读任务2");
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
