@@ -10,12 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>moduleapp</artifactId>
     <dependencies>
-    <dependency>
-        <groupId>com.wangyaochong</groupId>
-        <artifactId>modulecore</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </dependency>
-</dependencies>
+        <dependency>
+            <groupId>com.wangyaochong</groupId>
+            <artifactId>modulecore</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

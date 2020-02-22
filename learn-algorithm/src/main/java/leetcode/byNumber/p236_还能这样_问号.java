@@ -11,7 +11,7 @@ public class p236_还能这样_问号 {
         TreeNode right = lowestCommonAncestor(root.right, p, q);
         return left == null ? right : right == null ? left : root;
     }
-    
+
     @Test
     public void test() {
         TreeNode a = new TreeNode(1);

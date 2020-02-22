@@ -47,7 +47,7 @@ public class TestSpring {
 
 
     @Test
-    public void test(){
+    public void test() {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         System.out.println(Arrays.toString(context.getBeanDefinitionNames()));
 
@@ -59,8 +59,8 @@ public class TestSpring {
 
         System.out.println("begin autowireBeanProperties-------------------------");
         AutowireCapableBeanFactory autowireCapableBeanFactory = context.getAutowireCapableBeanFactory();
-        PersonWrapper personWrapper=new PersonWrapper();
-        autowireCapableBeanFactory.autowireBeanProperties(personWrapper,AutowireCapableBeanFactory.AUTOWIRE_BY_TYPE,true);
+        PersonWrapper personWrapper = new PersonWrapper();
+        autowireCapableBeanFactory.autowireBeanProperties(personWrapper, AutowireCapableBeanFactory.AUTOWIRE_BY_TYPE, true);
         System.out.println(personWrapper);
         System.out.println("end autowireBeanProperties-------------------------");
 
@@ -81,10 +81,10 @@ public class TestSpring {
 
 
     @Test
-    public void testArrayToString(){
-        System.out.println(Arrays.toString(new int[]{1, 2,3, 4}));
-        System.out.println(Arrays.toString(new int[][]{{1, 2},{ 3, 4}}));
-        System.out.println(Arrays.deepToString(new int[][]{{1, 2},{ 3, 4}}));
+    public void testArrayToString() {
+        System.out.println(Arrays.toString(new int[]{1, 2, 3, 4}));
+        System.out.println(Arrays.toString(new int[][]{{1, 2}, {3, 4}}));
+        System.out.println(Arrays.deepToString(new int[][]{{1, 2}, {3, 4}}));
     }
 
 

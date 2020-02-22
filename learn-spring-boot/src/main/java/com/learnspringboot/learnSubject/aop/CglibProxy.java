@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 
 public class CglibProxy implements MethodInterceptor {
     private Object target;
+
     public Object getInstance(Object target) {
         this.target = target;  //给业务对象赋值
         Enhancer enhancer = new Enhancer(); //创建加强器，用来创建动态代理类

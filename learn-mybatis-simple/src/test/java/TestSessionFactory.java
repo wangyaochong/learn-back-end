@@ -29,8 +29,9 @@ public class TestSessionFactory {
 
         session.close();
     }
+
     @Test
-    public void testGetAll(){
+    public void testGetAll() {
         // 2、创建SqlSessionFactory()
         SqlSessionFactory sessionFactory = SessionFactoryService.getFromConfigFile("mybatis-config.xml");
         SqlSession session = null;
@@ -43,7 +44,7 @@ public class TestSessionFactory {
     }
 
     @Test
-    public void testGetFromCode(){
+    public void testGetFromCode() {
         SqlSessionFactory sessionFactory = SessionFactoryService.getFromCode();
         SqlSession session = null;
         session = sessionFactory.openSession();
@@ -59,8 +60,9 @@ public class TestSessionFactory {
 
 
     }
+
     @Test
-    public void testGetFromCode2(){
+    public void testGetFromCode2() {
         SqlSessionFactory sessionFactory = SessionFactoryService.getFromCode();
         SqlSession session = null;
         session = sessionFactory.openSession();

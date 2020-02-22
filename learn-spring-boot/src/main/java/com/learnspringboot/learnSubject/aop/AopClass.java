@@ -20,21 +20,52 @@ public class AopClass {
     @Resource
     DataSourceTransactionManager dataSourceTransactionManager;
 
-    @Pointcut("execution(* *Aop(String))")
-    public void pointCut(){}
+    @Pointcut("execution(* *Aop(String))")//这是针对单个符合条件的方法
+    public void pointCut() {
+    }
+
+    @Pointcut("within(Base)")
+    public void allBaseCut() {//这是针对整个类中所有的方法
+
+    }
+
+    @Pointcut("this(com.learnspringboot.learnSubject.aop.Base)")//代理返回对象是否是这个
+    public void thisAop() {
+
+    }
+
+    @Pointcut("target(com.learnspringboot.learnSubject.aop.Base)")//代理目标是否是这个
+    public void targetAop() {
+
+    }
+
+    @After("targetAop()")
+    public void targetAopMethod() {
+        log.info(UtilLog.prefixLog("targetAop导致打印"));
+    }
+
+    @After("thisAop()")
+    public void thisAopMethod() {
+        log.info(UtilLog.prefixLog("this导致打印"));
+    }
+
+    @After("allBaseCut()")
+    public void allBase() {
+        log.info(UtilLog.prefixLog("所有都要打印的"));
+    }
 
     @Before("pointCut()")
-    public void beforeLog(){
+    public void beforeLog() {
         log.info(UtilLog.prefixLog("before log"));
     }
 
     @After("pointCut()")
-    public void afterLog(){
+    public void afterLog() {
         log.info(UtilLog.prefixLog("after log"));
     }
 
     @AfterReturning("pointCut()")
-    public void afterReturnLog(){
+    public void afterReturnLog() {
         log.info(UtilLog.prefixLog("after return log"));
     }
 
@@ -44,13 +75,13 @@ public class AopClass {
         log.info(UtilLog.prefixLog("after return log"));
     }
 
-    @After( "execution(* *Aop(String))")
-    public void afterLog2(){
+    @After("execution(* *Aop(String))")
+    public void afterLog2() {
         log.info(UtilLog.prefixLog("after log 2"));
     }
 
     @After("execution(* *Aop(String))")
-    public void returnLog(){
+    public void returnLog() {
         log.info(UtilLog.prefixLog("return log"));
     }
 
@@ -81,9 +112,9 @@ public class AopClass {
             Object proceed = pjp.proceed();
             log.info(UtilLog.prefixLog("数据处理完毕"));
             dataSourceTransactionManager.commit(transaction);
-            log.info(UtilLog.prefixLog( "提交事务"));
+            log.info(UtilLog.prefixLog("提交事务"));
             return proceed;
-        }catch (Exception e){
+        } catch (Exception e) {
             dataSourceTransactionManager.rollback(transaction);
             log.error("回滚事务！");
             throw new RuntimeException(e);

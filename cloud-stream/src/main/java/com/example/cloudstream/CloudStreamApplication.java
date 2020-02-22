@@ -8,8 +8,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 public class CloudStreamApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CloudStreamApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CloudStreamApplication.class, args);
+    }
 
 }

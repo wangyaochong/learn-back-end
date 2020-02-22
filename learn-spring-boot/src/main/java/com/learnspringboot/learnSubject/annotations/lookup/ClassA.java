@@ -18,7 +18,6 @@ public class ClassA extends ClassBase {
     @Override
     public void display() {
         System.out.println("classA generateTime=" + generateTime);
-        System.out.println("classB generateTime=");
         getClassB().display();
     }
 

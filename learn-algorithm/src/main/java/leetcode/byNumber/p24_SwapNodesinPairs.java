@@ -19,13 +19,13 @@ public class p24_SwapNodesinPairs {
         ListNode s = new ListNode(0);
         s.next = head;
         ListNode curPre = s;
-        while (curPre.next!=null&&curPre.next.next!=null) {
-            ListNode tmp=curPre.next.next.next;
-            curPre.next.next.next=curPre.next;
-            curPre.next=curPre.next.next;
-            curPre.next.next.next=tmp;
+        while (curPre.next != null && curPre.next.next != null) {
+            ListNode tmp = curPre.next.next.next;
+            curPre.next.next.next = curPre.next;
+            curPre.next = curPre.next.next;
+            curPre.next.next.next = tmp;
 
-            curPre=curPre.next.next;
+            curPre = curPre.next.next;
         }
         return s.next;
     }

@@ -10,13 +10,13 @@ import javax.sql.DataSource;
 @Configuration
 public class Config {
     @Bean
-    public MyEventListener applicationStartListener(){
+    public MyEventListener applicationStartListener() {
         return new MyEventListener();
     }
 
 
     @Bean
-    public DataSourceTransactionManager getTransactionManager(DataSource dataSource){
+    public DataSourceTransactionManager getTransactionManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 }

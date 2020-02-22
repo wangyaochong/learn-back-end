@@ -5,15 +5,17 @@ import org.junit.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
 @Slf4j
 public class TestThreadLocal {
-    public ThreadLocal<Integer>threadLocal=new ThreadLocal<>();
+    public ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+
     @Test
     public void test() throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
         System.out.println("test");
         for (int i = 0; i < 20; i++) {
-            final  Integer temp=i;
+            final Integer temp = i;
             executorService.submit(() -> {
                 Integer integer = threadLocal.get();
                 if (integer == null) {

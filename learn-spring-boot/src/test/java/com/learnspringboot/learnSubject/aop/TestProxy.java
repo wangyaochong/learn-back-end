@@ -6,7 +6,7 @@ import java.lang.reflect.Proxy;
 
 public class TestProxy {
     @Test
-    public void test(){
+    public void test() {
         Class<?> proxyClass = Proxy.getProxyClass(Base.class.getClassLoader());
 
 

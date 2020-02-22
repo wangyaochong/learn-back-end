@@ -8,7 +8,7 @@ import java.util.List;
 
 public class TestStream {
     @Test
-    public void test(){
+    public void test() {
 
         List<User> userList = new ArrayList<>();
         long sum = userList.stream().mapToLong(User::getId).sum();

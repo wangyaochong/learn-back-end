@@ -7,13 +7,13 @@ import java.util.*;
 public class p49_GroupAnagrams {
 
     public List<List<String>> groupAnagrams(String[] strs) {
-        Map<String,List<String>> resultMap=new HashMap<>();
+        Map<String, List<String>> resultMap = new HashMap<>();
         for (String str : strs) {
             char[] chars = str.toCharArray();
             Arrays.sort(chars);
-            String tmp=new String(chars);
-            if(!resultMap.containsKey(tmp)){
-                resultMap.put(tmp,new ArrayList<>());
+            String tmp = new String(chars);
+            if (!resultMap.containsKey(tmp)) {
+                resultMap.put(tmp, new ArrayList<>());
             }
             resultMap.get(tmp).add(str);
         }

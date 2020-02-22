@@ -9,12 +9,13 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class ModuleLearnSpringCloudRibbonApplication {
 
-	@Bean
-	@LoadBalanced
-	RestTemplate restTemplate(){
-		return new RestTemplate();
-	}
-	public static void main(String[] args) {
-		SpringApplication.run(ModuleLearnSpringCloudRibbonApplication.class, args);
-	}
+    @Bean
+    @LoadBalanced
+    RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(ModuleLearnSpringCloudRibbonApplication.class, args);
+    }
 }

@@ -14,7 +14,7 @@ public class CombinedTransactionalRepo {
     AddressRepo addressRepo;
 
     @Transactional
-    public void addUserWithAddress(User user){
+    public void addUserWithAddress(User user) {
         addressRepo.save(user.getAddress());
         userRepository.save(user);
     }

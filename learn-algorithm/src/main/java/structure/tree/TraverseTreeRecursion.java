@@ -6,10 +6,10 @@ import org.junit.Test;
 public class TraverseTreeRecursion {
 
     @Test
-    public void test(){
-        TreeNode treeNode=new TreeNode(1,
-                new TreeNode(2,new TreeNode(3,null,null),new TreeNode(4,null,null)),
-                new TreeNode(5,new TreeNode(6,new TreeNode(8,null,null),null),new TreeNode(7,null,null)));
+    public void test() {
+        TreeNode treeNode = new TreeNode(1,
+                new TreeNode(2, new TreeNode(3, null, null), new TreeNode(4, null, null)),
+                new TreeNode(5, new TreeNode(6, new TreeNode(8, null, null), null), new TreeNode(7, null, null)));
 
         System.out.println("先序----------------");
         preOrder(treeNode);
@@ -19,18 +19,19 @@ public class TraverseTreeRecursion {
         postOrder(treeNode);
 
 
-
     }
-    public void postOrder(TreeNode treeNode){
-        if(treeNode==null){
+
+    public void postOrder(TreeNode treeNode) {
+        if (treeNode == null) {
             return;
         }
         postOrder(treeNode.getLeft());
         postOrder(treeNode.getRight());
         System.out.println(treeNode.getVal());
     }
-    public void inOrder(TreeNode treeNode){
-        if(treeNode==null){
+
+    public void inOrder(TreeNode treeNode) {
+        if (treeNode == null) {
             return;
         }
         inOrder(treeNode.getLeft());
@@ -38,16 +39,15 @@ public class TraverseTreeRecursion {
         inOrder(treeNode.getRight());
 
     }
-    public void preOrder(TreeNode treeNode){
-        if(treeNode==null){
-            return ;
+
+    public void preOrder(TreeNode treeNode) {
+        if (treeNode == null) {
+            return;
         }
         System.out.println(treeNode.getVal());
         preOrder(treeNode.getLeft());
         preOrder(treeNode.getRight());
     }
-
-
 
 
 }

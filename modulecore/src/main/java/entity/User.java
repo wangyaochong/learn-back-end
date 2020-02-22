@@ -20,7 +20,7 @@ import javax.persistence.ManyToOne;
 //@NamedQuery(name="User.nameQuery",query="select u from User u where u.name=?1")
 public class User {
     @Id
-    @GenericGenerator(name="generator",strategy = "increment")
+    @GenericGenerator(name = "generator", strategy = "increment")
     @GeneratedValue(generator = "generator")
     Long id;
     String name;

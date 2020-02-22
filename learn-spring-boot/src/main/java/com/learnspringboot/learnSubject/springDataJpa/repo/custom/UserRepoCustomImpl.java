@@ -8,10 +8,11 @@ import util.UtilLog;
 import javax.persistence.EntityManager;
 
 @Slf4j
-public class UserRepoCustomImpl implements UserRepoCustom{
+public class UserRepoCustomImpl implements UserRepoCustom {
 
     EntityManager em;
-    public UserRepoCustomImpl(JpaContext context){
+
+    public UserRepoCustomImpl(JpaContext context) {
         this.em = context.getEntityManagerByManagedType(User.class);
         log.info(UtilLog.prefixLog("构造em"));
     }
@@ -19,6 +20,6 @@ public class UserRepoCustomImpl implements UserRepoCustom{
 
     @Override
     public void saveCustom(User user) {
-        log.info(UtilLog.prefixLog( "自定义保存User对象"));
+        log.info(UtilLog.prefixLog("自定义保存User对象"));
     }
 }

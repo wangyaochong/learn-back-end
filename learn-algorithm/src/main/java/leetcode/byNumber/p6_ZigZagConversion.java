@@ -9,7 +9,7 @@ public class p6_ZigZagConversion {
     }
 
     public String convert(String s, int numRows) {
-        if(numRows==1){
+        if (numRows == 1) {
             return s;
         }
         StringBuilder[] stringBuilder = new StringBuilder[numRows];

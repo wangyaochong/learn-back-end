@@ -12,16 +12,16 @@ import javax.annotation.Resource;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CloudStreamApplicationTests {
-	@Resource
-	WorkMq workMq;
+    @Resource
+    WorkMq workMq;
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 
-	@Test
-	public void testSend() {
-		workMq.send(new Person("test", 23));
-	}
+    @Test
+    public void testSend() {
+        workMq.send(new Person("test", 23));
+    }
 }

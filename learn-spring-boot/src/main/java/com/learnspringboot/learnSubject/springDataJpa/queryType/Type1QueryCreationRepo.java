@@ -10,15 +10,18 @@ public interface Type1QueryCreationRepo extends Repository<User, Long> {
 
     // Enables the distinct flag for the query
     List<User> findDistinctPeopleByLastnameOrFirstname(String lastname, String firstname);
+
     List<User> findPeopleDistinctByLastnameOrFirstname(String lastname, String firstname);
 
     // Enabling ignoring case for an individual property
     List<User> findByLastnameIgnoreCase(String lastname);
+
     // Enabling ignoring case for all suitable properties
     List<User> findByLastnameAndFirstnameAllIgnoreCase(String lastname, String firstname);
 
     // Enabling static ORDER BY for a query
     List<User> findByLastnameOrderByFirstnameAsc(String lastname);
+
     List<User> findByLastnameOrderByFirstnameDesc(String lastname);
 
 

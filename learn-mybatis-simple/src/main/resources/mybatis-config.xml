@@ -37,7 +37,7 @@
 
     <typeHandlers>
         <!--typeHandler需要制定javaType的-->
-        <typeHandler handler="typeHandler.SexTypeHandler" javaType="enums.EnumSex" />
+        <typeHandler handler="typeHandler.SexTypeHandler" javaType="enums.EnumSex"/>
         <!--扫描xxx包下面所有的typeHandler-->
         <!--<package name="typeHandler"/>-->
     </typeHandlers>
@@ -48,8 +48,8 @@
 
     <!--&lt;!&ndash;&lt;!&ndash;这里的 DB_VENDOR 会通过 DatabaseMetaData#getDatabaseProductName()，这是底层jdbc的实现，可以看@TestDataBaseMetaData&ndash;&gt;-->
     <!--<databaseIdProvider type="DB_VENDOR">-->
-        <!--<property name="MySQL" value="mysql"/>-->
-        <!--<property name="Oracle" value="oracle"/>-->
+    <!--<property name="MySQL" value="mysql"/>-->
+    <!--<property name="Oracle" value="oracle"/>-->
     <!--</databaseIdProvider>-->
     <!---->
     <environments default="development">

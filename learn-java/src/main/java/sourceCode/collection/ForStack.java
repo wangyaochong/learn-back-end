@@ -9,8 +9,8 @@ import java.util.Stack;
  */
 public class ForStack {
     @Test
-    public void test(){
-        Stack<Long> longStack=new Stack();
+    public void test() {
+        Stack<Long> longStack = new Stack();
 
     }
 }

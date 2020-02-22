@@ -15,6 +15,7 @@
         <module>spring-mvc-inner</module>
         <module>learn-mybatis-spring-mvc</module>
         <module>learn-mybatis-simple</module>
+        <module>learn-mybatisPlus-springboot</module>
     </modules>
     <packaging>pom</packaging>
 

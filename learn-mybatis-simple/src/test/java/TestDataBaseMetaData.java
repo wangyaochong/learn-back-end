@@ -13,7 +13,7 @@ public class TestDataBaseMetaData {
     @Test
     public void test() throws IOException, SQLException {
         InputStream resourceAsStream = this.getClass().getResourceAsStream("jdbc.properties");
-        Properties properties=new Properties();
+        Properties properties = new Properties();
         properties.load(resourceAsStream);
         String url = properties.getProperty("jdbc.url");
         String userName = properties.getProperty("jdbc.userName");

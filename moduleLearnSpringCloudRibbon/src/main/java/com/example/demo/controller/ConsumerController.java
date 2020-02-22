@@ -13,7 +13,7 @@ public class ConsumerController {
     RestTemplate restTemplate;
 
     @GetMapping("/ribbon-consumer")
-    public String helloConsumer(){
-        return restTemplate.getForEntity("http://TEST-SERVICE/helloClient",String.class).getBody();
+    public String helloConsumer() {
+        return restTemplate.getForEntity("http://TEST-SERVICE/helloClient", String.class).getBody();
     }
 }

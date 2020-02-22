@@ -1,9 +1,13 @@
 package com.learnspringboot.learnSubject.aop;
 
+import com.learnspringboot.learnSubject.aop.interfaces.IBase;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.BeansException;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.test.context.junit4.SpringRunner;
 import util.UtilLog;
 
@@ -14,7 +18,7 @@ import java.util.Properties;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class TestAop {
+public class TestAop implements ApplicationContextAware {
     @Resource
     Base base;
 
@@ -28,7 +32,7 @@ public class TestAop {
         String s = base.methodAop("测试");
         base.methodAopVoid("测试无返回值");
         String s1 = base.myTransaction();
-        log.info(UtilLog.prefixLog("result={}"),s);
+        log.info(UtilLog.prefixLog("result={}"), s);
     }
 
     @Test
@@ -43,4 +47,11 @@ public class TestAop {
         System.out.println(test);
     }
 
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        Base bean = applicationContext.getBean(Base.class);
+        IBase bean1 = applicationContext.getBean(IBase.class);
+        System.out.println("******context bean" + bean);
+        System.out.println("******context bean1" + bean1);
+    }
 }

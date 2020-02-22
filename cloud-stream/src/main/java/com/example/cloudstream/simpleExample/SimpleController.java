@@ -18,7 +18,7 @@ public class SimpleController {
     private Source source;
 
     @GetMapping("/send")
-    public String send(){
+    public String send() {
         source.output().send(MessageBuilder.withPayload("{name:'hello',age:16}").build());
         return "发送成功";
     }

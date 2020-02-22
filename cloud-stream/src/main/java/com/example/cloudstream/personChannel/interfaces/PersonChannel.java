@@ -8,8 +8,9 @@ import org.springframework.messaging.SubscribableChannel;
 
 
 public interface PersonChannel {
-    String input="person-input";
-    String output="person-output";
+    String input = "person-input";
+    String output = "person-output";
+
     @Input(input)
     SubscribableChannel input();
 

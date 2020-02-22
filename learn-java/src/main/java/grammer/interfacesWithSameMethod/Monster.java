@@ -1,6 +1,6 @@
 package grammer.interfacesWithSameMethod;
 
-public class Monster implements Cat,Dog {
+public class Monster implements Cat, Dog {
     @Override
     public void catchMouse() {
         System.out.println("monster catchMouse");
@@ -22,7 +22,7 @@ public class Monster implements Cat,Dog {
     }
 
     public static void main(String[] args) {
-        Monster monster=new Monster();
+        Monster monster = new Monster();
         monster.run();
         monster.catchMouse();
         monster.eat();

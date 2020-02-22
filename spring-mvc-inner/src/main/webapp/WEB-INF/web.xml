@@ -20,7 +20,6 @@ DispatcherServlet在创建ApplicationContext时会先找到由ContextLoaderListe
     -->
 
 
-
     <!--使用自定义的上下文加载器-->
     <listener>
         <listener-class>src.my.MySpringContextLoaderListener</listener-class>

@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 public class TestService {
 
     @PostConstruct
-    public void init(){
+    public void init() {
         log.info("TestService init");
     }
 

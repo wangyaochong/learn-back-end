@@ -1,8 +1,10 @@
 package multiThread.lock.mylock;
-public class MyNoReenTrentLock implements MyLock{
+
+public class MyNoReenTrentLock implements MyLock {
     private boolean isLocked = false;
-    public synchronized void lock(){
-        while(isLocked){
+
+    public synchronized void lock() {
+        while (isLocked) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -14,7 +16,7 @@ public class MyNoReenTrentLock implements MyLock{
 
     @Override
     public synchronized void unlock() {
-        isLocked=false;
+        isLocked = false;
         notify();
     }
 }

@@ -24,15 +24,15 @@ public class p26_RemoveDuplicatesFromSortedArray {
     }
 
     public int removeDuplicates2(int[] nums) {
-        int sameCount=0;
-        for(int i=1;i<nums.length;i++){
-            if(nums[i-1]==nums[i]){
+        int sameCount = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i - 1] == nums[i]) {
                 sameCount++;
-            }else{
-                nums[i-sameCount]=nums[i];
+            } else {
+                nums[i - sameCount] = nums[i];
             }
         }
-        return nums.length-sameCount;
+        return nums.length - sameCount;
     }
 
     //这代码真牛！充分利用排好序的属性！

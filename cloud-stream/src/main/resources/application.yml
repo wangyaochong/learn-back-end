@@ -1,48 +1,48 @@
 spring:
   cloud:
-     stream:
-        default-binder: kafka
-        kafka:
-           binder:
-             #             zk-nodes: 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184
-             #             brokers: 127.0.0.1:9093,127.0.0.1:9094,127.0.0.1:9095
-             zk-nodes: 10.111.10.243:2181
-             brokers: 10.111.10.243:9092
-             autoCreateTopics: true
-             autoAddPartitions: true
-        bindings:
-            person-input:
-              destination: person
-              group: person
-              producer:
-                partitionCount: 2
-                partitionKeyExpression: payload
-            person-output:
-              destination: person
-              group: person
-              producer:
-                partitionCount: 2
-                partitionKeyExpression: payload
+    stream:
+      default-binder: kafka
+      kafka:
+        binder:
+          #             zk-nodes: 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184
+          #             brokers: 127.0.0.1:9093,127.0.0.1:9094,127.0.0.1:9095
+          zk-nodes: 10.111.10.243:2181
+          brokers: 10.111.10.243:9092
+          autoCreateTopics: true
+          autoAddPartitions: true
+      bindings:
+        person-input:
+          destination: person
+          group: person
+          producer:
+            partitionCount: 2
+            partitionKeyExpression: payload
+        person-output:
+          destination: person
+          group: person
+          producer:
+            partitionCount: 2
+            partitionKeyExpression: payload
 
-            input:
-              destination: test
-              group: test
-              producer:
-                partitionCount: 2
-                partitionKeyExpression: payload
-            output:
-              destination: test
-              group: test
-              producer:
-                partitionCount: 2
-                partitionKeyExpression: payload
+        input:
+          destination: test
+          group: test
+          producer:
+            partitionCount: 2
+            partitionKeyExpression: payload
+        output:
+          destination: test
+          group: test
+          producer:
+            partitionCount: 2
+            partitionKeyExpression: payload
 
-            settle-output:
-              destination: finance-settle_msg_dev_w
-              group: finance-settle_dev_w
-            settle-input:
-              destination: finance-settle_msg_dev_w
-              group: finance-settle_dev_w
+        settle-output:
+          destination: finance-settle_msg_dev_w
+          group: finance-settle_dev_w
+        settle-input:
+          destination: finance-settle_msg_dev_w
+          group: finance-settle_dev_w
 
 
   http:

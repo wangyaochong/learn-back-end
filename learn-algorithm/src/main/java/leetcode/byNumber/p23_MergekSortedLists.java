@@ -6,7 +6,7 @@ import util.UtilListNode;
 
 public class p23_MergekSortedLists {
     @Test
-    public void test(){
+    public void test() {
         ListNode listNode = UtilListNode.fromArray(new int[]{1, 2, 3});
         ListNode listNode2 = UtilListNode.fromArray(new int[]{1, 1, 3});
         ListNode listNode3 = UtilListNode.fromArray(new int[]{1, 2, 4});
@@ -15,29 +15,30 @@ public class p23_MergekSortedLists {
 
 
     public ListNode mergeKLists(ListNode[] lists) {
-        ListNode[] nodeLoc=new ListNode[lists.length];
-        for(int i=0;i<lists.length;i++){
-            nodeLoc[i]=new ListNode(0);
-            nodeLoc[i].next=lists[i];
+        ListNode[] nodeLoc = new ListNode[lists.length];
+        for (int i = 0; i < lists.length; i++) {
+            nodeLoc[i] = new ListNode(0);
+            nodeLoc[i].next = lists[i];
         }
-        ListNode head=new ListNode(0);
-        ListNode cur=head;
-        while(true){
+        ListNode head = new ListNode(0);
+        ListNode cur = head;
+        while (true) {
             ListNode maxNode = getMinNode(nodeLoc);
-            if(maxNode==null)break;
-            cur.next=maxNode.next;
-            cur=cur.next;
-            maxNode.next=maxNode.next.next;
+            if (maxNode == null) break;
+            cur.next = maxNode.next;
+            cur = cur.next;
+            maxNode.next = maxNode.next.next;
         }
         return head.next;
     }
-    public ListNode getMinNode(ListNode[] listNodes){
-        ListNode maxNode=null;
-        int max=Integer.MAX_VALUE;
+
+    public ListNode getMinNode(ListNode[] listNodes) {
+        ListNode maxNode = null;
+        int max = Integer.MAX_VALUE;
         for (ListNode listNode : listNodes) {
-            if(listNode.next!=null&&max>listNode.next.val){
-                maxNode=listNode;
-                max=listNode.next.val;
+            if (listNode.next != null && max > listNode.next.val) {
+                maxNode = listNode;
+                max = listNode.next.val;
             }
         }
         return maxNode;

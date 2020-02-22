@@ -18,14 +18,14 @@ public class HelloController {
     @Resource
     DiscoveryClient discoveryClient;
 
-    @RequestMapping(value="/helloClient",method= RequestMethod.GET)
-    public String index(){
+    @RequestMapping(value = "/helloClient", method = RequestMethod.GET)
+    public String index() {
 
         List<ServiceInstance> instances = discoveryClient.getInstances("test-service");
         for (ServiceInstance instance : instances) {
-            log.info(UtilLog.prefixLog("服务名称={}"),instance.getServiceId());
-            log.info(UtilLog.prefixLog("服务host={}"),instance.getHost());
-            log.info(UtilLog.prefixLog("服务port={}"),instance.getPort());
+            log.info(UtilLog.prefixLog("服务名称={}"), instance.getServiceId());
+            log.info(UtilLog.prefixLog("服务host={}"), instance.getHost());
+            log.info(UtilLog.prefixLog("服务port={}"), instance.getPort());
         }
         return "hello";
     }

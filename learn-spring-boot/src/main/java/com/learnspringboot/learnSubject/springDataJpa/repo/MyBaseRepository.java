@@ -10,7 +10,8 @@ import java.util.Optional;
 //定义一个基础父类
 
 @NoRepositoryBean
-public interface MyBaseRepository<T,ID extends Serializable> extends Repository<T,ID>{
+public interface MyBaseRepository<T, ID extends Serializable> extends Repository<T, ID> {
     Optional<T> findById(ID id);
+
     <S extends T> S save(S entity);
 }

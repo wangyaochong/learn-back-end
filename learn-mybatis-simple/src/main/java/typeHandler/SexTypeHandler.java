@@ -10,11 +10,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class SexTypeHandler implements TypeHandler<EnumSex>{
+public class SexTypeHandler implements TypeHandler<EnumSex> {
 
     @Override
     public void setParameter(PreparedStatement ps, int i, EnumSex parameter, JdbcType jdbcType) throws SQLException {
-        ps.setInt(i,parameter.getCode());
+        ps.setInt(i, parameter.getCode());
     }
 
     @Override

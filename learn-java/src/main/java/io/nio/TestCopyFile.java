@@ -9,25 +9,25 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
 @Slf4j
-public class TestCopyFile{
+public class TestCopyFile {
 
     @Test
     public void testWithNIO() throws IOException {
-        StopWatch stopWatch=new StopWatch();
+        StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        FileOutputStream fo=new FileOutputStream(new File("./testLargeCopy.txt"));
+        FileOutputStream fo = new FileOutputStream(new File("./testLargeCopy.txt"));
         //获得传输通道channel
-        FileChannel inChannel=new RandomAccessFile("./testLarge.txt","rw").getChannel() ;
-        FileChannel outChannel=fo.getChannel();
+        FileChannel inChannel = new RandomAccessFile("./testLarge.txt", "rw").getChannel();
+        FileChannel outChannel = fo.getChannel();
         //获得容器buffer
 
-        MappedByteBuffer buffer = inChannel.map(FileChannel.MapMode.READ_WRITE, 0, 1024*2048 );
+        MappedByteBuffer buffer = inChannel.map(FileChannel.MapMode.READ_WRITE, 0, 1024 * 2048);
 //        ByteBuffer buffer=ByteBuffer.allocate(1024*1024);
-        while(true){
+        while (true) {
             //判断是否读完文件
             buffer.clear();
-            int eof =inChannel.read(buffer);
-            if(eof==-1){
+            int eof = inChannel.read(buffer);
+            if (eof == -1) {
                 break;
             }
             //重设一下buffer的position=0，limit=position
@@ -40,29 +40,30 @@ public class TestCopyFile{
         outChannel.close();
         fo.close();
         stopWatch.stop();
-        log.info("时间{}",stopWatch.getLastTaskTimeMillis());
+        log.info("时间{}", stopWatch.getLastTaskTimeMillis());
     }
+
     @Test
     public void testWithIO() throws IOException {
-        StopWatch stopWatch=new StopWatch();
+        StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        FileInputStream fi=new FileInputStream(new File("./testLarge.txt"));
-        FileOutputStream fo=new FileOutputStream(new File("./testLargeCopy.txt"));
-        byte[] bytes=new byte[1024*2048];
+        FileInputStream fi = new FileInputStream(new File("./testLarge.txt"));
+        FileOutputStream fo = new FileOutputStream(new File("./testLargeCopy.txt"));
+        byte[] bytes = new byte[1024 * 2048];
         int read = fi.read(bytes);
-        while(read!=-1){
+        while (read != -1) {
             fi.read(bytes);
             fo.write(bytes);
-            read=fi.read(bytes);
+            read = fi.read(bytes);
         }
         fi.close();
         fo.close();
         stopWatch.stop();
-        log.info("时间{}",stopWatch.getLastTaskTimeMillis());
+        log.info("时间{}", stopWatch.getLastTaskTimeMillis());
     }
 
     @Test
-    public void testFastNIO(){
+    public void testFastNIO() {
 
     }
 

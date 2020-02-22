@@ -8,9 +8,10 @@ import java.io.*;
 
 @Slf4j
 public class TestIO {
-    public static String fileName="./test.txt";
-    public static String fileNameLarge="./testLarge.txt";
-    public static String fileNameLarge10000="./testLarge.txt";
+    public static String fileName = "./test.txt";
+    public static String fileNameLarge = "./testLarge.txt";
+    public static String fileNameLarge10000 = "./testLarge.txt";
+
     @Test
     public void testStream() throws IOException {
 
@@ -23,8 +24,8 @@ public class TestIO {
         fileOutputStream.write("你好".getBytes());
         fileOutputStream.close();
 
-        FileInputStream inputStream=new FileInputStream(test);
-        byte[] bytes=new byte[inputStream.available()];
+        FileInputStream inputStream = new FileInputStream(test);
+        byte[] bytes = new byte[inputStream.available()];
         inputStream.read(bytes);
         inputStream.close();
         log.info(UtilLog.prefixLog(new String(bytes)));
@@ -33,18 +34,18 @@ public class TestIO {
 
     @Test
     public void testWriterReader() throws IOException {
-        FileWriter fileWriter=new FileWriter(fileName);
+        FileWriter fileWriter = new FileWriter(fileName);
         fileWriter.write("测试");
         fileWriter.close();
 
-        FileReader fileReader=new FileReader(fileName);
-        char[] chars=new char[1000];
+        FileReader fileReader = new FileReader(fileName);
+        char[] chars = new char[1000];
         fileReader.read(chars);
         fileReader.close();
         System.out.println(chars[0]);
         System.out.println(chars);
 
-        try (BufferedReader bufferedReader =new BufferedReader(new FileReader(fileName))){
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
             String s = bufferedReader.readLine();
             bufferedReader.close();
             System.out.println(s);
@@ -52,7 +53,7 @@ public class TestIO {
     }
 
     @Test
-    public void testString(){
+    public void testString() {
     }
 
 }

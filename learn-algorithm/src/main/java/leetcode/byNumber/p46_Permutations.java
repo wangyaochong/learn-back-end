@@ -13,26 +13,28 @@ public class p46_Permutations {
         for (int num : nums) {
             list.add(num);
         }
-        List<List<Integer>> result=new ArrayList<>();
-        getResult(list,new ArrayList<>(),result);
+        List<List<Integer>> result = new ArrayList<>();
+        getResult(list, new ArrayList<>(), result);
         return result;
     }
-    public void getResult(List<Integer> list,List<Integer> curResult,List<List<Integer>> result){
-        if(list.size()==0){
+
+    public void getResult(List<Integer> list, List<Integer> curResult, List<List<Integer>> result) {
+        if (list.size() == 0) {
             result.add(new ArrayList<>(curResult));
-            return ;
+            return;
         }
-        for(int i=0;i<list.size();i++){
+        for (int i = 0; i < list.size(); i++) {
             Integer remove = list.remove(i);
             curResult.add(remove);
-            getResult(list,curResult,result);
-            curResult.remove(curResult.size()-1);
-            list.add(i,remove);
+            getResult(list, curResult, result);
+            curResult.remove(curResult.size() - 1);
+            list.add(i, remove);
         }
     }
+
     @Test
-    public void test(){
-        List<List<Integer>> permute = permute(new int[]{1, 1,2});
+    public void test() {
+        List<List<Integer>> permute = permute(new int[]{1, 1, 2});
         System.out.println(permute);
     }
 

@@ -14,15 +14,16 @@ import util.UtilLog;
 @Slf4j
 public class Base implements IBase, ApplicationContextAware {
     ApplicationContext applicationContext;
+
     @Override
-    public String methodAop(String param){
-        log.info(UtilLog.prefixLog("method is executed, param={}"),param);
+    public String methodAop(String param) {
+        log.info(UtilLog.prefixLog("method is executed, param={}"), param);
         return "method finished!";
     }
 
     @Override
     public void methodAopVoid(String param) {
-        log.info(UtilLog.prefixLog("methodAopVoid is executed, param={}"),param);
+        log.info(UtilLog.prefixLog("methodAopVoid is executed, param={}"), param);
     }
 
 

@@ -1,6 +1,6 @@
 package grammer.defaultKeyword;
 
-public class DefaultInterfaceImpl implements DefaultInterface{
+public class DefaultInterfaceImpl implements DefaultInterface {
 
 //
 //    @Override

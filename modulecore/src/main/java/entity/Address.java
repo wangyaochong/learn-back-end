@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Address {
     @Id
-    @GenericGenerator(name="generator",strategy = "increment")
+    @GenericGenerator(name = "generator", strategy = "increment")
     @GeneratedValue(generator = "generator")
     Long id;
     String country;

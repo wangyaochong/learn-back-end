@@ -6,7 +6,7 @@ import util.UtilLog;
 @Slf4j
 public class TestDependency {
     @Test
-    public void test(){
+    public void test() {
         CoreUtil.CoreUtilTest();
         log.info("test");
         log.error("test");

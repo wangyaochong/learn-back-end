@@ -4,10 +4,10 @@
 
     <!--可以手动建立resultMap进行映射-->
     <resultMap id="baseResultMap" type="UserM">
-        <result column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="age" property="age" />
-        <result column="email_address" property="emailAddress" />
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="email_address" property="emailAddress"/>
     </resultMap>
 
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">

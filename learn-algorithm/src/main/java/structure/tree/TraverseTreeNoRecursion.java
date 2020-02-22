@@ -68,7 +68,7 @@ public class TraverseTreeNoRecursion {
             if (pop.getLeft() == null) {
                 System.out.println(pop.getVal());
                 nodeStack.pop();//看过一次以后就要拿出来
-                if(pop.getRight()!=null){
+                if (pop.getRight() != null) {
                     nodeStack.push(pop.getRight());
                 }
             }
