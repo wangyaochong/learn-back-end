@@ -4,22 +4,22 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="testBean" class="src.bean.TestBean" name="testBean">
-        <property name="id" value="1234"/>
-        <property name="name" value="testBean"/>
-        <property name="circularBean" ref="cirBean"/>
-    </bean>
+<!--    <bean id="testBean" class="src.bean.TestBean" name="testBean">-->
+<!--        <property name="id" value="1234"/>-->
+<!--        <property name="name" value="testBean"/>-->
+<!--        <property name="circularBean" ref="cirBean"/>-->
+<!--    </bean>-->
 
 
-    <bean id="cirBean" class="src.bean.CircularBean">
-        <property name="beanName" value="cirBean"/>
-        <property name="cirId" value="2222"/>
-        <property name="testBean" ref="testBean"/>
-    </bean>
+<!--    <bean id="cirBean" class="src.bean.CircularBean">-->
+<!--        <property name="beanName" value="cirBean"/>-->
+<!--        <property name="cirId" value="2222"/>-->
+<!--        <property name="testBean" ref="testBean"/>-->
+<!--    </bean>-->
 
-    <bean name="person" class="src.bean.Person">
-        <property name="name" value="王耀冲"/>
-        <property name="age" value="25"/>
-    </bean>
+<!--    <bean name="person" class="src.bean.Person">-->
+<!--        <property name="name" value="王耀冲"/>-->
+<!--        <property name="age" value="25"/>-->
+<!--    </bean>-->
 
 </beans>

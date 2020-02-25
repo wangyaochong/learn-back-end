@@ -1,7 +1,9 @@
 package com.example.learnmybatisspringboot.my;
 
 import org.springframework.beans.factory.FactoryBean;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MyBatisFactoryBean implements FactoryBean {
 
     public Class getMapperInterface() {

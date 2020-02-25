@@ -1,6 +1,7 @@
 package src;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import src.bean.FactoryBeanObject;
 import src.bean.circleDepend.A;
 import src.config.AppConfig;
@@ -26,7 +27,6 @@ public class Test {
         //针对factoryBean调用getBean，会返回factoryBean的getObject返回的对象
         System.out.println(context.getBean(FactoryBeanObject.class));
         System.out.println(context.getBean("myFactoryBean"));
-        System.out.println(context.getBean("factoryBeanObject"));
 //        System.out.println(bean);
     }
 }

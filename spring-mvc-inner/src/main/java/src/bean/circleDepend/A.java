@@ -7,8 +7,8 @@ import javax.annotation.PostConstruct;
 
 @Component
 public class A {
-    @Autowired
-    B b;
+//    @Autowired
+//    B b;
 
     //    @Autowired
 //    BeanTest beanTest;

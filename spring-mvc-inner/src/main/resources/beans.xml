@@ -5,20 +5,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <mvc:annotation-driven/>
-    <context:component-scan base-package="src,src.my,src.bean"/>
+<!--    <context:component-scan base-package="src"/>-->
 
-    <bean id="testBean" class="src.bean.TestBean" name="testBean">
-        <property name="id" value="1234"/>
-        <property name="name" value="testBean"/>
-        <property name="circularBean" ref="cirBean"/>
-    </bean>
+<!--    <bean id="testBean" class="src.bean.TestBean" name="testBean">-->
+<!--        <property name="id" value="1234"/>-->
+<!--        <property name="name" value="testBean"/>-->
+<!--        <property name="circularBean" ref="cirBean"/>-->
+<!--    </bean>-->
 
 
-    <bean id="cirBean" class="src.bean.CircularBean">
-        <property name="beanName" value="cirBean"/>
-        <property name="cirId" value="2222"/>
-        <property name="testBean" ref="testBean"/>
-    </bean>
+<!--    <bean id="cirBean" class="src.bean.CircularBean">-->
+<!--        <property name="beanName" value="cirBean"/>-->
+<!--        <property name="cirId" value="2222"/>-->
+<!--        <property name="testBean" ref="testBean"/>-->
+<!--    </bean>-->
 
     <bean name="person" class="src.bean.Person">
         <property name="name" value="王耀冲"/>

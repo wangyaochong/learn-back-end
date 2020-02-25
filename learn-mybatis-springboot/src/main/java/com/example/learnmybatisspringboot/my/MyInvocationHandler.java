@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Select;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 public class MyInvocationHandler implements InvocationHandler {
     @Override
@@ -13,6 +14,8 @@ public class MyInvocationHandler implements InvocationHandler {
         if(annotation!=null){
             String[] value = annotation.value();
             System.out.println(value[0]);
+            //假设查询结果得到了
+            return new ArrayList<>();
         }
         if(method.getName().equals("toString")){
             return proxy.getClass().getInterfaces()[0].getName();

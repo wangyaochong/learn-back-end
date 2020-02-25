@@ -1,0 +1,5 @@
+<beans>
+    <packageScan package="web">
+
+    </packageScan>
+</beans>

@@ -1,6 +1,7 @@
 package src.my;
 
 import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 import src.constant.ConfigConstant;
 
@@ -11,5 +12,7 @@ public class MyApplicationInitializer implements ApplicationContextInitializer<X
     public void initialize(XmlWebApplicationContext applicationContext) {
         applicationContext.setAllowBeanDefinitionOverriding(ConfigConstant.allowBeanDefinitionOverriding);//禁止定义两个相同名称或相同id的bean存在
         applicationContext.setAllowCircularReferences(ConfigConstant.allowCircularReferences);
+        applicationContext.setAllowBeanDefinitionOverriding(true);//禁止定义两个相同名称或相同id的bean存在
+        applicationContext.setAllowCircularReferences(true);
     }
 }

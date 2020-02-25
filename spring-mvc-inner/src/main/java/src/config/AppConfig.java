@@ -6,9 +6,9 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import src.myaop.anno.EnableMyAop;
 
 
-@Configuration
-@EnableAspectJAutoProxy
-@ComponentScan({"src.*"})
+//@Configuration
+//@EnableAspectJAutoProxy
+//@ComponentScan({"src.*"})
 @EnableMyAop
 public class AppConfig {
 }
