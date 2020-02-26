@@ -1,7 +1,6 @@
 package leetcode.byNumber;
 
 import org.junit.Test;
-import org.springframework.data.domain.Example;
 
 import java.util.Stack;
 
