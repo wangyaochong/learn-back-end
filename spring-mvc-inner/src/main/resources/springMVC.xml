@@ -19,6 +19,12 @@
         <property name="suffix" value=".jsp"/>
     </bean>
     <mvc:default-servlet-handler/>
+    <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--    注意，springMVC.xml中的配置和WebMvcConfigurationSupport只有一处会生效-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <mvc:interceptors>
+        <bean class="src.my.MyInterceptor"/>
+    </mvc:interceptors>
     <mvc:annotation-driven>
         <mvc:message-converters>
             <!--            <bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
@@ -31,15 +37,19 @@
                         <value>application/json</value>
                     </list>
                 </property>
-                <property name="features">
-                    <list>
-                        <value>WriteMapNullValue</value>
-                        <value>QuoteFieldNames</value>
-                    </list>
-                </property>
-                <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"/>
+                <property name="defaultCharset" value="utf-8"/>
+                <!--                <property name="features">-->
+                <!--                    <list>-->
+                <!--                        <value>WriteMapNullValue</value>-->
+                <!--                        <value>QuoteFieldNames</value>-->
+                <!--                    </list>-->
+                <!--                </property>-->
+                <!--                <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"/>-->
             </bean>
         </mvc:message-converters>
+        <mvc:argument-resolvers>
+            <bean class="src.my.MyArgumentResolver"/>
+        </mvc:argument-resolvers>
     </mvc:annotation-driven>
 
 
