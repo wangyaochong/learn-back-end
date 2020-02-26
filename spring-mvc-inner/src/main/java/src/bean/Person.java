@@ -3,8 +3,6 @@ package src.bean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.quartz.QuartzDataSource;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
