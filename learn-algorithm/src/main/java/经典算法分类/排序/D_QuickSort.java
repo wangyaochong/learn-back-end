@@ -1,4 +1,4 @@
-package 经典算法.排序;
+package 经典算法分类.排序;
 
 import org.junit.Test;
 import util.UtilArray;

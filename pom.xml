@@ -16,6 +16,7 @@
         <module>learn-mybatis-spring-mvc</module>
         <module>learn-mybatis-simple</module>
         <module>learn-mybatisPlus-springboot</module>
+        <module>simpleRedis</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -60,13 +61,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.2</version>
-            <!--只在编译时期使用-->
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>

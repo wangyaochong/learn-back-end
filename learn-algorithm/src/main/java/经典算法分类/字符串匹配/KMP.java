@@ -1,4 +1,4 @@
-package 经典算法.字符串匹配;
+package 经典算法分类.字符串匹配;
 
 import org.junit.Test;
 

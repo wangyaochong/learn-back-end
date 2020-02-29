@@ -1,4 +1,4 @@
-package 经典算法;
+package 经典算法分类.动态规划;
 
 import org.junit.Test;
 
