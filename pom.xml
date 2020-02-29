@@ -17,6 +17,7 @@
         <module>learn-mybatis-simple</module>
         <module>learn-mybatisPlus-springboot</module>
         <module>simpleRedis</module>
+        <module>basicPom</module>
     </modules>
     <packaging>pom</packaging>
 

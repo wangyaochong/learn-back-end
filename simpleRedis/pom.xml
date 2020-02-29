@@ -9,11 +9,15 @@
     <groupId>wangyaochong</groupId>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>wangyaochong</groupId>
+            <artifactId>basicPom</artifactId>
+            <version>1.0</version>
         </dependency>
     </dependencies>
 
