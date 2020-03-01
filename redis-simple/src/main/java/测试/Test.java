@@ -3,24 +3,22 @@ package 测试;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
         Jedis jedis = new Jedis("127.0.0.1", 6379);
         jedis.set("a", "a234");
-        jedis.watch("inventory");
         System.out.println(jedis.get("a"));
-        List<Thread> threadList = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            threadList.add(new Thread(() -> {
-                secondKill(Thread.currentThread().getName() + Thread.currentThread().getId());
-            }));
-        }
-        for (Thread thread : threadList) {
-            thread.start();
-        }
+//        List<Thread> threadList = new ArrayList<>();
+//        for (int i = 0; i < 100; i++) {
+//            threadList.add(new Thread(() -> {
+//                secondKill(Thread.currentThread().getName() + Thread.currentThread().getId());
+//            }));
+//        }
+//        for (Thread thread : threadList) {
+//            thread.start();
+//        }
     }
 
     public static void secondKill(String uid) {

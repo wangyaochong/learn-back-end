@@ -33,7 +33,7 @@
         <java.version>1.8</java.version>
 
 
-        <springboot.version>2.0.5.RELEASE</springboot.version>
+        <springboot.version>2.2.5.RELEASE</springboot.version>
         <spring.version>5.0.9.RELEASE</spring.version>
         <aspect.version>1.9.3</aspect.version>
         <jedis.version>2.7.0</jedis.version>
@@ -43,6 +43,10 @@
 
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -75,13 +79,16 @@
             <version>1.2.62</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <scope>true</scope>
         </dependency>
     </dependencies>
 
@@ -106,6 +113,16 @@
                     <testCompilerArgument>-parameters</testCompilerArgument>
                 </configuration>
             </plugin>
+            <plugin>
+                <!--热部署配置-->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--fork:如果没有该项配置,整个devtools不会起作用-->
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
