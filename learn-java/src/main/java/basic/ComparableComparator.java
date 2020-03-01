@@ -27,7 +27,7 @@ public class ComparableComparator {
     @NoArgsConstructor
     @Data
     @Builder
-    static class MyClass implements Comparable<MyClass> {
+    public static class MyClass implements Comparable<MyClass> {
         String name;
 
         @Override

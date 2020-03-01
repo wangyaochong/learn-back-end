@@ -1,8 +1,8 @@
 package io.nio;
 
+import cn.hutool.core.date.StopWatch;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.springframework.util.StopWatch;
 
 import java.io.*;
 import java.nio.MappedByteBuffer;

@@ -7,61 +7,56 @@
     <artifactId>learn-java-always</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>moduleapp</module>
         <module>modulecore</module>
         <module>learn-java</module>
-        <module>learn-spring-boot</module>
+        <module>springboot</module>
         <module>learn-algorithm</module>
         <module>spring-mvc-inner</module>
-        <module>learn-mybatis-spring-mvc</module>
-        <module>learn-mybatis-simple</module>
-        <module>learn-mybatisPlus-springboot</module>
-        <module>simpleRedis</module>
-        <module>basicPom</module>
+        <module>mybatis-simple</module>
+        <module>mybatis-spring-mvc</module>
+        <module>mybatisPlus-springboot</module>
+        <module>mybatis-springboot</module>
+        <module>redis-simple</module>
+        <module>redis-springboot</module>
+        <module>springboot-inner</module>
+        <module>make-mvc</module>
+        <module>swagger-springboot</module>
+        <module>cloud-stream</module>
     </modules>
     <packaging>pom</packaging>
 
     <name>LearnJavaAlways</name>
     <description>学习java相关的各种知识，包括：java基础、算法、spring、mybatis、hibernate、redis等</description>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+
+
+        <springboot.version>2.0.5.RELEASE</springboot.version>
+        <spring.version>5.0.9.RELEASE</spring.version>
+        <aspect.version>1.9.3</aspect.version>
+        <jedis.version>2.7.0</jedis.version>
+        <junit.version>4.12</junit.version>
+        <lombok.version>1.18.4</lombok.version>
+        <slf4j.version>1.7.30</slf4j.version>
+
     </properties>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-
-
     <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.8.1</version>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.4</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.13</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
@@ -69,20 +64,24 @@
             <version>1.4.197</version>
         </dependency>
         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.62</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.9.2</version>
         </dependency>
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -94,6 +93,17 @@
                 <version>2.5</version>
                 <configuration>
                     <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <!--                    对于反射，想要获取方法的参数名，需要开启这个配置-->
+                    <compilerArgument>-parameters</compilerArgument>
+                    <testCompilerArgument>-parameters</testCompilerArgument>
                 </configuration>
             </plugin>
         </plugins>
@@ -113,4 +123,16 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

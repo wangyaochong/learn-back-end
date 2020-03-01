@@ -1,6 +1,7 @@
 package proxy;
 
-import org.springframework.cglib.proxy.Enhancer;
+
+import net.sf.cglib.proxy.Enhancer;
 
 public class CglibProxy {
     public CglibProxy(Object o) {

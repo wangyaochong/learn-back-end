@@ -1,11 +1,14 @@
 package io.nio;
 
-import io.bio.TestIO;
+import cn.hutool.core.date.StopWatch;
+import io.bio.MyTestIO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.springframework.util.StopWatch;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -13,7 +16,7 @@ import java.nio.channels.FileChannel;
 public class TestNIO {
     @Test
     public void test() throws IOException {
-        RandomAccessFile accessFile = new RandomAccessFile(TestIO.fileName, "rw");
+        RandomAccessFile accessFile = new RandomAccessFile(MyTestIO.fileName, "rw");
         FileChannel channel = accessFile.getChannel();
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
         int read = channel.read(byteBuffer);
@@ -29,14 +32,14 @@ public class TestNIO {
             longText += longText;
         }
         log.info(String.format("长度为%d", longText.length()));
-        File file = new File(TestIO.fileNameLarge);
+        File file = new File(MyTestIO.fileNameLarge);
         if (!file.exists()) {
             file.createNewFile();
         }
         log.info("开始写入文件！");
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        FileOutputStream fileOutputStream = new FileOutputStream(TestIO.fileNameLarge);
+        FileOutputStream fileOutputStream = new FileOutputStream(MyTestIO.fileNameLarge);
         FileChannel channel = fileOutputStream.getChannel();
         ByteBuffer byteBuffer = ByteBuffer.allocate(longText.getBytes().length);
         channel.write(byteBuffer);
@@ -55,14 +58,14 @@ public class TestNIO {
             longText += longText;
         }
         log.info(String.format("长度为%d", longText.length()));
-        File file = new File(TestIO.fileNameLarge);
+        File file = new File(MyTestIO.fileNameLarge);
         if (!file.exists()) {
             file.createNewFile();
         }
         log.info("开始写入文件！");
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        FileOutputStream fileOutputStream = new FileOutputStream(TestIO.fileNameLarge);
+        FileOutputStream fileOutputStream = new FileOutputStream(MyTestIO.fileNameLarge);
         fileOutputStream.write(longText.getBytes());
         fileOutputStream.close();
         stopWatch.stop();
@@ -73,14 +76,14 @@ public class TestNIO {
     @Test
     public void testWrite10000RowBIO() throws IOException {
         String longText = "21341234123\n";
-        File file = new File(TestIO.fileNameLarge);
+        File file = new File(MyTestIO.fileNameLarge);
         if (!file.exists()) {
             file.createNewFile();
         }
         log.info("开始写入文件！");
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        FileOutputStream fileOutputStream = new FileOutputStream(TestIO.fileNameLarge);
+        FileOutputStream fileOutputStream = new FileOutputStream(MyTestIO.fileNameLarge);
         for (int i = 0; i < 1000000; i++) {
             fileOutputStream.write(longText.getBytes());
         }
@@ -93,14 +96,14 @@ public class TestNIO {
     @Test
     public void testWrite10000RowNIO() throws IOException {
         String longText = "21341234123\n";
-        File file = new File(TestIO.fileNameLarge);
+        File file = new File(MyTestIO.fileNameLarge);
         if (!file.exists()) {
             file.createNewFile();
         }
         log.info("开始写入文件！");
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        FileOutputStream fileOutputStream = new FileOutputStream(TestIO.fileNameLarge);
+        FileOutputStream fileOutputStream = new FileOutputStream(MyTestIO.fileNameLarge);
         for (int i = 0; i < 500000; i++) {
             fileOutputStream.write(longText.getBytes());
         }

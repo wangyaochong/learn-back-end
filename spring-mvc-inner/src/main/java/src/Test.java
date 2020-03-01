@@ -1,11 +1,9 @@
 package src;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import src.bean.FactoryBeanObject;
-import src.bean.circleDepend.A;
+import src.bean.circledepend.A;
 import src.config.AppConfig;
-import src.my.MyFactoryBean;
 import src.myaop.MyAopInterface;
 
 import java.util.Arrays;

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class AopClass {
-    @Pointcut("execution(* src.bean.circleDepend.*.*(..))")
+    @Pointcut("execution(* src.bean.circledepend.*.*(..))")
     public void anyPublicMethod() {
 
     }

@@ -1,7 +1,7 @@
 package qrCode;
 
+import cn.hutool.core.date.StopWatch;
 import io.nayuki.qrcodegen.QrCode;
-import org.springframework.util.StopWatch;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
