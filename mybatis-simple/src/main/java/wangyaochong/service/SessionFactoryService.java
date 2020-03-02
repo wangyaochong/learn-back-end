@@ -1,4 +1,4 @@
-package service;
+package wangyaochong.service;
 
 import mapper.UserMapperWithAnno;
 import org.apache.ibatis.io.Resources;

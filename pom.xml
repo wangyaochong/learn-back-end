@@ -22,6 +22,12 @@
         <module>make-mvc</module>
         <module>swagger-springboot</module>
         <module>cloud-stream</module>
+        <module>zookeeper-simple</module>
+        <module>dubbo-consumer</module>
+        <module>dubbo-provider</module>
+        <module>dubbo-api</module>
+        <module>dubbo-springboot-consumer</module>
+        <module>dubbo-springboot-provider</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -88,7 +94,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-            <scope>true</scope>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -113,6 +119,7 @@
                     <testCompilerArgument>-parameters</testCompilerArgument>
                 </configuration>
             </plugin>
+
             <plugin>
                 <!--热部署配置-->
                 <groupId>org.springframework.boot</groupId>
@@ -122,24 +129,8 @@
                     <fork>true</fork>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>central</id>
-            <name>Maven Plugin Repository</name>
-            <url>http://repo1.maven.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-        </pluginRepository>
-    </pluginRepositories>
 
     <dependencyManagement>
         <dependencies>

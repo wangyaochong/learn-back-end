@@ -4,7 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import mapper.UserMapperWithXml;
-import service.SessionFactoryService;
+import wangyaochong.service.SessionFactoryService;
 
 import java.io.IOException;
 import java.util.List;

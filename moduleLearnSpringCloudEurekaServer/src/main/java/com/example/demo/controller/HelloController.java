@@ -20,7 +20,7 @@ public class HelloController {
 
     @RequestMapping(value = "/helloServer", method = RequestMethod.GET)
     public String index() {
-        List<ServiceInstance> instances = discoveryClient.getInstances("test-service");
+        List<ServiceInstance> instances = discoveryClient.getInstances("test-wangyaochong.service");
         for (ServiceInstance instance : instances) {
             log.info(UtilLog.prefixLog("服务名称={}"), instance.getServiceId());
             log.info(UtilLog.prefixLog("服务host={}"), instance.getHost());
