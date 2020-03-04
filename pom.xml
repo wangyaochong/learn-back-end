@@ -28,6 +28,7 @@
         <module>dubbo-api</module>
         <module>dubbo-springboot-consumer</module>
         <module>dubbo-springboot-provider</module>
+        <module>netty</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -12,6 +12,6 @@ public interface UserService {
      * @param userId 用户id
      * @return 地址列表
      */
-    public List<UserAddress> getUserAddressList(String userId);
+    List<UserAddress> getUserAddressList(String userId);
 
 }
