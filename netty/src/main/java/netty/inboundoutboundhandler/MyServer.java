@@ -1,24 +1,14 @@
-package netty.simple;
+package netty.inboundoutboundhandler;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
-public class NettyServer {
+public class MyServer {
     public static void main(String[] args) throws Exception {
-
-        /**
-         * 1. 创建两个线程组bossGroup和workerGroup
-         * 2. bossGroup只处理连接请求，真正的客户端业务处理，会交给workerGroup完成
-         * 3. 两个都是无限循环
-         * 4. bossGroup和workerGroup含有的子线程（NioEventLoop）的个数默认是cpu核数*2
-         */
-
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);//如果不需要默认那么多线程数，可以设置参数
         EventLoopGroup workerGroup = new NioEventLoopGroup(8);
 
@@ -26,13 +16,7 @@ public class NettyServer {
         bootstrap.group(bossGroup, workerGroup).
                 channel(NioServerSocketChannel.class).
                 option(ChannelOption.SO_BACKLOG, 128).
-                childOption(ChannelOption.SO_KEEPALIVE, true).childHandler(new ChannelInitializer<SocketChannel>() {
-            @Override
-            protected void initChannel(SocketChannel ch) throws Exception {
-                System.out.println("客户端 ch=" + ch);//可以使用集合管理channel，然后在channel间通信
-                ch.pipeline().addLast(new NettyServerHandler());
-            }
-        });
+                childOption(ChannelOption.SO_KEEPALIVE, true).childHandler(new MyServerInitializer());
         System.out.println("服务器准备好了。。。");
         ChannelFuture bootstrapChannelFuture = bootstrap.bind(6668).sync();
         bootstrapChannelFuture.addListener(future -> {
@@ -41,6 +25,5 @@ public class NettyServer {
         ChannelFuture closeChannelFuture = bootstrapChannelFuture.channel().closeFuture().sync();
         bossGroup.shutdownGracefully();
         workerGroup.shutdownGracefully();
-
     }
 }

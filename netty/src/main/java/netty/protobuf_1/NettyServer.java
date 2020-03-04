@@ -1,4 +1,4 @@
-package netty.simple;
+package netty.protobuf_1;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -8,6 +8,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
 
 public class NettyServer {
     public static void main(String[] args) throws Exception {
@@ -30,7 +31,8 @@ public class NettyServer {
             @Override
             protected void initChannel(SocketChannel ch) throws Exception {
                 System.out.println("客户端 ch=" + ch);//可以使用集合管理channel，然后在channel间通信
-                ch.pipeline().addLast(new NettyServerHandler());
+                ch.pipeline().addLast("decoder", new ProtobufDecoder(netty.protobuf_1.StudentPOJO.Student.getDefaultInstance()));
+                ch.pipeline().addLast(new netty.protobuf_1.NettyServerHandler());
             }
         });
         System.out.println("服务器准备好了。。。");

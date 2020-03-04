@@ -7,11 +7,15 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
 import io.netty.util.CharsetUtil;
 
-public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
+public class MyHttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject msg) throws Exception {
+        System.out.println("ctx对应的channel=" + ctx.channel() + "pipeline=" +
+                ctx.pipeline() + "通过pipeline获取channel" + ctx.pipeline().channel());
+        System.out.println("ctx对应的的handler=" + ctx.handler());
         if (msg instanceof HttpRequest) {
-            System.out.println("pipeline hashcode" + ctx.pipeline().hashCode() + "，TestHttpServerHandler hashcode=" + this.hashCode());
+            System.out.println("ctx类型=" + ctx);
+            System.out.println("pipeline hashcode" + ctx.pipeline().hashCode() + "，MyHttpServerHandler hashcode=" + this.hashCode());
             System.out.println("msg 类型=" + msg.getClass());
             System.out.println("客户端地址=" + ctx.channel().remoteAddress());
             HttpRequest request = (HttpRequest) msg;
