@@ -7,6 +7,8 @@ import java.util.concurrent.TimeUnit;
 public class TestLockString {
     public static void main(String[] args) throws InterruptedException {
         final String string = "string";
+        String string2 = "string";
+        String string3 = string;
         ExecutorService executorService = Executors.newFixedThreadPool(5);
         executorService.execute(() -> {
             System.out.println("开始等待");
@@ -26,6 +28,11 @@ public class TestLockString {
                 synchronized (string1) {
                     string1.notify();
                     System.out.println("复制对象解锁");
+                }
+                Thread.sleep(1000);
+                synchronized (string3) {
+                    string3.notify();
+                    System.out.println("同地址对象解锁");
                 }
                 Thread.sleep(1000);
                 synchronized (string) {
