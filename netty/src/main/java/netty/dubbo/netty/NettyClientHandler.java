@@ -58,20 +58,21 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<MessageProto
         ctx.close();
     }
 
+    //如果不使用字符串作为lock，需要使用两个map，一个是requestId对应的lock，另一个是requestId对应的value
     //在多线程情况下，必须要进行设置requestId，否则可能请求和相应不是一一对应，如果错位唤醒，那么数据就都乱了
     public String getResult(String para, String requestId) {
-        String s1 = requestId;
-        String msg = para + "---" + s1;
+        String requestLock = requestId;
+        String msg = para + "---" + requestLock;
         byte[] bytes = msg.getBytes(CharsetUtil.UTF_8);
         context.writeAndFlush(new MessageProtocol(bytes.length, bytes));
-        synchronized (s1) {
+        synchronized (requestLock) {
             try {
-                threadLockAndResultMap.put(s1, "");
-                s1.wait();
+                threadLockAndResultMap.put(requestLock, "");
+                requestLock.wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        return threadLockAndResultMap.remove(s1);
+        return threadLockAndResultMap.remove(requestLock);
     }
 }
