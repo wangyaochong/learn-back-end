@@ -1,12 +1,21 @@
 package security;
 
-
+// 1 Subject CN=*.aliyun.com, O="Alibaba (China) Technology Co., Ltd.", L=HangZhou, ST=ZheJiang, C=CN
+//   Issuer  CN=GlobalSign Organization Validation CA - SHA256 - G2, O=GlobalSign nv-sa, C=BE
+//   sha1    f1 e6 55 4d 32 ef 89 6c d5 e3 fb f4 6e e5 6e 4a 5c 56 92 79
+//   md5     5a 13 16 bd 13 10 e5 71 1d 39 ae a0 5a 51 52 a2
+//
+// 2 Subject CN=GlobalSign Organization Validation CA - SHA256 - G2, O=GlobalSign nv-sa, C=BE
+//   Issuer  CN=GlobalSign Root CA, OU=Root CA, O=GlobalSign nv-sa, C=BE
+//   sha1    90 2e f2 de eb 3c 5b 13 ea 4c 3d 51 93 62 93 09 e2 31 ae 55
+//   md5     d3 e8 70 6d 82 92 ac e4 dd eb f7 a8 bb bd 56 6b
 import javax.net.ssl.*;
 import java.io.*;
 import java.security.KeyStore;
 import java.security.MessageDigest;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.UUID;
 
 //具体信息可以参考博客:https://blog.csdn.net/chaishen10000/article/details/82992291
 //将生成的密钥放到jre/lib/security目录下
@@ -14,7 +23,8 @@ import java.security.cert.X509Certificate;
 public class InstallCert {
     public static void main(String[] args) throws Exception {
 
-        args[0] = "www.baidu.com";//这个位置输入需要生成证书的地址
+        args = new String[1];
+        args[0] = "maven.aliyun.com";//这个位置输入需要生成证书的地址
 
         String host;
         int port;
@@ -110,7 +120,7 @@ public class InstallCert {
             String alias = host + "-" + (i + 1);
             ks.setCertificateEntry(alias, cert);
 
-            OutputStream out = new FileOutputStream("j" + i + "ssecacerts");
+            OutputStream out = new FileOutputStream("my" + UUID.randomUUID().toString().replaceAll("-", "") + "ssecacerts");
             ks.store(out, passphrase);
             out.close();
         }
