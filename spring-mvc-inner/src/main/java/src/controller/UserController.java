@@ -3,7 +3,6 @@ package src.controller;
 import org.springframework.web.bind.annotation.*;
 import src.entity.User;
 import src.my.UserParam;
-
 @RestController
 @RequestMapping(value = "user", method = RequestMethod.GET)
 public class UserController {
