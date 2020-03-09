@@ -1,0 +1,40 @@
+global_defs {
+  notification_email {
+    acassen@firewall.loc
+    failover@firewall.loc
+    sysadmin@firewall.loc #邮件报警，可以不设置，后期nagios统一监控。
+  }
+  notification_email_from Alexandre.Cassen@firewall.loc
+  smtp_server 127.0.0.1
+  smtp_connect_timeout 30
+  router_id LVS_DEVEL  #此处注意router_id为负载均衡标识，在局域网内应该是唯一的。
+
+}
+ #VRRP实例定义块
+
+vrrp_script chk_http_port {
+    script "/usr/data/nginx_check.sh"
+    interval 2
+    weight 2
+}
+ #虚拟服务器定义块
+
+vrrp_install VI_1{
+    state MASTER
+    interface wifi0
+    virtual_router_id 51
+    priority 100
+    advert_init 1
+    authentication{
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress{
+        127.0.0.3
+    }
+}
+
+
+docker login --username=1162025261@qq.com registry.cn-hangzhou.aliyuncs.com
+docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com/wangyaochong/vimcentos:[镜像版本号]
+docker push registry.cn-hangzhou.aliyuncs.com/wangyaochong/vimcentos:[镜像版本号]

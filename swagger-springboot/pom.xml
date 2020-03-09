@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>learn-swagger</artifactId>
+    <artifactId>swagger-springboot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>learn-swagger</name>
+    <name>swagger-springboot</name>
     <description>Demo project for Spring Boot</description>
     <parent>
         <artifactId>learn-java-always</artifactId>
@@ -59,33 +59,51 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-devtools</artifactId>-->
-        <!--            <optional>true</optional>-->
-        <!--            <scope>true</scope>-->
-        <!--        </dependency>-->
-
     </dependencies>
 
+
+    <!--    <properties>-->
+    <!--        <docker.image.prefix>test</docker.image.prefix>-->
+    <!--        <project.artifact>test.jar</project.artifact>-->
+    <!--    </properties>-->
     <build>
         <plugins>
-            <!--            <plugin>-->
-            <!--                &lt;!&ndash;热部署配置&ndash;&gt;-->
-            <!--                <groupId>org.springframework.boot</groupId>-->
-            <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--                <configuration>-->
-            <!--                    &lt;!&ndash;fork:如果没有该项配置,整个devtools不会起作用&ndash;&gt;-->
-            <!--                    <fork>true</fork>-->
-            <!--                </configuration>-->
-            <!--            </plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <imageName>wyc/${project.artifactId}.jar</imageName>
+                    <imageTags>
+                        <imgageTag>latest</imgageTag>
+                    </imageTags>
+                    <expose>8080</expose>
+                    <baseImage>java:8</baseImage>
+                    <maintainer>xxxx yyyy@zzzz.com</maintainer>
+                    <workdir>/</workdir>
+                    <cmd>["java","-version"]</cmd>
+                    <entryPoint>["java","-jar","${project.build.finalName}.jar"]</entryPoint>
+                    <dockerHost>http://wangyaochong:2375</dockerHost>
+                    <resources>
+                        <resouce>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resouce>
+                    </resources>
+                </configuration>
             </plugin>
         </plugins>
     </build>
-
-
 </project>
