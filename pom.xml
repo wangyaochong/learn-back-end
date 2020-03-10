@@ -10,7 +10,7 @@
         <module>modulecore</module>
         <module>learn-java</module>
         <module>springboot</module>
-        <module>learn-algorithm</module>
+        <module>data-structure-algorithm</module>
         <module>spring-mvc-inner</module>
         <module>mybatis-simple</module>
         <module>mybatis-spring-mvc</module>

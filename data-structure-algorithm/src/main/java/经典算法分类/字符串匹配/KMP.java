@@ -3,7 +3,6 @@ package 经典算法分类.字符串匹配;
 import org.junit.Test;
 
 import java.util.Arrays;
-
 public class KMP {
     public int[] next(String p) {
         int length = p.length();
