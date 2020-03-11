@@ -3,7 +3,14 @@ package structure.tree;
 import leetcode.base.definition.TreeNode;
 import org.junit.Test;
 
+/**
+ * 1
+ * 2        5
+ * 3   4     6   7
+ * 8
+ */
 public class TraverseTreeRecursion {
+
 
     @Test
     public void test() {

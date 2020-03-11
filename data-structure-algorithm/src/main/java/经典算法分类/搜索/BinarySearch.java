@@ -6,6 +6,7 @@ public class BinarySearch {
     @Test
     public void test() {
         System.out.println(search(new int[]{1, 2, 4, 5, 6, 7, 9}, 4));
+        System.out.println(search(new int[]{1}, 1));
     }
 
     public int search(int[] list, int target) {
@@ -13,7 +14,9 @@ public class BinarySearch {
         int high = list.length - 1;
         int mid;
         while (low <= high) {
+            //下面两种表达式是等价的
             mid = (low + high) / 2;
+            mid = low + (high - low) / 2;
             if (list[mid] < target) {
                 low = mid + 1;
             } else if (list[mid] > target) {
