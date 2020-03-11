@@ -3,6 +3,9 @@ package 经典算法分类.排序;
 import org.junit.Test;
 import util.UtilArray;
 
+/**
+ * 归并排序是基于归并的方法
+ */
 public class E_MergeSort {
 
     public void sort(int[] array) {

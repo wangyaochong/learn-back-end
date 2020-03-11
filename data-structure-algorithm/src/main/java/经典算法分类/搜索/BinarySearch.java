@@ -5,7 +5,7 @@ import org.junit.Test;
 public class BinarySearch {
     @Test
     public void test() {
-        System.out.println(search(new int[]{1, 2}, 2));
+        System.out.println(search(new int[]{1, 2, 4, 5, 6, 7, 9}, 4));
     }
 
     public int search(int[] list, int target) {
