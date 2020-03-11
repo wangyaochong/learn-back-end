@@ -4,6 +4,9 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.util.Enumeration;
 
+/**
+ * 注意，Demo类的class文件放在D:/classLoader/Demo.class
+ */
 public class HotDeployment {
     public static void main(String[] args) throws Exception {
         MyFileClassLoader classLoader1 = new MyFileClassLoader("D:/");

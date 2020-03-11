@@ -7,7 +7,6 @@ import java.text.NumberFormat;
 public class TestNumberFormat {
     @Test
     public void test() {
-
         NumberFormat instance = NumberFormat.getInstance();
         instance.setMinimumIntegerDigits(5);
         instance.setMinimumFractionDigits(5);

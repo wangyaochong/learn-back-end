@@ -2,12 +2,20 @@ package structure.tree;
 
 import leetcode.base.definition.TreeNode;
 import org.junit.Test;
+//3
+//2
+//4
+//1
+//8
+//6
+//5
+//7
 
 /**
- * 1
- * 2        5
- * 3   4     6   7
- * 8
+ * --------1
+ * ---2        5
+ * 3    4     6   7
+ * ----------8
  */
 public class TraverseTreeRecursion {
 
@@ -29,32 +37,30 @@ public class TraverseTreeRecursion {
     }
 
     public void postOrder(TreeNode treeNode) {
-        if (treeNode == null) {
-            return;
-        }
+        if (treeNode == null) return;
         postOrder(treeNode.getLeft());
         postOrder(treeNode.getRight());
-        System.out.println(treeNode.getVal());
+        visit(treeNode);
     }
 
     public void inOrder(TreeNode treeNode) {
-        if (treeNode == null) {
-            return;
-        }
+        if (treeNode == null) return;
+        if (!treeNode.isLeftIndex())
         inOrder(treeNode.getLeft());
-        System.out.println(treeNode.getVal());
+        visit(treeNode);
+        if (!treeNode.isRightIndex())
         inOrder(treeNode.getRight());
-
     }
 
     public void preOrder(TreeNode treeNode) {
-        if (treeNode == null) {
-            return;
-        }
-        System.out.println(treeNode.getVal());
+        if (treeNode == null) return;
+        visit(treeNode);
         preOrder(treeNode.getLeft());
         preOrder(treeNode.getRight());
     }
 
 
+    public void visit(TreeNode treeNode) {
+        System.out.println(treeNode.getVal());
+    }
 }

@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>modulecore</module>
-        <module>learn-java</module>
+        <module>java</module>
         <module>springboot</module>
         <module>data-structure-algorithm</module>
         <module>spring-mvc-inner</module>
