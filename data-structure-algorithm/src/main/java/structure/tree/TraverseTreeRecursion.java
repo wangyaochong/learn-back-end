@@ -60,6 +60,6 @@ public class TraverseTreeRecursion {
 
 
     public void visit(TreeNode treeNode) {
-        System.out.println(treeNode.getVal() + "," + treeNode.getWeight());
+        System.out.println(treeNode.getVal());
     }
 }

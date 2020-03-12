@@ -1,14 +1,14 @@
 package structure.tree;
 
-import leetcode.base.definition.TreeNode;
 import org.junit.Test;
+import structure.tree.treenode.WeightTreeNode;
 
 import java.util.*;
 
 public class HuffmanTreeZip {
 
-    public List<TreeNode> getNodesFromBytes(byte[] bytes) {
-        List<TreeNode> list = new ArrayList<>();
+    public List<WeightTreeNode> getNodesFromBytes(byte[] bytes) {
+        List<WeightTreeNode> list = new ArrayList<>();
         Map<Byte, Integer> charCountMap = new HashMap<>();
         for (int i = 0; i < bytes.length; i++) {
             byte key = bytes[i];
@@ -17,7 +17,7 @@ public class HuffmanTreeZip {
             charCountMap.put(key, integer + 1);
         }
         for (Map.Entry<Byte, Integer> entry : charCountMap.entrySet()) {
-            TreeNode treeNode = new TreeNode();
+            WeightTreeNode treeNode = new WeightTreeNode();
             treeNode.setVal((int) entry.getKey());
             treeNode.setWeight(entry.getValue());
             list.add(treeNode);
@@ -25,8 +25,8 @@ public class HuffmanTreeZip {
         return list;
     }
 
-    public List<TreeNode> getNodesFromString(String content) {
-        List<TreeNode> list = new ArrayList<>();
+    public List<WeightTreeNode> getNodesFromString(String content) {
+        List<WeightTreeNode> list = new ArrayList<>();
         Map<Character, Integer> charCountMap = new HashMap<>();
         for (int i = 0; i < content.length(); i++) {
             char key = content.charAt(i);
@@ -35,7 +35,7 @@ public class HuffmanTreeZip {
             charCountMap.put(key, integer + 1);
         }
         for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
-            TreeNode treeNode = new TreeNode();
+            WeightTreeNode treeNode = new WeightTreeNode();
             treeNode.setVal((int) entry.getKey());
             treeNode.setWeight(entry.getValue());
             list.add(treeNode);
@@ -44,17 +44,20 @@ public class HuffmanTreeZip {
     }
 
 
-    public TreeNode build(List<TreeNode> nodeList) {
+    /**
+     * 通过节点构建哈夫曼树
+     */
+    public WeightTreeNode build(List<WeightTreeNode> nodeList) {
 
         //先要排序
-        nodeList.sort(Comparator.comparingInt(o -> o.weight));
+        nodeList.sort(Comparator.comparingInt(o -> o.getWeight()));
         while (nodeList.size() >= 2) {
-            TreeNode a = nodeList.remove(0);
-            TreeNode b = nodeList.remove(0);
-            TreeNode newNode = new TreeNode();
-            newNode.left = a;
-            newNode.right = b;
-            newNode.weight = a.weight + b.weight;
+            WeightTreeNode a = nodeList.remove(0);
+            WeightTreeNode b = nodeList.remove(0);
+            WeightTreeNode newNode = new WeightTreeNode();
+            newNode.setLeft(a);
+            newNode.setRight(b);
+            newNode.setWeight(a.getWeight() + b.getWeight());
             int i = 0;
             //找到合适的位置，插入新的节点
             while (i < nodeList.size() && newNode.getWeight() > nodeList.get(i).getWeight()) i++;
@@ -63,22 +66,25 @@ public class HuffmanTreeZip {
         return nodeList.remove(0);
     }
 
-    public void getHuffmanCode(TreeNode root, StringBuilder codeString, Map<Byte, String> codeMap) {
-        if (root.val != null) {
-            codeMap.put((byte) (int) root.val, codeString.toString());
+    public void getHuffmanCode(WeightTreeNode root, StringBuilder codeString, Map<Byte, String> codeMap) {
+        if (root.getVal() != null) {
+            codeMap.put((byte) (int) root.getVal(), codeString.toString());
             return;
         }
-        getHuffmanCode(root.left, new StringBuilder(codeString).append('0'), codeMap);
-        getHuffmanCode(root.right, new StringBuilder(codeString).append('1'), codeMap);
+        getHuffmanCode((WeightTreeNode) root.getLeft(), new StringBuilder(codeString).append('0'), codeMap);
+        getHuffmanCode((WeightTreeNode) root.getRight(), new StringBuilder(codeString).append('1'), codeMap);
     }
 
-    @Test
-    public void testByte() {
-    }
-
+    /**
+     * 将byte[]进行压缩
+     *
+     * @param input       the input
+     * @param huffmanCode the huffman code
+     * @return the byte [ ]
+     */
     public byte[] zip(byte[] input, Map<Byte, String> huffmanCode) {
-        List<TreeNode> nodesFromBytes = getNodesFromBytes(input);
-        TreeNode build = build(nodesFromBytes);
+        List<WeightTreeNode> nodesFromBytes = getNodesFromBytes(input);
+        WeightTreeNode build = build(nodesFromBytes);
         getHuffmanCode(build, new StringBuilder(), huffmanCode);
         StringBuilder outputString = new StringBuilder();
         for (byte b : input) {
@@ -101,11 +107,6 @@ public class HuffmanTreeZip {
         return bytes;
     }
 
-
-    @Test
-    public void test() {
-
-    }
 
     //这个压缩方法还需要处理最后一个byte，因为不足8位。
 //    另外，在压缩的时候，可以写入
@@ -153,14 +154,14 @@ public class HuffmanTreeZip {
 
     @Test
     public void testGetNodes() {
-        List<TreeNode> nodesFromString = getNodesFromString("i like like like java do you like a java");
-        for (TreeNode treeNode : nodesFromString) {
-            System.out.println((char) (int) treeNode.val + "," + treeNode.weight);
+        List<WeightTreeNode> nodesFromString = getNodesFromString("i like like like java do you like a java");
+        for (WeightTreeNode treeNode : nodesFromString) {
+            System.out.println((char) (int) treeNode.getVal() + "," + treeNode.getWeight());
         }
-        TreeNode build = build(nodesFromString);
+        WeightTreeNode build = build(nodesFromString);
         System.out.println("build结束");
         TraverseTreeRecursion traverseTreeRecursion = new TraverseTreeRecursion();
-        traverseTreeRecursion.preOrder(build);
+//        traverseTreeRecursion.preOrder(build);
         HashMap<Byte, String> codeMap = new HashMap<>();
         getHuffmanCode(build, new StringBuilder(), codeMap);
         for (Map.Entry<Byte, String> entry : codeMap.entrySet()) {
