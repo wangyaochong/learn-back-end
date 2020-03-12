@@ -20,7 +20,7 @@ public class EventQueueRight {
             System.out.println("submitted");
             eventQueue.addLast(event);
             if (eventQueue.size() > max) {
-                System.out.println("wrong size=" + eventQueue.size());
+                System.out.println("wrong weight=" + eventQueue.size());
                 try {
                     TimeUnit.SECONDS.sleep(1000);
                 } catch (InterruptedException e) {

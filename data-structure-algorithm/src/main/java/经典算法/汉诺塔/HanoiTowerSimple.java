@@ -8,10 +8,10 @@ package 经典算法.汉诺塔;
 public class HanoiTowerSimple {
     public void solve(int num, char a, char b, char c) {
         if (num == 1) {
-            System.out.println("size=" + num + "," + a + "-->" + c);
+            System.out.println("weight=" + num + "," + a + "-->" + c);
         } else {
             solve(num - 1, a, c, b);
-            System.out.println("size=" + num + "," + a + "-->" + c);
+            System.out.println("weight=" + num + "," + a + "-->" + c);
             solve(num - 1, b, a, c);
         }
     }
