@@ -10,7 +10,6 @@ public class MinHeapFixSize {
 
     private int[] arr;
     private int curSize = 0;
-
     public MinHeapFixSize(int size) {
         arr = new int[size];
         Arrays.fill(arr, Integer.MAX_VALUE);
@@ -65,14 +64,20 @@ public class MinHeapFixSize {
 
 
     public static void main(String[] args) {
+//        这个结果可以找到排名前3的的数
         MinHeapFixSize minHeapFixSize = new MinHeapFixSize(3);
         minHeapFixSize.insert(1);
+        minHeapFixSize.insert(2);
+        minHeapFixSize.insert(2);
         minHeapFixSize.insert(2);
         minHeapFixSize.insert(3);
         minHeapFixSize.insert(4);
         minHeapFixSize.insert(5);
+        minHeapFixSize.insert(5);
+        minHeapFixSize.insert(5);
         minHeapFixSize.insert(6);
         System.out.println(minHeapFixSize.getTop());
+        System.out.println(Arrays.toString(minHeapFixSize.arr));
     }
 
 

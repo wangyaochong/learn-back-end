@@ -11,6 +11,7 @@ public class TreeNode {
     public Integer val;
     public TreeNode left;
     public TreeNode right;
+    public Integer weight;
     public boolean isLeftIndex;
     public boolean isRightIndex;
 
@@ -21,5 +22,6 @@ public class TreeNode {
     }
     public TreeNode(int x) {
         this.val = x;
+        this.weight = x;
     }
 }

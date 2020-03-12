@@ -38,6 +38,26 @@ public class TraverseTreeNoRecursion {
         }
     }
 
+    public void levelOrderFormat(TreeNode treeNode) {
+        List<TreeNode> queue = new ArrayList<>();
+        queue.add(treeNode);
+        queue.add(null);
+        while (queue.size() > 1) {
+            TreeNode remove = queue.remove(0);
+            if (remove == null) {
+                System.out.println("\n---------------------------------");
+                queue.add(null);
+            } else {
+                System.out.print(remove.getVal() + "  ");
+                if (remove.getLeft() != null) {
+                    queue.add(remove.getLeft());
+                }
+                if (remove.getRight() != null) {
+                    queue.add(remove.getRight());
+                }
+            }
+        }
+    }
 
     public void preOrderNoRecursion(TreeNode treeNode) {
         Stack<TreeNode> nodeStack = new Stack<>();

@@ -1,5 +1,4 @@
 package structure.tree;
-
 import leetcode.base.definition.TreeNode;
 import org.junit.Test;
 //3
@@ -61,6 +60,6 @@ public class TraverseTreeRecursion {
 
 
     public void visit(TreeNode treeNode) {
-        System.out.println(treeNode.getVal());
+        System.out.println(treeNode.getVal() + "," + treeNode.getWeight());
     }
 }

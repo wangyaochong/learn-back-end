@@ -10,7 +10,6 @@ import org.junit.Test;
 public class ThreadTree {
 
     TreeNode pre = null;
-
     public void visitThreadTree(TreeNode treeNode) {
         while (treeNode != null) {
             while (!treeNode.isLeftIndex()) {
