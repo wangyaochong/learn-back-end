@@ -15,7 +15,7 @@ public class Bag01Full {
         for (int i = 1; i < bagSize + 1; i++) {
             for (int j = 0; j < itemList.size(); j++) {
                 if (i - itemList.get(j).getWeight() >= 0) {
-                    //完全背包j+1
+                    //完全背包j+1，代表可以重复选取
                     dp[i][j + 1] = Math.max(dp[i][j], dp[i - itemList.get(j).getWeight()][j + 1] + itemList.get(j).getValue());
                 } else {
                     dp[i][j + 1] = dp[i][j];

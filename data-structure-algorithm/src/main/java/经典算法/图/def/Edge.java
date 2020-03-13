@@ -1,4 +1,4 @@
-package leetcode.base.definition;
+package 经典算法.图.def;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Point {
-    public int x;
-    public int y;
+public class Edge {
+    int start;
+    int end;
+    int finalEnd;
+    int weight;
 }

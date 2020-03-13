@@ -1,4 +1,4 @@
-package 经典算法.汉诺塔;
+package 经典算法.练习.汉诺塔;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
