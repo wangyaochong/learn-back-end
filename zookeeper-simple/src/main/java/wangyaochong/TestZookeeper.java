@@ -12,7 +12,8 @@ public class TestZookeeper {
     /**
      * 注意这个值不能有任何空白字符
      */
-    private String connectString = "localhost:2182,localhost:2183,localhost:2184";
+//    private String connectString = "localhost:2182,localhost:2183,localhost:2184";
+    private String connectString = "wangyaochong:2181,wangyaochong:2182,wangyaochong:2183";
     /**
      * 如果这个值太小，可能会丢失连接
      */

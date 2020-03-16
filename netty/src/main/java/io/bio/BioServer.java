@@ -12,6 +12,8 @@ public class BioServer {
     //可以使用telnet 127.0.0.1 6666 来连接服务器，按ctrl+]转入命令模式，使用send命令发送字符串
 
     public static void main(String[] args) throws IOException {
+        System.out.println("cpu数量=" + Runtime.getRuntime().availableProcessors());
+
         ExecutorService executorService = Executors.newCachedThreadPool();
         ServerSocket serverSocket = new ServerSocket(6666);
         System.out.println("服务器启动成功了");
