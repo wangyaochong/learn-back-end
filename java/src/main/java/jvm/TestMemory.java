@@ -16,7 +16,7 @@ public class TestMemory {
 
     /**
      * -Xmx100m -Xms100m -XX:+PrintGCDetails
-     * 以上虚拟机参数可以打印jvm详细信息，还可以看到垃圾回收的详细过程
+     * 以上java虚拟机参数可以打印jvm详细信息，还可以看到垃圾回收的详细过程
      */
     public static void main(String[] args) {
         int mb = 1024 * 1024;
