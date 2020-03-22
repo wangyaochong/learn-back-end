@@ -1,6 +1,5 @@
-package com.example.learnmybatisspringboot.mapper;
+package com.example.learnmybatisspringboot.mybatisinner.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
