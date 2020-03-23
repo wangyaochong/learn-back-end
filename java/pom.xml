@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-java</artifactId>
+    <artifactId>java</artifactId>
 
     <dependencies>
         <dependency>
@@ -76,4 +76,20 @@
     </dependencies>
 
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <!--                    对于反射，想要获取方法的参数名，需要开启这个配置-->
+                    <compilerArgument>-parameters</compilerArgument>
+                    <testCompilerArgument>-parameters</testCompilerArgument>
+                </configuration>
+                <version>3.1</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>

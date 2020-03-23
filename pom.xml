@@ -49,7 +49,8 @@
         <junit.version>4.12</junit.version>
         <lombok.version>1.18.4</lombok.version>
         <slf4j.version>1.7.30</slf4j.version>
-
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <dependencies>
         <dependency>
@@ -93,13 +94,13 @@
             <scope>provided</scope>
         </dependency>
 
-<!--        注意，如果使用spring-boot-devtools，无法同时运行多个实例-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-devtools</artifactId>-->
-<!--            <optional>true</optional>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
+        <!--        注意，如果使用spring-boot-devtools，无法同时运行多个实例-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-devtools</artifactId>-->
+        <!--            <optional>true</optional>-->
+        <!--            <scope>provided</scope>-->
+        <!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -122,6 +123,8 @@
                     <compilerArgument>-parameters</compilerArgument>
                     <testCompilerArgument>-parameters</testCompilerArgument>
                 </configuration>
+                <version>3.1</version>
+
             </plugin>
             <plugin>
                 <!--热部署配置-->
@@ -131,6 +134,7 @@
                     <!--fork:如果没有该项配置,整个devtools不会起作用-->
                     <fork>true</fork>
                 </configuration>
+                <version>2.2.4.RELEASE</version>
             </plugin>
         </plugins>
     </build>

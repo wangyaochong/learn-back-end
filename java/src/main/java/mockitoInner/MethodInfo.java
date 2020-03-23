@@ -1,7 +1,6 @@
 package mockitoInner;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,7 +10,6 @@ import java.util.Arrays;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
 public class MethodInfo {
     private MyCGLibInterceptor interceptor = null;
     private Method method = null;
