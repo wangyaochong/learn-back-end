@@ -3,6 +3,7 @@ package com.learnmybatisspringboot.generated.controller;
 import com.learnmybatisspringboot.generated.entity.Account;
 import com.learnmybatisspringboot.generated.service.AccountService;
 import com.learnmybatisspringboot.service.TestPropagationMain;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Propagation;
@@ -71,6 +72,8 @@ public class AccountController {
         main.mainInsert();
     }
 
+    //    嵌套调用使用同一个事务
+
     @GetMapping("testPropagationSameClass")
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
     public void testPropagationSameClass() {
@@ -86,6 +89,26 @@ public class AccountController {
 
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
     public void sub() {
+        accountService.insert(new Account(null, "testPropagationSub", 18.0));
+    }
+
+    //    可以暴露当前的代理对象
+
+    @GetMapping("testPropagationSameClassProxy")
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    public void testPropagationSameClassProxy() {
+        ((AccountController) (AopContext.currentProxy())).mainProxy();
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    public void mainProxy() {
+        accountService.insert(new Account(null, "testPropagationMain", 18.0));
+        ((AccountController) (AopContext.currentProxy())).subProxy();
+        throw new RuntimeException("mainProxy");
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
+    public void subProxy() {
         accountService.insert(new Account(null, "testPropagationSub", 18.0));
     }
 }
