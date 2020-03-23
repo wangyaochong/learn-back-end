@@ -1,6 +1,6 @@
-package com.example.learnmybatisspringboot.mybatisinner.service;
+package com.learnmybatisspringboot.mybatisinner.service;
 
-import com.example.learnmybatisspringboot.mybatisinner.mapper.TDao;
+import com.learnmybatisspringboot.mybatisinner.mapper.TDao;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

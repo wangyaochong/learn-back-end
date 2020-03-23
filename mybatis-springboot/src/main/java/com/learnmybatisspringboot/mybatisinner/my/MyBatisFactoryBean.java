@@ -1,4 +1,4 @@
-package com.example.learnmybatisspringboot.mybatisinner.my;
+package com.learnmybatisspringboot.mybatisinner.my;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Component;

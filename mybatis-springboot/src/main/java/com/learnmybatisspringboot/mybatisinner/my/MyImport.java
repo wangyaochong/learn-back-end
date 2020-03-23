@@ -1,4 +1,4 @@
-package com.example.learnmybatisspringboot.mybatisinner.my;
+package com.learnmybatisspringboot.mybatisinner.my;
 
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
@@ -11,7 +11,7 @@ public class MyImport implements ImportBeanDefinitionRegistrar {
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(MyBatisFactoryBean.class);
         AbstractBeanDefinition beanDefinition = beanDefinitionBuilder.getBeanDefinition();
-        beanDefinition.getPropertyValues().add("mapperInterface", "com.example.learnmybatisspringboot.mybatisinner.mapper.TDao");
+        beanDefinition.getPropertyValues().add("mapperInterface", "com.learnmybatisspringboot.mybatisinner.mapper.TDao");
         registry.registerBeanDefinition("xxxx",beanDefinition);
 
     }
