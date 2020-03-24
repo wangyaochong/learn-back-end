@@ -2,10 +2,7 @@ package com.wangyaochong.springsecurityboot;
 
 import com.wangyaochong.springsecurityboot.generated.entity.RolePermission;
 import com.wangyaochong.springsecurityboot.generated.entity.UserRole;
-import com.wangyaochong.springsecurityboot.generated.service.PermissionService;
-import com.wangyaochong.springsecurityboot.generated.service.RolePermissionService;
-import com.wangyaochong.springsecurityboot.generated.service.UserRoleService;
-import com.wangyaochong.springsecurityboot.generated.service.UserService;
+import com.wangyaochong.springsecurityboot.generated.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,6 +28,8 @@ public class MyUserDetailServiceImpl implements UserDetailsService {
     RolePermissionService rolePermissionService;
     @Resource
     PermissionService permissionService;
+    @Resource
+    RoleService roleService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -42,6 +41,11 @@ public class MyUserDetailServiceImpl implements UserDetailsService {
         User.UserBuilder builder = User.withUsername(user.getUsername()).password(user.getPassword());
         for (UserRole userRole : userRoles) {
             List<RolePermission> rolePermissions = rolePermissionService.queryById(userRole.getRoleId());
+
+            //设置角色
+            builder.roles(roleService.queryById(userRole.getRoleId()).getRoleName());
+
+            //设置权限
             for (RolePermission rolePermission : rolePermissions) {
                 builder.authorities(permissionService.queryById(rolePermission.getPermissionId()).getCode());
             }
