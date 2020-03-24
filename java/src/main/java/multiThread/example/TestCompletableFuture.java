@@ -33,6 +33,9 @@ public class TestCompletableFuture {
         }).whenComplete((a, b) -> {
             System.out.println("结果=" + a);
             System.out.println("异常=" + b);
+        }).exceptionally((exception) -> {
+            System.out.println("异常了=" + exception);
+            return -1;
         });
         Integer integer = voidCompletableFuture2.get();
     }
