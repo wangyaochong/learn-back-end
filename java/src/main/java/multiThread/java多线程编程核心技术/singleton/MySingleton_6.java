@@ -18,14 +18,14 @@ public class MySingleton_6 implements Serializable {//内部类实现方法，�
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         MySingleton_6 obj = MySingleton_6.getSingleton();
-        FileOutputStream outputStream = new FileOutputStream(new File("test.txt"));
+        FileOutputStream outputStream = new FileOutputStream(new File("testCoreSize.txt"));
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
         objectOutputStream.writeObject(obj);
         objectOutputStream.close();
         outputStream.close();
         System.out.println(obj.hashCode());
 
-        FileInputStream fileInputStream = new FileInputStream("test.txt");
+        FileInputStream fileInputStream = new FileInputStream("testCoreSize.txt");
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
         Object o = objectInputStream.readObject();
         System.out.println(o.hashCode());

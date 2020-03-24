@@ -11,7 +11,7 @@ import java.util.Optional;
 @Slf4j
 public class TestOptional {
 
-    User user = new User(1L, "test", "test", "test@", new Address(1L, "中国", "江西", "南昌"));
+    User user = new User(1L, "testCoreSize", "testCoreSize", "testCoreSize@", new Address(1L, "中国", "江西", "南昌"));
 
     @Test
     public void test() {
@@ -27,12 +27,12 @@ public class TestOptional {
         log.info(userNull.toString());
         User user = userNull.orElse(getUser());//如果参数为null，则返回另一个值，即使参数不为null
         log.info(user.toString());
-        User user1 = userNull.orElseGet(() -> getUser());//这个地方如果参数是null，则调用方法返回的
+        User user1 = userNull.orElseGet(this::getUser);//这个地方如果参数是null，则调用方法返回的
         log.info(user1.toString());
 
         User user2 = userNotNull.orElse(getUser());//如果参数不为null，也会生成user
         log.info(user.toString());
-        User user3 = userNotNull.orElseGet(() -> getUser());//由于参数不为null，不会调用getUser方法
+        User user3 = userNotNull.orElseGet(this::getUser);//由于参数不为null，不会调用getUser方法
         log.info(user1.toString());
     }
 

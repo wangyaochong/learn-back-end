@@ -13,7 +13,7 @@ public class TestThreadLocal {
     @Test
     public void test() throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
-        System.out.println("test");
+        System.out.println("testCoreSize");
         for (int i = 0; i < 20; i++) {
             final Integer temp = i;
             executorService.submit(() -> {

@@ -19,7 +19,7 @@ public class MyString {
     }
 
 //    @Test
-//    public void test() {
+//    public void testCoreSize() {
 //        System.out.println(charAt("", 0));
 //    }
 }

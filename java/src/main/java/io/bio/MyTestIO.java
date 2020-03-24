@@ -8,7 +8,7 @@ import java.io.*;
 
 @Slf4j
 public class MyTestIO {
-    public static String fileName = "./test.txt";
+    public static String fileName = "./testCoreSize.txt";
     public static String fileNameLarge = "./testLarge.txt";
     public static String fileNameLarge10000 = "./testLarge.txt";
 
