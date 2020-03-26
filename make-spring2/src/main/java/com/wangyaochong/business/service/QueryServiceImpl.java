@@ -1,4 +1,4 @@
-package com.wangyaochong.business;
+package com.wangyaochong.business.service;
 
 import com.wangyaochong.anno.WService;
 import lombok.extern.slf4j.Slf4j;

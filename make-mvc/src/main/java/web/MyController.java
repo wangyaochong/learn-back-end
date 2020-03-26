@@ -27,7 +27,8 @@ public class MyController {
     }
 
     @MyRequestMapping("mvc.do")
-    public String mvc() {
+    public String mvc(HttpServletRequest request) {
+        System.out.println(request.getServletContext().getRealPath("/"));
         return "mvc.html";
     }
 }

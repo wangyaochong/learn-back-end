@@ -15,6 +15,6 @@ import java.util.Map;
 @Data
 public class WModelAndView {
     String viewName;
-    Map<String, ?> model;
+    Map<String, Object> model;
 
 }

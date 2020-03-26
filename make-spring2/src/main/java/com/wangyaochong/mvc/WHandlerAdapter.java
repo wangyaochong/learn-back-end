@@ -19,8 +19,7 @@ public class WHandlerAdapter {
         return handler instanceof WHandlerMapping;
     }
 
-    public WModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws InvocationTargetException, IllegalAccessException {
-        WHandlerMapping handlerMapping = (WHandlerMapping) handler;
+    public WModelAndView handle(HttpServletRequest request, HttpServletResponse response, WHandlerMapping handlerMapping) throws InvocationTargetException, IllegalAccessException {
         Map<String, Integer> paramMapping = new HashMap<>();
         Annotation[][] pa = handlerMapping.getMethod().getParameterAnnotations();
         for (int i = 0 ; i < pa.length ; i++) {

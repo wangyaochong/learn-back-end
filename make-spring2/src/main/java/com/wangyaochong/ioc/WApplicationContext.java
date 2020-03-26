@@ -17,8 +17,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public class WApplicationContext extends WDefaultListableBeanFactory implements WBeanFactory {
     String[] configLocations;
     WBeanDefinitionReader reader;
-    Map<String, Object> factoryBeanObjectCache = new ConcurrentHashMap<>();
-    Map<String, WBeanWrapper> factoryBeanInstanceCache = new ConcurrentHashMap<>();
+    //    对象map
+    private Map<String, Object> factoryBeanObjectCache = new ConcurrentHashMap<>();
+    //    创建中的对象的BeanWrapper的map，在对象实例化后可以删除
+    private Map<String, WBeanWrapper> factoryBeanInstanceCache = new ConcurrentHashMap<>();
 
 
     public WApplicationContext(String... configLocations) {
@@ -67,7 +69,7 @@ public class WApplicationContext extends WDefaultListableBeanFactory implements 
         WBeanPostProcessor beanPostProcessor = new WBeanPostProcessor();
         Object instance = instantiateBean(beanDefinition);
         if (null == instance) {
-            throw new RuntimeException("没有instance");
+            throw new RuntimeException("无法实例化,beanName=" + beanName);
         }
         beanPostProcessor.postProcessBeforeInitialization(instance, beanName);
 
@@ -89,15 +91,16 @@ public class WApplicationContext extends WDefaultListableBeanFactory implements 
             Field[] fields = clazz.getDeclaredFields();
             for (Field field : fields) {
                 if (field.isAnnotationPresent(WAutowired.class)) {
-                    WAutowired autowired = field.getAnnotation(WAutowired.class);
-                    String autowireBeanName = autowired.value().trim();
-                    if ("".endsWith(autowireBeanName)) {
-                        autowireBeanName = field.getType().getName();
-                    }
-                    field.setAccessible(true);
                     try {
-                        field.set(instance, factoryBeanInstanceCache.get(autowireBeanName).getWrappedInstance());
-                    } catch (IllegalAccessException e) {
+                        WAutowired autowired = field.getAnnotation(WAutowired.class);
+                        String autowireBeanName = autowired.value().trim();
+                        field.setAccessible(true);
+                        if ("".equals(autowireBeanName)) {
+                            field.set(instance, getBean(field.getType()));
+                        } else {
+                            field.set(instance, getBean(beanName));
+                        }
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
@@ -124,7 +127,22 @@ public class WApplicationContext extends WDefaultListableBeanFactory implements 
 
     @Override
     public Object getBean(Class<?> beanClass) throws Exception {
-        return null;
+        for (Map.Entry<String, Object> entry : factoryBeanObjectCache.entrySet()) {
+            //这里直接返回按照类型匹配的第一个对象了
+            if (beanClass.isAssignableFrom(entry.getValue().getClass())) {
+                return entry.getValue();
+            }
+        }
+        //如果没有，就需要实例化对象了
+        for (Map.Entry<String, WBeanDefinition> entry : beanDefinitionMap.entrySet()) {
+            WBeanDefinition value = entry.getValue();
+            String beanClassName = value.getBeanClassName();
+            if (beanClass.isAssignableFrom(Class.forName(beanClassName))) {
+                return getBean(entry.getKey());//如果有符合的对象，就新建一个
+            }
+        }
+        //如果还没有，就要抛出异常了
+        throw new RuntimeException("找不到对象，beanClass=" + beanClass);
     }
 
     public String[] getBeanDefinitionNames() {

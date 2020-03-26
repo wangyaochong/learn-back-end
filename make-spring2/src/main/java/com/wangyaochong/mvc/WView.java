@@ -22,11 +22,10 @@ import java.util.regex.Pattern;
 public class WView {
     String defaultContentType = "text/html;charset=utf-8";
     File viewFile;
-
     public void render(Map<String, ?> model, HttpServletRequest request, HttpServletResponse response) throws Exception {
         StringBuffer sb = new StringBuffer();
         try (RandomAccessFile ra = new RandomAccessFile(this.viewFile, "r")) {
-            String line = null;
+            String line;
             while ((null != (line = ra.readLine()))) {
                 line = new String(line.getBytes("ISO-8859-1"), "utf-8");
                 String p = "\\$\\{\\w+}";
@@ -39,12 +38,14 @@ public class WView {
                     if (null != paramValue) {
                         line = line.replaceFirst(p, paramValue.toString());
                     }
-                    sb.append(line);
                 }
+                sb.append(line);
             }
         }
         response.setCharacterEncoding("utf-8");
+        response.setContentType(defaultContentType);
         response.getWriter().write(sb.toString());
+        response.getWriter().close();
     }
 
     public static void main(String[] args) {
@@ -59,8 +60,5 @@ public class WView {
             input = input.replaceFirst("\\$\\{\\w+}", s);
             System.out.println(input);
         }
-
-
     }
-
 }

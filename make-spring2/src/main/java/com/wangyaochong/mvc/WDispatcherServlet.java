@@ -6,6 +6,7 @@ import com.wangyaochong.ioc.WApplicationContext;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,15 +25,15 @@ import java.util.regex.Pattern;
 //@WebServlet("/")
 @Slf4j
 public class WDispatcherServlet extends HttpServlet {
-    final String LOCATION = "contextConfigLocation";
-    List<WHandlerMapping> handlerMappings = new ArrayList<>();
-    Map<WHandlerMapping, WHandlerAdapter> handlerAdapterMap = new HashMap<>();
-    List<WViewResolver> viewResolverList = new ArrayList<>();
-    WApplicationContext context;
-
+    private final String LOCATION = "contextConfigLocation";
+    private List<WHandlerMapping> handlerMappings = new ArrayList<>();
+    private Map<WHandlerMapping, WHandlerAdapter> handlerAdapterMap = new HashMap<>();
+    private List<WViewResolver> viewResolverList = new ArrayList<>();//可以有多个，比如针对jsp，freemarker，thymeleaf，可以有不同的viewResolver等
+    private WApplicationContext context;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
+        super.init(config);
         context = new WApplicationContext(config.getInitParameter(LOCATION));
         initStrategies(context);
     }
@@ -83,12 +83,25 @@ public class WDispatcherServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+        if (req.getRequestURI().contains("favicon.ico")) {
+//            super.doGet(req, resp);
+        } else {
+            doPost(req, resp);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        try {
+            if (req.getRequestURI().contains("favicon.ico")) {
+//                super.doPost(req, resp);
+            } else {
+                doDispatch(req, resp);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            resp.getWriter().write(Arrays.toString(e.getStackTrace()));
+        }
     }
 
 
@@ -144,32 +157,21 @@ public class WDispatcherServlet extends HttpServlet {
 
 
     private void listFile(File classPath) {
+        log.info("listFilePath=" + classPath);
         for (File file : Objects.requireNonNull(classPath.listFiles())) {
             if (file.isDirectory()) {
                 listFile(file);
             } else {
-                System.out.println(file.getName());
+                log.info("listFile=" + file.getName());
             }
         }
     }
 
     void initViewResolvers(WApplicationContext context) {
-        String templateRoot = context.getConfig().getProperty("templateRoot");
-        URL resource = this.getClass().getResource("/");
-
-        listFile(new File(resource.getFile()));
-
-        log.info(resource.toString());
-        log.info("resource.getFile=" + resource.getFile());
-        String templateRootPath = this.getClass().getResource("/" + templateRoot).getFile();
-        log.info("templateRootPath=" + templateRootPath);
-        File file = new File(templateRootPath);
-        for (File listFile : file.listFiles()) {
-            WViewResolver e = new WViewResolver();
-//            e.setWebAppRoot(listFile);
-            this.viewResolverList.add(e);
-        }
-
+        ServletConfig servletConfig = getServletConfig();
+        ServletContext servletContext = servletConfig.getServletContext();
+        WViewResolver e = new WViewResolver(servletContext.getRealPath("/"), context.getConfig().getProperty("prefix"), context.getConfig().getProperty("suffix"));
+        this.viewResolverList.add(e);
     }
 
     void initMultipartResolver(WApplicationContext context) {

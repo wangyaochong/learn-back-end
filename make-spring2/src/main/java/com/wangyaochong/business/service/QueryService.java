@@ -1,4 +1,4 @@
-package com.wangyaochong.business;
+package com.wangyaochong.business.service;
 
 /**
  * @author wangyaochong

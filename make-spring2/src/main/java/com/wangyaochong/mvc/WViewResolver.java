@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.File;
 import java.util.Locale;
 
 /**
@@ -23,9 +24,9 @@ public class WViewResolver {
             return null;
         }
         viewName = viewName.endsWith(suffix) ? viewName : (viewName + suffix);
-//        File templateFile = new File((templateRootDir.getParent() + "/" + viewName).replaceAll("/+", "/"));
+        File templateFile = new File((webAppRoot + "/" + prefix + "/" + viewName).replaceAll("/+", "/"));
         WView view = new WView();
-//        view.setViewFile(templateFile);
+        view.setViewFile(templateFile);
         return view;
     }
 

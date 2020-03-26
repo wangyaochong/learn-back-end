@@ -1,5 +1,7 @@
 package com.wangyaochong.ioc;
 
+import com.wangyaochong.anno.WController;
+import com.wangyaochong.anno.WService;
 import lombok.Data;
 
 import java.io.File;
@@ -55,7 +57,11 @@ public class WBeanDefinitionReader {
                 if (beanClass.isInterface()) {
                     continue;
                 }
-                result.add(doCreateBeanDefinition(toLowerFirstCase(beanClass.getSimpleName()), beanClass.getName()));
+//                如果有controller和service注解，就加载到ApplicationContext中
+                if (beanClass.isAnnotationPresent(WController.class) ||
+                        beanClass.isAnnotationPresent(WService.class)) {
+                    result.add(doCreateBeanDefinition(toLowerFirstCase(beanClass.getSimpleName()), beanClass.getName()));
+                }
 
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();

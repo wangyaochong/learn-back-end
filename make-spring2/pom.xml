@@ -7,10 +7,7 @@
     <groupId>com.wangyaochong</groupId>
     <version>1.0</version>
     <packaging>war</packaging>
-
-    <name>make-spring2 Maven Webapp</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <name>make-spring2</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -50,19 +47,28 @@
     </dependencies>
 
     <build>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/webapp</directory>-->
+<!--                <targetPath>resources</targetPath>-->
+<!--                <includes>-->
+<!--                    <include>**/**</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+<!--        </resources>-->
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <!--                    对于反射，想要获取方法的参数名，需要开启这个配置-->
-                    <compilerArgument>-parameters</compilerArgument>
-                    <testCompilerArgument>-parameters</testCompilerArgument>
-                </configuration>
-                <version>3.1</version>
-            </plugin>
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-compiler-plugin</artifactId>-->
+            <!--                <configuration>-->
+            <!--                    <source>1.8</source>-->
+            <!--                    <target>1.8</target>-->
+            <!--                    &lt;!&ndash;                    对于反射，想要获取方法的参数名，需要开启这个配置&ndash;&gt;-->
+            <!--                    <compilerArgument>-parameters</compilerArgument>-->
+            <!--                    <testCompilerArgument>-parameters</testCompilerArgument>-->
+            <!--                </configuration>-->
+            <!--                <version>3.1</version>-->
+            <!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
