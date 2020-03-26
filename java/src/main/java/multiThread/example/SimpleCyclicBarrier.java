@@ -32,5 +32,8 @@ public class SimpleCyclicBarrier {
         }
 //        cyclicBarrier.await();
         System.out.println("主线程结束");
+
+        cyclicBarrier.reset();
+
     }
 }

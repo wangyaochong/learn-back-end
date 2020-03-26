@@ -88,7 +88,9 @@
                     <imageTags>
                         <imgageTag>latest</imgageTag>
                     </imageTags>
-                    <expose>8080</expose>
+                    <exposes>
+                        <expose>8080</expose>
+                    </exposes>
                     <baseImage>java:8</baseImage>
                     <maintainer>xxxx yyyy@zzzz.com</maintainer>
                     <workdir>/</workdir>
