@@ -8,12 +8,12 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>learn-spring-boot</artifactId>
+    <artifactId>springboot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>learn-spring-boot</name>
-    <description>Demo project for Spring Boot</description>
+    <name>springboot</name>
+    <description>学习springboot</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

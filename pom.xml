@@ -20,7 +20,6 @@
         <module>redis-springboot</module>
         <module>springboot-inner</module>
         <module>make-mvc</module>
-        <module>make-spring2</module>
         <module>swagger-springboot</module>
         <module>cloud-stream</module>
         <module>zookeeper-simple</module>
@@ -32,7 +31,6 @@
         <module>rabbitmq-simple</module>
         <module>rabbitmq-springboot</module>
         <module>netty</module>
-        <module>make-spring2</module>
     </modules>
     <packaging>pom</packaging>
 
