@@ -3,6 +3,11 @@ package com.wangyaochong.ioc;
 import com.wangyaochong.anno.WAutowired;
 import com.wangyaochong.anno.WController;
 import com.wangyaochong.anno.WService;
+import com.wangyaochong.aop.advice.WAdviceSupport;
+import com.wangyaochong.aop.WAopConfig;
+import com.wangyaochong.aop.proxy.WAopProxy;
+import com.wangyaochong.aop.proxy.WCglibAopProxy;
+import com.wangyaochong.aop.proxy.WJdkAopProxy;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -65,6 +70,9 @@ public class WApplicationContext extends WDefaultListableBeanFactory implements 
 
     @Override
     public Object getBean(String beanName) throws Exception {
+        if(factoryBeanObjectCache.containsKey(beanName)){
+            return factoryBeanObjectCache.get(beanName);
+        }
         WBeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
         WBeanPostProcessor beanPostProcessor = new WBeanPostProcessor();
         Object instance = instantiateBean(beanDefinition);
@@ -108,6 +116,27 @@ public class WApplicationContext extends WDefaultListableBeanFactory implements 
         }
     }
 
+    WAdviceSupport instantiateAopConfig(WBeanDefinition beanDefinition) {
+        WAopConfig config = new WAopConfig();
+        config.setPointCut(reader.getConfig().getProperty("pointCut"));
+        config.setAspectClass(reader.getConfig().getProperty("aspectClass"));
+        config.setAspectBefore(reader.getConfig().getProperty("aspectBefore"));
+        config.setAspectAfter(reader.getConfig().getProperty("aspectAfter"));
+        config.setAspectAfterThrow(reader.getConfig().getProperty("aspectAfterThrow"));
+        config.setAspectAfterThrowingName(reader.getConfig().getProperty("aspectAfterThrowingName"));
+        WAdviceSupport advisedSupport = new WAdviceSupport();
+        advisedSupport.setConfig(config);
+        return advisedSupport;
+    }
+
+    WAopProxy createProxy(WAdviceSupport support) {
+        Class targetClass = support.getTargetClass();
+        if (targetClass.getInterfaces().length > 0) {
+            return new WJdkAopProxy(support);
+        }
+        return new WCglibAopProxy();
+    }
+
     private Object instantiateBean(WBeanDefinition beanDefinition) {
         Object instance = null;
         String className = beanDefinition.getBeanClassName();
@@ -117,6 +146,16 @@ public class WApplicationContext extends WDefaultListableBeanFactory implements 
             try {
                 Class<?> clazz = Class.forName(className);
                 instance = clazz.newInstance();
+
+                //-----------------aop代码------------------------------------
+                WAdviceSupport support = instantiateAopConfig(beanDefinition);
+                support.setTarget(instance);
+                support.setTargetClass(clazz);
+                if (support.pointCutMatch()) {
+                    instance = createProxy(support).getProxy();
+                }
+                //-----------------------------------------------------
+
                 this.factoryBeanObjectCache.put(beanDefinition.getFactoryBeanName(), instance);
             } catch (Exception e) {
                 e.printStackTrace();

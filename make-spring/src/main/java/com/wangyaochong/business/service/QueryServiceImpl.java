@@ -15,4 +15,9 @@ public class QueryServiceImpl implements QueryService {
         log.info("in query service");
         return "query result=" + name;
     }
+
+    @Override
+    public String errorMethod(String param) {
+        throw new RuntimeException("出错了");
+    }
 }

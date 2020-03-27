@@ -6,4 +6,5 @@ package com.wangyaochong.business.service;
  */
 public interface QueryService {
     String query(String name);
+    String errorMethod(String param);
 }

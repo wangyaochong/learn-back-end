@@ -27,6 +27,11 @@ public class MyController {
         String query = service.query(name);
         return out(response, query);
     }
+   @WRequestMapping("/errorMethod")
+    public WModelAndView errorMethod(@WRequestParam("name") String name, HttpServletResponse response) {
+        String query = service.errorMethod(name);
+        return out(response, query);
+    }
 
     @WRequestMapping("/page")
     public WModelAndView page(@WRequestParam("name") String name) {
