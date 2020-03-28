@@ -16,4 +16,9 @@
         <servlet-name>myMVCServlet</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
+
+<!--    <session-config>-->
+<!--        <session-timeout>30</session-timeout>-->
+<!--        <tracking-mode>URL</tracking-mode>-->
+<!--    </session-config>-->
 </web-app>

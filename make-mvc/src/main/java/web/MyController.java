@@ -6,6 +6,7 @@ import web.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class MyController {
 
@@ -28,6 +29,9 @@ public class MyController {
 
     @MyRequestMapping("mvc.do")
     public String mvc(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String id = session.getId();
+        System.out.println(id);
         System.out.println(request.getServletContext().getRealPath("/"));
         return "mvc.html";
     }
