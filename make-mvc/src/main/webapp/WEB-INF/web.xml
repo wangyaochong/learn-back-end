@@ -17,6 +17,11 @@
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.html</location>
+    </error-page>
+
 <!--    <session-config>-->
 <!--        <session-timeout>30</session-timeout>-->
 <!--        <tracking-mode>URL</tracking-mode>-->
