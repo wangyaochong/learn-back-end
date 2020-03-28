@@ -37,8 +37,8 @@ public class TestMockito {
 
     @Test
     public void testMethodInfo() {
-        List<Integer> integerList = new ArrayList<>();
-        MethodInfo methodInfo = (MethodInfo) ((Object) integerList.add(0));
-        System.out.println(JSON.toJSONString(methodInfo));
+//        List<Integer> integerList = new ArrayList<>();
+//        MethodInfo methodInfo = (MethodInfo) ((Object) integerList.add(0));
+//        System.out.println(JSON.toJSONString(methodInfo));
     }
 }
