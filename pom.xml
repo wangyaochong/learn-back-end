@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wangyaochong</groupId>
-    <artifactId>learn-java-always</artifactId>
+    <artifactId>learn-back-end</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>modulecore</module>
@@ -20,6 +20,7 @@
         <module>redis-springboot</module>
         <module>springboot-inner</module>
         <module>make-mvc</module>
+        <module>make-spring</module>
         <module>swagger-springboot</module>
         <module>cloud-stream</module>
         <module>zookeeper-simple</module>
@@ -30,6 +31,8 @@
         <module>dubbo-springboot-provider</module>
         <module>rabbitmq-simple</module>
         <module>rabbitmq-springboot</module>
+        <module>rabbitmq-spring-cloud-stream</module>
+        <module>spring-security-boot</module>
         <module>netty</module>
     </modules>
     <packaging>pom</packaging>
