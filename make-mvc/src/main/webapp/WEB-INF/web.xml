@@ -22,8 +22,8 @@
         <location>/404.html</location>
     </error-page>
 
-<!--    <session-config>-->
-<!--        <session-timeout>30</session-timeout>-->
-<!--        <tracking-mode>URL</tracking-mode>-->
-<!--    </session-config>-->
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
 </web-app>
