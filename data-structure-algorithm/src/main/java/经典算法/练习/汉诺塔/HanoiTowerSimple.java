@@ -6,13 +6,13 @@ package 经典算法.练习.汉诺塔;
  * 2.把available看成origin重复1
  */
 public class HanoiTowerSimple {
-    public void solve(int num, char a, char b, char c) {
+    public void solve(int num, char from, char cache, char to) {
         if (num == 1) {
-            System.out.println("weight=" + num + "," + a + "-->" + c);
+            System.out.println("weight=" + num + "," + from + "-->" + to);
         } else {
-            solve(num - 1, a, c, b);
-            System.out.println("weight=" + num + "," + a + "-->" + c);
-            solve(num - 1, b, a, c);
+            solve(num - 1, from, to, cache);
+            System.out.println("weight=" + num + "," + from + "-->" + to);
+            solve(num - 1, cache, from, to);
         }
     }
 }
