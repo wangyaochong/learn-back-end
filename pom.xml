@@ -37,7 +37,7 @@
     </modules>
     <packaging>pom</packaging>
 
-    <name>LearnJavaAlways</name>
+    <name>learn-back-end</name>
     <description>学习java相关的各种知识，包括：java基础、算法、spring、mybatis、hibernate、redis等</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
