@@ -53,7 +53,9 @@ public class ToReversePolish {
 
     @Test
     public void test() {
+        System.out.println(toReversePolish("5+2+1"));
         System.out.println(toReversePolish("1+(2-5)+3*(3+4)"));
+        System.out.println(toReversePolish("1*2+(5+3)*4"));
         System.out.println(toReversePolish("1+((2+3)*4)-5"));
     }
 }

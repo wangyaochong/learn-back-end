@@ -20,10 +20,10 @@ public enum EnumOperator {
     }
 
     public static leetcode.byCategory.栈.计算器.EnumOperator getByChar(char c) {
-        if (c == '-') return leetcode.byCategory.栈.计算器.EnumOperator.SUB;
-        if (c == '+') return leetcode.byCategory.栈.计算器.EnumOperator.ADD;
-        if (c == '*') return leetcode.byCategory.栈.计算器.EnumOperator.MUL;
-        if (c == '/') return leetcode.byCategory.栈.计算器.EnumOperator.DIV;
+        if (c == '-') return EnumOperator.SUB;
+        if (c == '+') return EnumOperator.ADD;
+        if (c == '*') return EnumOperator.MUL;
+        if (c == '/') return EnumOperator.DIV;
         if (c == '(') return EnumOperator.LEFT_PARE;
         if (c == ')') return EnumOperator.RIGHT_PARE;
         return null;
