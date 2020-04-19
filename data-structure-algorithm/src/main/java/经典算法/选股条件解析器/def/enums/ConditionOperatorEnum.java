@@ -10,6 +10,7 @@ public enum ConditionOperatorEnum {
     One,
     Or,
     And,
+    Not,
     Bracket
     ;
 }
