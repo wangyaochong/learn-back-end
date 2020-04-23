@@ -11,6 +11,7 @@ fun main(args: Array<String>) {
     for (s in list) {
         println(s)
     }
+    list.forEach { e -> print(e) }
     repeat(9) {
 
     }
