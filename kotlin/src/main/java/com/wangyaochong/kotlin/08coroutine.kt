@@ -10,8 +10,10 @@ import mu.KotlinLogging
 
 private val log = KotlinLogging.logger {}
 
+//Dispatchers.IO是8倍可用线程数量
+//Dispatchers.Default等于可用线程数量
 suspend fun longTimeTask(count: Int) {
-    withContext(Dispatchers.IO) {
+    withContext(Dispatchers.Default) {
         println("$count start execute longTimeTask")
         Thread.sleep(1000)
         println("$count end execute longTimeTask")
