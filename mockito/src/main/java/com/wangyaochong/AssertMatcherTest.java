@@ -33,6 +33,10 @@ public class AssertMatcherTest {
         assertThat(price, allOf(equalTo(2.35), not(equalTo(2.0))));
     }
 
+
+    /**
+     * 这个是自定义的matcher
+     */
     static class GreaterThen<T extends Number> extends BaseMatcher<T> {
 
         T value;
