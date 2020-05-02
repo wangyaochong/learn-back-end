@@ -35,6 +35,7 @@
         <module>spring-security-boot</module>
         <module>netty</module>
         <module>kotlin</module>
+        <module>mockito</module>
     </modules>
     <packaging>pom</packaging>
 
