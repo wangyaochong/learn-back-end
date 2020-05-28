@@ -16,4 +16,9 @@ fun main(args: Array<String>) {
     map2["456"] = 2;
     map2.forEach { entry -> println("${entry.key},${entry.value}") };
     map2.forEach { (key) -> println("key=$key") };
+
+
+    val map3 = mapOf(Pair("a", 1), Pair("b", 2))
+    print(map3)
+
 }
