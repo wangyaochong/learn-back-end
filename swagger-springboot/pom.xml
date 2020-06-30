@@ -10,7 +10,7 @@
     <name>swagger-springboot</name>
     <description>Demo project for Spring Boot</description>
     <parent>
-        <artifactId>learn-java-always</artifactId>
+        <artifactId>learn-back-end</artifactId>
         <groupId>com.wangyaochong</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>

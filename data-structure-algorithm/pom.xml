@@ -7,7 +7,7 @@
     <version>1.0</version>
     <parent>
         <groupId>com.wangyaochong</groupId>
-        <artifactId>learn-java-always</artifactId>
+        <artifactId>learn-back-end</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <dependencies>
