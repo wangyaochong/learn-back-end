@@ -10,7 +10,7 @@ public class p13_RomantoInteger {
 
     public int romanToInt(String s) {
         int sum = 0;
-        if (s.contains("IV") || s.contains("IX")) {
+        if (s.contains("IV") || s.contains("IX")) {//这里的减法，是因为有差值，比如IV=4，但是实际会计算成6
             sum -= 2;
         }
         if (s.contains("XL") || s.contains("XC")) {

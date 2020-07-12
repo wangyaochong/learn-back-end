@@ -31,7 +31,7 @@ public class p17_LetterCombinationsofaPhoneNumber {
         } else {
             for (String s : origin) {
                 for (char c : candidate) {
-                    result.add(s + Character.toString(c));
+                    result.add(s + c);
                 }
             }
         }

@@ -17,9 +17,6 @@ public class p19_RemoveNthNodeFromEndofList2 {
         System.out.println(listNode);
 
     }
-
-    int depth = 0;
-
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode start = new ListNode();
         start.next = head;
@@ -36,16 +33,4 @@ public class p19_RemoveNthNodeFromEndofList2 {
         slow.next = slow.next.next;
         return start.next;
     }
-
-    public void remove(ListNode head, int n) {
-        if (head == null) {
-            return;
-        }
-        remove(head.next, n);
-        depth++;
-        if (depth == n + 1) {
-            head.next = head.next.next;
-        }
-    }
-
 }

@@ -18,16 +18,7 @@ public class p23_MergekSortedLists2 {
 
 
     public ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode> queue = new PriorityQueue<>(new Comparator<ListNode>() {
-            @Override
-            public int compare(ListNode o1, ListNode o2) {
-                if (o1.val < o2.val) {
-                    return -1;
-                } else {
-                    return 1;
-                }
-            }
-        });
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o.val));
         ListNode head = new ListNode();
         ListNode cur = head;
         for (ListNode node : lists) {

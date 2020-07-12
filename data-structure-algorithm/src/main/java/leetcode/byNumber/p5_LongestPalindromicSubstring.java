@@ -5,13 +5,6 @@ import org.junit.Test;
 public class p5_LongestPalindromicSubstring {
     int locStart = 0;
     int locEnd = -1;
-
-
-    @Test
-    public void test() {
-
-    }
-
     public String longestPalindrome(String s) {
 
         for (int i = 0; i < s.length(); i++) {

@@ -7,9 +7,8 @@ public class p19_RemoveNthNodeFromEndofList {
     @Test
     public void test() {
         ListNode l1 = new ListNode(1);
-        ListNode l2 = new ListNode(2);
-//        ListNode l3=new ListNode(3);
-        l1.next = l2;
+        //        ListNode l3=new ListNode(3);
+        l1.next = new ListNode(2);
 //        l2.next=l3;
 
         System.out.println(l1);

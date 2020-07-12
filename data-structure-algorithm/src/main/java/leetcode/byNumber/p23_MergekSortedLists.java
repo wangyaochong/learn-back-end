@@ -33,14 +33,14 @@ public class p23_MergekSortedLists {
     }
 
     public ListNode getMinNode(ListNode[] listNodes) {
-        ListNode maxNode = null;
+        ListNode minNode = null;
         int max = Integer.MAX_VALUE;
         for (ListNode listNode : listNodes) {
             if (listNode.next != null && max > listNode.next.val) {
-                maxNode = listNode;
+                minNode = listNode;
                 max = listNode.next.val;
             }
         }
-        return maxNode;
+        return minNode;
     }
 }
