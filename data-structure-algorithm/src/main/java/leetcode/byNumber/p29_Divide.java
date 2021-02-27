@@ -4,7 +4,19 @@ import org.junit.Test;
 
 public class p29_Divide {
     public int divide(int dividend, int divisor) {
-        long res = div(dividend, divisor);
+
+        long res = 0;
+        //先调整符号
+        if (dividend > 0 && divisor < 0) {
+            res = -div(dividend, -(long)divisor);
+        } else if (dividend < 0 && divisor < 0) {
+            res = div(-(long)dividend, -(long)divisor);
+        } else if (dividend < 0 && divisor > 0) {
+            res = -div(-(long)dividend, divisor);
+        } else {
+            res = div(dividend, divisor);
+        }
+
         if (res > Integer.MAX_VALUE) {
             return Integer.MAX_VALUE;
         }
@@ -12,17 +24,6 @@ public class p29_Divide {
     }
 
     public long div(long dividend, long divisor) {
-        //先调整符号
-        if (dividend > 0 && divisor < 0) {
-            return -div(dividend, -divisor);
-        }
-        if (dividend < 0 && divisor < 0) {
-            return div(-dividend, -divisor);
-        }
-        if (dividend < 0 && divisor > 0) {
-            return -div(-dividend, divisor);
-
-        }
 
         if (dividend < divisor) {
             return 0;
@@ -39,6 +40,7 @@ public class p29_Divide {
 
     @Test
     public void test() {
+        System.out.println(divide(10, 3));
         System.out.println(divide(-1, -1));
         System.out.println(divide(7, -1));
         System.out.println(divide(7, 3));
