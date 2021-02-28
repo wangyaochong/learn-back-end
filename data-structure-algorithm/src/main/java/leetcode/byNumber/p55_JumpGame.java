@@ -9,7 +9,7 @@ public class p55_JumpGame {
             if (i == maxLoc && nums[i] == 0) {//如果当前位置等于最大距离，并且当前不能往前跳
                 return false;
             }
-            maxLoc = maxLoc > i + nums[i] ? maxLoc : i + nums[i];
+            maxLoc = Math.max(maxLoc, i + nums[i]);
         }
         return true;
     }
@@ -21,7 +21,7 @@ public class p55_JumpGame {
             if (i > maxLoc) {//如果当前位置比最大可到位置还远，则返回false
                 return false;
             }
-            maxLoc = maxLoc > i + nums[i] ? maxLoc : i + nums[i];
+            maxLoc = Math.max(maxLoc, i + nums[i]);
         }
         return true;
     }
