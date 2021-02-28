@@ -15,7 +15,7 @@ public class p30_nextPermutation {
             return ;
         }
         int tempLoc=nums.length-1;
-        while(nums[reverseLoc]>=nums[tempLoc]){
+        while(nums[reverseLoc]>=nums[tempLoc]){//（这段代码可以使用二分查找加速）
             tempLoc--;
         }
         swap(nums, tempLoc, reverseLoc);
