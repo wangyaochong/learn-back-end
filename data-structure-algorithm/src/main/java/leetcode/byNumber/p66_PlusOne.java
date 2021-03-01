@@ -18,10 +18,7 @@ public class p66_PlusOne {
         }
         if (carry != 0) {
             int[] result = new int[digits.length + 1];
-            result[0] = carry;
-            for (int i = 1; i < result.length; i++) {
-                result[i] = digits[i - 1];
-            }
+            result[0] = 1;
             return result;
         }
         return digits;

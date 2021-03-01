@@ -51,8 +51,9 @@ public class p36_ValidSudoku {
                     } else {
                         return false;
                     }
-                    if (box[i / 3 * 3 + j / 3][board[i][j] - '0'] == 0) {
-                        box[i / 3 * 3 + j / 3][board[i][j] - '0'] = 1;
+                    int[] box1 = box[i / 3 * 3 + j / 3];
+                    if (box1[board[i][j] - '0'] == 0) {
+                        box1[board[i][j] - '0'] = 1;
                     } else {
                         return false;
                     }

@@ -4,12 +4,12 @@ import org.junit.Test;
 
 public class p42_TrappingRainWater {
     public int trap(int[] height) {
-        int maxLeft[] = new int[height.length + 1];
-        int maxRight[] = new int[height.length + 1];
+        int[] maxLeft = new int[height.length + 1];
+        int[] maxRight = new int[height.length + 1];
 
         for (int i = 0; i < height.length; i++) {
-            maxLeft[i + 1] = height[i] > maxLeft[i] ? height[i] : maxLeft[i];
-            maxRight[height.length - i - 1] = height[height.length - i - 1] > maxRight[height.length - i] ? height[height.length - i - 1] : maxRight[height.length - i];
+            maxLeft[i + 1] = Math.max(height[i], maxLeft[i]);
+            maxRight[height.length - i - 1] = Math.max(height[height.length - i - 1], maxRight[height.length - i]);
         }
 
         int count = 0;

@@ -31,7 +31,7 @@ public class p47_PermutationsII {
             while (i + 1 < list.size() && list.get(i).equals(list.get(i + 1))) {
                 i++;
             }
-            Integer remove = list.remove(i);
+            Integer remove = list.remove(i);//这是需要对list进行删除和添加操作，效率会更慢一些
             curResult.add(remove);
             getResult(list, curResult, result);
             curResult.remove(curResult.size() - 1);
@@ -40,9 +40,38 @@ public class p47_PermutationsII {
         }
     }
 
+    public List<List<Integer>> permuteUnique2(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> result = new ArrayList<>();
+        getResult2(nums, new ArrayList<>(), result, new int[nums.length], 0);
+        return result;
+    }
+
+    public void getResult2(int[] nums, List<Integer> curResult, List<List<Integer>> result, int[] used, int depth) {
+        if (depth == nums.length) {
+            result.add(new ArrayList<>(curResult));
+            return;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i] == 1) {
+                continue;
+            }
+            if (i > 0 && nums[i] == nums[i - 1] && used[i - 1] == 0) {
+                continue;
+            }
+            used[i] = 1;
+            curResult.add(nums[i]);
+            getResult2(nums, curResult, result, used, depth + 1);
+            curResult.remove(curResult.size() - 1);
+            used[i] = 0;
+        }
+    }
+
+
     @Test
     public void test() {
-        List<List<Integer>> permute = permuteUnique(new int[]{1, 1, 2});
+        List<List<Integer>> permute = permuteUnique2(new int[]{1, 1, 2});
         System.out.println(permute);
     }
 
