@@ -28,6 +28,10 @@ public class p40_CombinationSumII {//一个数字（同一个下标）只能使�
             return;
         }
 
+        if(target<0){
+            return ;
+        }
+
         int i = curLoc;
         while (i < candidates.length) {
             if (target >= candidates[i]) {
