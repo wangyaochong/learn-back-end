@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class p30_nextPermutation {
+public class p31_nextPermutation {
     public void nextPermutation(int[] nums) {
         int reverseLoc=nums.length-2;
         while(reverseLoc>=0&&nums[reverseLoc]>=nums[reverseLoc+1]){
