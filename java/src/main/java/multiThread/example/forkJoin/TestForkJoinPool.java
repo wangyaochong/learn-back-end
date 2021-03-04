@@ -1,4 +1,4 @@
-package multiThread.example;
+package multiThread.example.forkJoin;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
