@@ -1,12 +1,10 @@
 package java8.stream;
 
-import multiThread.example.forkJoin.ForkJoinCalculate;
 import org.junit.Test;
 
 import java.time.Duration;
 import java.time.Instant;
 import java.util.OptionalLong;
-import java.util.concurrent.ForkJoinPool;
 import java.util.stream.LongStream;
 
 public class TestParallelStream {
