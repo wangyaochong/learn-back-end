@@ -20,7 +20,7 @@ public class MyUrlClassLoader extends ClassLoader {
             URL url = new URL(path);
             InputStream in = url.openStream();
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            byte buf[] = new byte[1024];
+            byte[] buf = new byte[1024];
             int len = -1;
             while ((len = in.read(buf)) != -1) {
                 baos.write(buf, 0, len);
