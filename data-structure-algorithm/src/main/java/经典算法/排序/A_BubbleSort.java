@@ -21,4 +21,19 @@ public class A_BubbleSort {
             }
         }
     }
+
+
+    @Test
+    public void test2(){
+        int[] arr=new int[]{1,3,4,5,2,9,0};
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j+1<arr.length-i;j++){
+                if(arr[j]>arr[j+1]){
+                    UtilArray.swap(arr,j,j+1);
+                }
+            }
+        }
+        UtilArray.display(arr);
+
+    }
 }
