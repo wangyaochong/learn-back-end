@@ -11,7 +11,7 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-
+//nio网络连接示例
 @Data
 public class GroupChatClient {
     String host = "127.0.0.1";

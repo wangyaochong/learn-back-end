@@ -11,6 +11,9 @@ import java.nio.channels.FileChannel;
 @Slf4j
 public class TestCopyFile {
 
+    /**
+     * 需要先创建文件
+     */
     @Test
     public void testWithNIO() throws IOException {
         StopWatch stopWatch = new StopWatch();

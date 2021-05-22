@@ -104,7 +104,7 @@ public class TestNIO {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         FileOutputStream fileOutputStream = new FileOutputStream(MyTestIO.fileNameLarge);
-        for (int i = 0; i < 500000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             fileOutputStream.write(longText.getBytes());
         }
         fileOutputStream.close();

@@ -8,5 +8,7 @@ public class Test_1_测试多次调用start方法 {
         hello.start();
 //        Thread.sleep(1000);
         hello.start();
+
+
     }
 }
