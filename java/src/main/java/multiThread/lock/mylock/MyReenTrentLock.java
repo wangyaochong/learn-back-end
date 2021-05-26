@@ -1,9 +1,9 @@
 package multiThread.lock.mylock;
 
 public class MyReenTrentLock implements MyLock {
-    private Boolean isLocked = false;
-    private long lockThreadId = 0L;
-    private int lockCount = 0;
+    private volatile Boolean isLocked = false;
+    private volatile long lockThreadId = 0L;
+    private volatile int lockCount = 0;
 
     @Override
     public synchronized void lock() {

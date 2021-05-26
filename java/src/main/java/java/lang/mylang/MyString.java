@@ -1,4 +1,4 @@
-package myjava.mylang;
+package java.lang.mylang;
 
 
 /**

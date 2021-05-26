@@ -6,6 +6,8 @@ import java.util.Enumeration;
 
 /**
  * 注意，Demo类的class文件放在D:/classLoader/Demo.class
+ *
+ * 自定义类加载器
  */
 public class HotDeployment {
     public static void main(String[] args) throws Exception {

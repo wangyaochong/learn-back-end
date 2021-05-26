@@ -1,7 +1,7 @@
 package multiThread.lock.mylock;
 
 public class MyNoReenTrentLock implements MyLock {
-    private boolean isLocked = false;
+    private volatile boolean isLocked = false;
 
     public synchronized void lock() {
         while (isLocked) {
