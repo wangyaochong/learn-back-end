@@ -24,6 +24,7 @@ public class CglibProxy implements MethodInterceptor {
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         System.out.println("预处理——————");
         methodProxy.invokeSuper(o, objects); //调用业务类（父类中）的方法
+        method.invoke(target, objects);
         System.out.println("调用后操作——————");
         return null;
     }

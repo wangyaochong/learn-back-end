@@ -1,6 +1,8 @@
 package src.bean.circledepend;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import src.bean.Person;
 
 import javax.annotation.PostConstruct;
 
@@ -16,5 +18,13 @@ public class A {
 
     public void init2() {
         System.out.println("-----------A init2---------");
+    }
+
+    @Bean
+    public Person person() {
+        Person person = new Person();
+        person.setAge(18);
+        person.setName("xxx");
+        return person;
     }
 }

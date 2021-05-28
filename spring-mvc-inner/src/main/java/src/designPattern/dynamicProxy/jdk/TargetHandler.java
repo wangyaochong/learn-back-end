@@ -1,4 +1,4 @@
-package src.designPattern.dynamicRroxy.jdk;
+package src.designPattern.dynamicProxy.jdk;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

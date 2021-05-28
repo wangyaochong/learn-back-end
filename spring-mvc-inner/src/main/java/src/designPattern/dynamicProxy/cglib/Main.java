@@ -1,4 +1,4 @@
-package src.designPattern.dynamicRroxy.cglib;
+package src.designPattern.dynamicProxy.cglib;
 
 import org.springframework.cglib.proxy.Enhancer;
 

@@ -1,4 +1,4 @@
-package src.designPattern.dynamicRroxy.cglib;
+package src.designPattern.dynamicProxy.cglib;
 
 public class User {
 
