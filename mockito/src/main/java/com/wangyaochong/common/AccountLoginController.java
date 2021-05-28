@@ -25,6 +25,7 @@ public class AccountLoginController {
                 return "/index";
             }
         } catch (Exception e) {
+            e.printStackTrace();
             return "/505";
         }
     }
