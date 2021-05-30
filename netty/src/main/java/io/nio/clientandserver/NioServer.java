@@ -21,7 +21,7 @@ public class NioServer {
         while (true) {
             if (selector.select(1000) == 0) {
                 System.out.println("服务器等待了1秒");
-                continue;
+//                continue;
             }
             Set<SelectionKey> selectionKeys = selector.selectedKeys();
             System.out.println("有事件的key=" + selector.selectedKeys().size());

@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class p189_RotateArray_优化到o1Space {
+public class p189_RotateArray_空间占用最多 {
 
 
     public void rotate(int[] nums, int k) {

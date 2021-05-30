@@ -6,7 +6,7 @@ import util.UtilArray;
 /**
  * 冒泡排序的升级版
  */
-public class D_QuickSort_Easy_Understand {
+public class D_QuickSort_Easier_Understand {
 
     @Test
     public void test() {
