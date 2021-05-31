@@ -1,6 +1,9 @@
 package com.wangyaochong.common;
 
+import com.github.javafaker.Faker;
+
 import javax.servlet.http.HttpServletRequest;
+import java.util.Locale;
 
 /**
  * @author wangyaochong
@@ -15,6 +18,7 @@ public class AccountLoginController {
     }
 
     public String login(HttpServletRequest request) {
+
         try {
             String username = request.getParameter("username");
             String password = request.getParameter("password");

@@ -1,0 +1,28 @@
+{
+  "User": [
+    {
+      "id": "#{id()}",
+      "name": "#{name()}",
+      "type": "Enum(Borrower,Lender)"
+    }
+  ],
+  "Loan": [
+    {
+      "id": "#{id()}",
+      "borrowerId": "User[type='borrower'].id",
+      /*金额必须是100的整数倍，且大于2000*/
+      "amount": "#{randInt()}*100+2000"
+    }
+  ],
+  "LoanLendRecord": [
+    {
+
+      "id": "#{id()}",
+      /*金额必须是50的倍数*/
+      "amount": "#{randInt(Loan.amount/50)+1}*50 --- ()",
+      "loanId": "Loan.id",
+      "borrowerId": "User[type='Borrower'].id",
+      "lenderId": "User[type='Lender'].id"
+    }
+  ]
+}
