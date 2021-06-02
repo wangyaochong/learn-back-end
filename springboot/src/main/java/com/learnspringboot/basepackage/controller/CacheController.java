@@ -1,4 +1,4 @@
-package com.learnspringboot.basePackage.controller;
+package com.learnspringboot.basepackage.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
