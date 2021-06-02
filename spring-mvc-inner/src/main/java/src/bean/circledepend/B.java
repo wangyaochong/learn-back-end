@@ -7,9 +7,12 @@ import javax.annotation.PostConstruct;
 
 @Component
 public class B {
-    @Autowired
     A a;
 
+    @Autowired
+    public void setA(A a){
+        this.a = a;
+    }
     @PostConstruct
     public void init() {
         System.out.println("-----------B init---------");

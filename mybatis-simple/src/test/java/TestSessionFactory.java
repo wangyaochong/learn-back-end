@@ -46,8 +46,7 @@ public class TestSessionFactory {
     @Test
     public void testGetFromCode() {
         SqlSessionFactory sessionFactory = SessionFactoryService.getFromCode();
-        SqlSession session = null;
-        session = sessionFactory.openSession();
+        SqlSession session = sessionFactory.openSession();
         UserMapperWithAnno mapper = session.getMapper(UserMapperWithAnno.class);
         UserM user = new UserM();
         user.setName("wangyaochong");

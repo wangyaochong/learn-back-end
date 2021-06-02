@@ -31,6 +31,19 @@ public class 反转全部 {
         return retHead.next;
     }
 
+
+    public ListNode reverse(ListNode head){
+        ListNode dummy = new ListNode();
+        ListNode current = head;
+        while (current != null) {
+            head = head.next;
+            current.next=dummy.next;
+            dummy.next=current;
+            current = head;
+        }
+        return dummy.next;
+    }
+
     @Test
     public void test() {
         ListNode node = new ListNode();
@@ -41,6 +54,6 @@ public class 反转全部 {
         node3.val = 3;
         node.next = node2;
         node2.next = node3;
-        System.out.println(reverseList(node));
+        System.out.println(reverse(node));
     }
 }

@@ -13,6 +13,17 @@ public class CalculatorTest {
         System.out.println("setUp");
     }
 
+    @Test
+    public void testDropFram() {
+        Calculator calculator = new Calculator();
+        call(calculator);
+    }
+
+    public void call(Calculator calculator) {
+        System.out.println("开始计算");
+        calculator.add(1, 2);
+        System.out.println("结束计算");
+    }
 
     @Test
     public void add() {

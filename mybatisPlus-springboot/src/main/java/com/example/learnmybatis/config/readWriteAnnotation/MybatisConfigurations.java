@@ -29,6 +29,7 @@ public class MybatisConfigurations {
         Map<Object, Object> targetDataSource = new HashMap<>();
         targetDataSource.put(DataBaseContextHolder.DataBaseType.MASTER, dataSourceBean.getWrite());
         targetDataSource.put(DataBaseContextHolder.DataBaseType.SLAVE, dataSourceBean.getRead());
+
         //默认数据源
         proxy.setDefaultTargetDataSource(dataSourceBean.getWrite());
         //装入两个主从数据源
