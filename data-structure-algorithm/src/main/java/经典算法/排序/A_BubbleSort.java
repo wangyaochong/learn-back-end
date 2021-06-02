@@ -3,6 +3,11 @@ package 经典算法.排序;
 import org.junit.Test;
 import util.UtilArray;
 
+/**
+* @author wangyaochong
+* @date 2021/6/2
+*/
+
 public class A_BubbleSort {
 
     @Test
@@ -12,7 +17,7 @@ public class A_BubbleSort {
         UtilArray.display(array);
     }
 
-    public void sort(int array[]) {
+    public void sort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length - i; j++) {
                 if (array[j - 1] > array[j]) {

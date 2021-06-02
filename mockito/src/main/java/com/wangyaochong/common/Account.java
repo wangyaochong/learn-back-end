@@ -22,6 +22,8 @@ public class Account {
     }
 
     public String testGet() {
-        return "test";
+        return TEST;
     }
+
+    public static final String TEST = "test";
 }

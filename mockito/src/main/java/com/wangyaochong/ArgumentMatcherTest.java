@@ -2,8 +2,9 @@ package com.wangyaochong;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
+import org.mockito.ArgumentMatchers;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.stubbing.Answer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,14 +27,23 @@ public class ArgumentMatcherTest {
         when(list.get(0)).thenReturn(100);
         assertThat(list.get(0), equalTo(100));
         assertThat(list.get(1), nullValue());
+    }
 
-
+    @Test
+    public void testThen() {
+        Foo foo = mock(Foo.class);
+        when(foo.function(ArgumentMatchers.isA(Work1.class))).then((Answer<Integer>) invocation -> {
+            System.out.println("自定义方法执行");
+            return 3;
+        });
+        int function = foo.function(new Work1());
+        assertThat(function, equalTo(3));
     }
 
     @Test
     public void testComplex() {
         Foo foo = mock(Foo.class);
-        when(foo.function(Mockito.isA(Work1.class))).thenReturn(100);
+        when(foo.function(ArgumentMatchers.isA(Work1.class))).thenReturn(100);
         int result = foo.function(new Work1());
         assertThat(result, equalTo(100));
 
@@ -42,7 +52,7 @@ public class ArgumentMatcherTest {
 
         reset(foo);
 
-        when(foo.function(Mockito.any(Work1.class))).thenReturn(100);
+        when(foo.function(ArgumentMatchers.any(Work1.class))).thenReturn(100);
         int result3 = foo.function(new Work1());
         assertThat(result3, equalTo(100));
 
@@ -55,6 +65,10 @@ public class ArgumentMatcherTest {
     }
 
     interface MyWork {
+        /**
+         * 测试方法
+         * @return 无
+         */
         int work();
     }
 

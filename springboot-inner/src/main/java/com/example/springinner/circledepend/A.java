@@ -1,4 +1,4 @@
-package com.example.springinner.circleDepend;
+package com.example.springinner.circledepend;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
