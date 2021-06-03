@@ -10,17 +10,18 @@ import java.util.concurrent.TimeUnit;
  */
 public class SimpleCyclicBarrier {
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
-        int threadCount = 10;
+        int threadCount = 5;
         CyclicBarrier cyclicBarrier = new CyclicBarrier(threadCount);
 
 //        如果需要主线也等待，则总线程数需要+1
 //        CyclicBarrier cyclicBarrier = new CyclicBarrier(threadCount + 1);
-        for (int i = 0 ; i < threadCount ; i++) {
+        for (int i = 0; i < threadCount; i++) {
             int finalI = i;
             new Thread(() -> {
                 System.out.println("任务," + finalI);
                 try {
-                    TimeUnit.SECONDS.sleep(1);
+                    TimeUnit.SECONDS.sleep(finalI);
+                    System.out.println("任务," + finalI + "唤醒");
                     cyclicBarrier.await();
                     System.out.println("所有线程结束");
                 } catch (InterruptedException e) {
