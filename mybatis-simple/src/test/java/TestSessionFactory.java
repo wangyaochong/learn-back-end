@@ -14,6 +14,7 @@ public class TestSessionFactory {
 
     @Test
     public void testGetFromConfig() throws IOException {
+
         // 2、创建SqlSessionFactory()
         SqlSessionFactory sessionFactory = SessionFactoryService.getFromConfigFile("mybatis-config.xml");
         SqlSession session = null;

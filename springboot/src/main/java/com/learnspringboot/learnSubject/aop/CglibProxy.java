@@ -32,5 +32,17 @@ public class CglibProxy implements MethodInterceptor {
     public static void main(String[] args) {
         Base instance = (Base) new CglibProxy().getInstance(new Base());
         instance.methodAop("cglib proxy");
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(CglibForTest.class);
+        enhancer.setCallback((MethodInterceptor) (o, method, objects, methodProxy) -> {
+            System.out.println("方法被调用");
+
+            return methodProxy.invokeSuper(o, objects);
+
+
+        });
+        CglibForTest cglib =  (CglibForTest)enhancer.create();
+        int add = cglib.add(1, 2);
+        System.out.println(add);
     }
 }
