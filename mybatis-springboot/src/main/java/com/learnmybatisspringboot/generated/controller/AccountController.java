@@ -77,19 +77,30 @@ public class AccountController {
     @GetMapping("testPropagationSameClass")
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
     public void testPropagationSameClass() {
-        main();
+        mainError();
     }
 
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
-    public void main() {
+    public void mainError() {
         accountService.insert(new Account(null, "testPropagationMain", 18.0));
         sub();
         throw new RuntimeException("main");
     }
 
+    @GetMapping("testMain")
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    public void main() {
+        accountService.insert(new Account(null, "testPropagationMain", 18.0));
+        ((AccountController) (AopContext.currentProxy())).sub();
+    }
+
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
     public void sub() {
         accountService.insert(new Account(null, "testPropagationSub", 18.0));
+    }
+
+    @GetMapping("testRequiredNew")
+    public void testRequiredNew() {
     }
 
     //    可以暴露当前的代理对象
@@ -105,6 +116,11 @@ public class AccountController {
         accountService.insert(new Account(null, "testPropagationMain", 18.0));
         ((AccountController) (AopContext.currentProxy())).subProxy();
         throw new RuntimeException("mainProxy");
+    }
+
+    @GetMapping("subProxy")
+    public void subProxyCall() {
+        ((AccountController) (AopContext.currentProxy())).subProxy();
     }
 
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)

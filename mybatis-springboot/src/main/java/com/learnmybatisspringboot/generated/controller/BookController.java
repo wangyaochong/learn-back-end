@@ -5,6 +5,7 @@ import com.learnmybatisspringboot.generated.service.BookService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.sql.Connection;
 
 /**
  * 图书表(Book)表控制层

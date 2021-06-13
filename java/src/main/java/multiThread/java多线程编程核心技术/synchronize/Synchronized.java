@@ -1,4 +1,4 @@
-package multiThread.java多线程编程核心技术;
+package multiThread.java多线程编程核心技术.synchronize;
 
 public class Synchronized {
     static class MyObject {

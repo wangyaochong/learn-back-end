@@ -1,16 +1,28 @@
 package classLoader;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.Enumeration;
 
 /**
  * 注意，Demo类的class文件放在D:/classLoader/Demo.class
  *
  * 自定义类加载器
+ *
+ * 热加载
  */
 public class HotDeployment {
     public static void main(String[] args) throws Exception {
+
+        Enumeration<Driver> drivers = DriverManager.getDrivers();
+        while (drivers.hasMoreElements()) {
+            Driver driver = drivers.nextElement();
+            System.out.println(driver);
+        }
+
         MyFileClassLoader classLoader1 = new MyFileClassLoader("D:/");
         MyFileClassLoader classLoader2 = new MyFileClassLoader("D:/", classLoader1);
         //loadClass中包含双亲委派机制，所以同一个类不能加载多次
@@ -26,12 +38,6 @@ public class HotDeployment {
         Class<?> aClass4 = classLoader4.findClass("classLoader.Demo");
         System.out.println(aClass3.hashCode());
         System.out.println(aClass4.hashCode());
-        Enumeration<Driver> drivers = DriverManager.getDrivers();
-        while (drivers.hasMoreElements()) {
-            Driver driver = drivers.nextElement();
-            System.out.println(driver);
-        }
-
 
     }
 }

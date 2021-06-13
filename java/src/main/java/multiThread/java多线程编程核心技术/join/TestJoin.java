@@ -9,7 +9,7 @@ public class TestJoin {
             try {
                 int i = random.nextInt();
                 System.out.println("子线程开始");
-                Thread.sleep((i * i % 5) * 1000 + 1000);
+                Thread.sleep(3000);
                 System.out.println("子线程结束");
             } catch (InterruptedException e) {
                 e.printStackTrace();

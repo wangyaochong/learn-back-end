@@ -12,7 +12,7 @@ import java.lang.reflect.Field;
 public class TestObjectHead {
     int intField;
     boolean booleanField;
-
+//https://www.bilibili.com/video/BV1aJ411q7rT?p=1
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
 //        ClassLayout classLayout = ClassLayout.parseInstance(new TestObjectHead());
 //        SortedSet<FieldLayout> fields = classLayout.fields();
@@ -49,4 +49,5 @@ public class TestObjectHead {
         }
         return Long.toHexString(hashCode);
     }
+
 }
