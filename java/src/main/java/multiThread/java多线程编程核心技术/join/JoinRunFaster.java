@@ -15,7 +15,8 @@ public class JoinRunFaster {
             }
         });
         thread.start();
-        thread.join(2000);
+//        thread.join(2000);
+        thread.join();
         System.out.println("main finish");
     }
 }
