@@ -25,6 +25,7 @@ public class p32_longestValidParentheses {
     }
     @Test
     public void test(){
-        System.out.println(longestValidParentheses("()(()()"));
+//        System.out.println(longestValidParentheses("()(()()"));
+        System.out.println(longestValidParentheses("()()"));
     }
 }

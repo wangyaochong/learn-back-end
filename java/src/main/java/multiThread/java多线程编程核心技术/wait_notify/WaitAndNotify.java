@@ -1,6 +1,40 @@
 package multiThread.java多线程编程核心技术.wait_notify;
 
+import org.junit.Test;
+
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class WaitAndNotify {
+
+    @Test
+    public void testLock() throws InterruptedException {
+        Object obj = new Object();
+        Thread t1 = new Thread(() -> {
+            synchronized (obj) {
+                try {
+                    System.out.println("等待");
+                    obj.wait();
+                    System.out.println("结束等待");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        Thread t2 = new Thread(() -> {
+            synchronized (obj){
+                obj.notifyAll();
+            }
+            System.out.println("唤醒");
+        });
+        t1.start();
+        TimeUnit.SECONDS.sleep(3);
+        t2.start();
+    }
+
+
     public static void main(String[] args) {
         final String lock = "";
         new Thread(() -> {

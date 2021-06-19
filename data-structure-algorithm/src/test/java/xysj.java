@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-public class 兴业数金准备工作 {
+public class xysj {
     @Test
     public void test(){
         System.out.println("5"+2);
