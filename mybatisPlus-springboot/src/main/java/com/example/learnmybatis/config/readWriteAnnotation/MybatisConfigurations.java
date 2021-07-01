@@ -16,8 +16,6 @@ import java.util.Map;
  */
 @Configuration
 @MapperScan(basePackages = "com.example.learnmybatis.mapper")
-
-
 public class MybatisConfigurations {
 
     @Resource
