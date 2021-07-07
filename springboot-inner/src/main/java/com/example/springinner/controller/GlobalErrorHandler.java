@@ -6,9 +6,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @ControllerAdvice
 public class GlobalErrorHandler {
+
+    //不管是exception还是error，最后都是通过exception处理
     @ResponseBody
     @ExceptionHandler(Exception.class)
-    public String handleString(Exception e) {
+    public String handleException(Exception e) {
+        return "exception occurred";
+    }
+
+    @ResponseBody
+    @ExceptionHandler(Error.class)
+    public String handleError(Error e) {
         return "error occurred";
     }
 //

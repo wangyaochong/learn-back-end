@@ -7,13 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestErrorController {
 
-    @GetMapping("/testErrorString")
+    @GetMapping("/testException")
     public String testErrorString(){
-        throw new RuntimeException("测试异常");
+        throw new RuntimeException("测试exception");
     }
 
-     @GetMapping("/testErrorLong")
-    public Long testErrorLong(){
-        throw new RuntimeException("测试异常");
+     @GetMapping("/testError")
+    public String testErrorLong(){
+         throw new Error("测试error");
+//         return "ok";
     }
+
 }
