@@ -13,7 +13,6 @@
         <module>data-structure-algorithm</module>
         <module>spring-mvc-inner</module>
         <module>mybatis-simple</module>
-        <module>mybatis-spring-mvc</module>
         <module>mybatisPlus-springboot</module>
         <module>mybatis-springboot</module>
         <module>redis-simple</module>
