@@ -15,8 +15,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class TestClient {
-
+public class TestDownloadFile {
+//下载并读取配置文件
 
     @Test
     public void test() {
