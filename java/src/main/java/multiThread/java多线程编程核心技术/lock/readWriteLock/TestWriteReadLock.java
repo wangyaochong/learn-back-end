@@ -17,7 +17,7 @@ public class TestWriteReadLock {
             }
             readWriteLock.writeLock().unlock();
         }).start();
-        Thread.sleep(1000);
+        Thread.sleep(100);
         new Thread(() -> {
             readWriteLock.readLock().lock();
             try {

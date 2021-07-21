@@ -10,8 +10,8 @@ import java.util.Properties;
 public class ReadYml {
 
     public static void main(String[] args) {
-        Resource test1 = new ClassPathResource("test1.yml");
-        Resource test2 = new ClassPathResource("test2.yml");
+        Resource test1 = new ClassPathResource("test/test1.yml");
+        Resource test2 = new ClassPathResource("test/test2.yml");
         YamlPropertiesFactoryBean yamlPropertiesFactoryBean = new YamlPropertiesFactoryBean();
         // 2:将加载的配置文件交给 YamlPropertiesFactoryBean
         yamlPropertiesFactoryBean.setResources(test1, test2);

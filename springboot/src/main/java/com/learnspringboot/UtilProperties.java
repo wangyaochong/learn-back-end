@@ -1,4 +1,4 @@
-package basic.读取yml和properties;
+package com.learnspringboot;
 
 import java.util.Enumeration;
 import java.util.Properties;
