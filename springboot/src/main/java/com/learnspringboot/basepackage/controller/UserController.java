@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 public class UserController {
 
     @Resource
-    UserService userService;
+    private UserService userService;
 
     @GetMapping("/getByName")
     public User getByName(String name) {
