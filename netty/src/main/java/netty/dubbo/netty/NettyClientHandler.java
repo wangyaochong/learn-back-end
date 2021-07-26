@@ -66,6 +66,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<MessageProto
         String msg = para + "---" + requestId;
         byte[] bytes = msg.getBytes(CharsetUtil.UTF_8);
         Channel channel = context.channel();
+        //测试设置AttributeKey
         AttributeKey<String> requestId1 = AttributeKey.valueOf("requestId");
         channel.attr(requestId1).set(requestId);
         channel.writeAndFlush(new MessageProtocol(bytes.length, bytes));
