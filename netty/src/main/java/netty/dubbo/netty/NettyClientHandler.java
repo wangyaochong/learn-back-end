@@ -1,7 +1,9 @@
 package netty.dubbo.netty;
 
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.util.AttributeKey;
 import io.netty.util.CharsetUtil;
 import netty.tcpprotocol.MessageProtocol;
 
@@ -61,18 +63,25 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<MessageProto
     //如果不使用字符串作为lock，需要使用两个map，一个是requestId对应的lock，另一个是requestId对应的value
     //在多线程情况下，必须要进行设置requestId，否则可能请求和相应不是一一对应，如果错位唤醒，那么数据就都乱了
     public String getResult(String para, String requestId) {
-        String requestLock = requestId;
-        String msg = para + "---" + requestLock;
+        String msg = para + "---" + requestId;
         byte[] bytes = msg.getBytes(CharsetUtil.UTF_8);
-        context.writeAndFlush(new MessageProtocol(bytes.length, bytes));
-        synchronized (requestLock) {
+        Channel channel = context.channel();
+        AttributeKey<String> requestId1 = AttributeKey.valueOf("requestId");
+        channel.attr(requestId1).set(requestId);
+        channel.writeAndFlush(new MessageProtocol(bytes.length, bytes));
+//        context.writeAndFlush(new MessageProtocol(bytes.length, bytes));
+        synchronized (requestId) {
             try {
-                threadLockAndResultMap.put(requestLock, "");
-                requestLock.wait();
+                threadLockAndResultMap.put(requestId, "");
+                requestId.wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        return threadLockAndResultMap.remove(requestLock);
+
+        String attrRequestId = channel.attr(requestId1).get();
+        System.out.println("attrRequestId="+attrRequestId);
+       // channel.attr(requestId1).remove();
+        return threadLockAndResultMap.remove(requestId);
     }
 }

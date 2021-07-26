@@ -35,7 +35,7 @@ public class NettyClient {
 
     private synchronized static void initClient() throws InterruptedException {
         clientHandler = new NettyClientHandler();
-        NioEventLoopGroup eventExecutors = new NioEventLoopGroup();
+        NioEventLoopGroup eventExecutors = new NioEventLoopGroup(16);
         //创建客户端的对象
         //注意客户端使用的不是ServerBootstrap，而是Bootstrap
 
