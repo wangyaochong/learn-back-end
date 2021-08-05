@@ -45,6 +45,7 @@ public class DeepMockTest {
 
     @Test
     public void testWithDeep() {
-        System.out.println(accountDaoDeep.getOne().testGet());
+        System.out.println(accountDaoDeep.getOne().testGet());;
+        accountDaoDeep.getOne().sayHello();
     }
 }
