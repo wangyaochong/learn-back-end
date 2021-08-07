@@ -1,0 +1,1 @@
+在jar包外的application.yml优先生效。
