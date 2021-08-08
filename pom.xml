@@ -35,6 +35,7 @@
         <module>netty</module>
         <module>kotlin</module>
         <module>mockito</module>
+        <module>mockito-power</module>
     </modules>
     <packaging>pom</packaging>
 
