@@ -1,4 +1,4 @@
-package com.example.shiro.test;
+package com.example.shiro;
 
 import com.example.shiro.realm.CustomerRealm;
 import org.apache.shiro.SecurityUtils;

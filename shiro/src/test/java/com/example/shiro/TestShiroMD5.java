@@ -1,4 +1,4 @@
-package com.example.shiro.test;
+package com.example.shiro;
 
 import org.apache.shiro.crypto.hash.Md5Hash;
 
@@ -17,5 +17,9 @@ public class TestShiroMD5 {
 
         Md5Hash md5Hash2=new Md5Hash("abc","xgde",1024);
         System.out.println(md5Hash2.toHex());
+    }
+
+    public static void main2(String[] args) {
+
     }
 }

@@ -79,6 +79,8 @@ public class KMPexercise {
 
     @Test
     public void testNext() {
+
+        System.out.println(Arrays.toString(myNext("ababc")));
         System.out.println(Arrays.toString(myNext("abcababcabcff")));
 //        System.out.println(Arrays.toString(next("121212")));
 //        System.out.println(Arrays.toString(myNext("121212")));

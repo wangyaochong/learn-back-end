@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @PowerMockRunnerDelegate()//可以使用多个runner
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(UserServiceNoInit.class)
-public class UserServiceSpyTest {
+public class UserServiceSpyPrivateTest {
 
     @Test
     public void testMockLog() throws Exception {

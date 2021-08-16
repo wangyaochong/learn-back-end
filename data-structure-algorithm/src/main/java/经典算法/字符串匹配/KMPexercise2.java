@@ -33,6 +33,11 @@ public class KMPexercise2 {
         System.out.println(kmp("abcdefg", "bcde"));
     }
 
+    @Test
+    public void testGetNext(){
+        int[] ababcs = getNext("ababc");
+        System.out.println(Arrays.toString(ababcs));
+    }
     public int[] getNext(String pattern) {
         int[] next = new int[pattern.length()];
         next[0] = -1;
