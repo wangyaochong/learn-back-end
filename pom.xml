@@ -47,7 +47,7 @@
         <java.version>1.8</java.version>
 
 
-        <springboot.version>2.2.5.RELEASE</springboot.version>
+        <springboot.version>2.4.2</springboot.version>
         <spring.version>5.0.9.RELEASE</spring.version>
         <aspect.version>1.9.3</aspect.version>
         <jedis.version>2.7.0</jedis.version>

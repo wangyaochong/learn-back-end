@@ -17,4 +17,6 @@ spring:
     username: root
     password: 123456
 
-
+#
+#test:
+#  key1: testInside

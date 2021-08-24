@@ -17,4 +17,8 @@
 #
 #
 #server:
-#  port: 9999
+#  port: 8888
+#
+#
+#test:
+#  key1: testInside
