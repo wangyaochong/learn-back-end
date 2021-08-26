@@ -16,7 +16,6 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-//
 //@NamedQuery(name="User.nameQuery",query="select u from User u where u.name=?1")
 public class User {
     @Id
