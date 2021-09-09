@@ -5,9 +5,11 @@ import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
+import org.yaml.snakeyaml.Yaml;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
+import java.util.Map;
 import java.util.Properties;
 
 //读取YML
@@ -41,5 +43,16 @@ public class ReadYml {
         yamlPropertiesFactoryBean.setResources(inputStreamResource);
         Properties properties = yamlPropertiesFactoryBean.getObject();
         UtilProperties.display(properties);
+    }
+
+    @Test
+    public void testReadYmlWithSnakeYml(){
+        String str = "test1:\n" +
+                "  xxx: \n" +
+                "    ttt: abc\n ";
+        byte[] b = str.getBytes();
+        ByteArrayInputStream ba = new ByteArrayInputStream(b);
+        Map<String,Object> map = new Yaml().loadAs(ba, Map.class);
+        System.out.println(map);
     }
 }

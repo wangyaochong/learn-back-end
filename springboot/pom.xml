@@ -24,6 +24,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.1.2</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.5</version>
@@ -45,7 +50,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>com.wangyaochong</groupId>
             <artifactId>modulecore</artifactId>
@@ -74,10 +78,10 @@
             </exclusions>
         </dependency>
 
-         <dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
-             <version>3.0.3</version>
+            <version>3.0.3</version>
         </dependency>
 
         <dependency>
@@ -113,7 +117,9 @@
                 <executions>
                     <execution>
                         <id>repackage</id>
-                        <goals><goal>repackage</goal></goals>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
                     </execution>
                 </executions>
                 <configuration>

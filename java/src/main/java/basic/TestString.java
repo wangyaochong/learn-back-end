@@ -22,4 +22,11 @@ public class TestString {
         Integer i2 = 1;
         System.out.println(i1 == i2);//java也有数字常量
     }
+
+    @Test
+    public void testEndWith(){
+        System.out.println("sdfff.properties".endsWith(".properties"));
+        System.out.println("sss.properties".endsWith(".properties"));
+        System.out.println("sss.yml".endsWith(".yml"));
+    }
 }
