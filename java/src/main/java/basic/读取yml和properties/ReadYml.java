@@ -36,6 +36,7 @@ public class ReadYml {
                 "  ";
         byte[] b = str.getBytes();
         //内存读配置文件
+        //内存文件，将文件保存在内存中
         ByteArrayInputStream ba = new ByteArrayInputStream(b);
         InputStreamResource inputStreamResource = new InputStreamResource(ba);
         YamlPropertiesFactoryBean yamlPropertiesFactoryBean = new YamlPropertiesFactoryBean();

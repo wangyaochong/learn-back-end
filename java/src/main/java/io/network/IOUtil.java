@@ -22,7 +22,7 @@ public class IOUtil {
         byte[] buf = new byte[size];
         int loc = 0;
         for (byte[] bytes : bufferResult) {
-            for (int i = 0; i < bytes.length; i++) {
+            for (int i = 0; i < bytes.length && loc < buf.length; i++) {
                 buf[loc] = bytes[i];
                 loc++;
                 if (loc >= buf.length) {

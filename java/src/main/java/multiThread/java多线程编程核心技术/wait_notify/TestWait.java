@@ -2,6 +2,8 @@ package multiThread.java多线程编程核心技术.wait_notify;
 
 import org.junit.Test;
 
+import java.util.concurrent.locks.LockSupport;
+
 public class TestWait {
     @Test
     public void testOnlyNotify() {
@@ -41,5 +43,50 @@ public class TestWait {
             newString.wait();
         }
         System.out.println("finish");
+    }
+
+    @Test
+    public void testWaitInterrupt() throws InterruptedException {
+        Thread thread = new Thread(() -> {
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        thread.start();
+        Thread.sleep(2000L);
+        thread.interrupt();
+    }
+
+    @Test
+    public void testParkInterrupt() throws InterruptedException {
+        Thread thread = new Thread(() -> {
+            LockSupport.park();
+            System.out.println("interrupted=" + Thread.currentThread().isInterrupted());
+        });
+        thread.start();
+        Thread.sleep(2000L);
+        thread.interrupt();
+    }
+
+    @Test
+    public void testInterruptException() throws InterruptedException {
+        Object object = new Object();
+        Thread thread = new Thread(() -> {
+            try {
+                for (int i = 0; i < 1000; i++) {
+                    System.out.println(i);
+                }
+//                Thread.sleep(10000L);
+                object.wait(1000L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        thread.start();
+        thread.interrupt();
+        System.out.println("interrupted");
+        Thread.sleep(5000L);
     }
 }

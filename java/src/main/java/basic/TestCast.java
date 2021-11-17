@@ -16,4 +16,6 @@ public class TestCast {
         Object t = b;
         A a2 = (A) t;//使用Object过度可以通过编译，但是运行时会抛异常
     }
+
+
 }
