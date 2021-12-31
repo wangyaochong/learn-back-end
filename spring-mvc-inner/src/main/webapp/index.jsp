@@ -9,5 +9,8 @@
     <input type="file" name="file">
     <input type="submit" value="upload">
 </form>
+<br>
+这是图片<img src="/file/getImage" alt="测试图片">
+
 </body>
 </html>

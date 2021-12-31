@@ -32,4 +32,28 @@ public class TestCountDownLatch {
         countDownLatch.await();
         log.info("任务执行结束");
     }
+
+    @Test
+    public void test2() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        new Thread(() -> {
+            try {
+                latch.await();
+                System.out.println("线程1释放");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        new Thread(() -> {
+            try {
+                latch.await();
+                System.out.println("线程2释放");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        Thread.sleep(3000);
+        latch.countDown();
+        Thread.sleep(1000000);
+    }
 }

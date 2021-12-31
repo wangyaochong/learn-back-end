@@ -2,9 +2,8 @@ package com.learnspringboot.basepackage.controller;
 
 import cn.hutool.core.util.ZipUtil;
 import org.springframework.http.HttpRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +11,7 @@ import java.io.*;
 @RequestMapping("/file")
 @RestController
 public class FileController {
-    //测试文件下载
+    //测试文件下载download
     @GetMapping("/get")
     public void file(HttpServletResponse request, HttpServletResponse response) throws IOException {
         String fileName = "/application.properties";
@@ -66,5 +65,19 @@ public class FileController {
     @GetMapping("/test")
     public String test() {
         return "test";
+    }
+
+    @RequestMapping("/upload")
+    @ResponseBody
+    public String upload(@RequestParam("file") CommonsMultipartFile file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        System.out.println("fileName：" + file.getOriginalFilename());
+        String path = "D://test/" + file.getOriginalFilename();
+        File newFile = new File(path);
+        //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
+        file.transferTo(newFile);
+        long endTime = System.currentTimeMillis();
+        System.out.println("方法二的运行时间：" + (endTime - startTime) + "ms");
+        return "success";
     }
 }

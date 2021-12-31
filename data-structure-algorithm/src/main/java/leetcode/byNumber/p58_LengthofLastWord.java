@@ -12,6 +12,17 @@ public class p58_LengthofLastWord {
             i--;
             count++;
         }
+
         return count;
+    }
+
+    public int lengthOfLastWord2(String s) {
+
+        s = s.trim();
+        if (s.length() == 0) {
+            return 0;
+        }
+        String[] s1 = s.split(" ");
+        return s1[s1.length - 1].length();
     }
 }
