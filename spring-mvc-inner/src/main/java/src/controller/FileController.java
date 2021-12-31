@@ -17,7 +17,13 @@ import java.io.*;
 public class FileController {
     @RequestMapping("/upload")
     @ResponseBody
-    public String upload(@RequestParam("file") CommonsMultipartFile file) throws IOException {
+    public String upload(@RequestParam("file") CommonsMultipartFile file,
+                         @RequestParam("formParam") String formParam,
+                         @RequestParam("urlParam") String urlParam
+    ) throws IOException {
+        System.out.println("formParam=" + formParam);
+        System.out.println("urlParam=" + urlParam);
+
         long startTime = System.currentTimeMillis();
         System.out.println("fileName：" + file.getOriginalFilename());
         String path = "D://test/" + file.getOriginalFilename();
@@ -41,7 +47,7 @@ public class FileController {
         response.setContentType("application/octet-stream");
         response.reset();
         // 设置response的Header
-        response.addHeader("Content-Disposition", "attachment;filename=" + fileName.substring(1));
+        response.addHeader("Content-Disposition", "attachment;filename=xxx" );//+ fileName.substring(1));
 //        response.addHeader("Content-Length", "" + file.length());
         //System.out.println("文件长度=" + file.length());
         System.out.println("buffer长度=" + buffer.length);
