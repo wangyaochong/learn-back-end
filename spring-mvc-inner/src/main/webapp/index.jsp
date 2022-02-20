@@ -4,9 +4,10 @@
 <body>
 <h2>Hello World!</h2>
 
-<form action="file/upload" method="post" enctype="multipart/form-data">
+<form action="file/upload?urlParam=urlParamValue" method="post" enctype="multipart/form-data">
     <h3>文件上传</h3>
-    <input type="file" name="file">
+    <input type="file" name="file" multiple>
+    <input type="text" name="formParam">
     <input type="submit" value="upload">
 </form>
 <br>
