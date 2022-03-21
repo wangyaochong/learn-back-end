@@ -1,5 +1,7 @@
 package basic;
 
+import cn.hutool.core.io.FileUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.io.File;
@@ -7,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+@Slf4j
 public class TestGetJarPath {
 
     @Test
@@ -83,5 +86,26 @@ public class TestGetJarPath {
 
     public static String getJarPath() {
         return null;
+    }
+
+    public static String getJarPathFinal() {
+        String path = FileUtil.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        log.info("getJarPath init,path={}", path);
+        if (path.startsWith("file:")) {
+            path = path.substring(5);
+        }
+        log.info("getJarPath remove prefix,path={}", path);
+        if (path.contains(".jar")) {
+            path = path.substring(0, path.indexOf(".jar"));
+            log.info("getJarPath,remove.jar path={}", path);
+            int i = path.lastIndexOf("/");
+            if (i != -1) {
+                path = path.substring(0, path.lastIndexOf("/"));
+            } else {
+                path = path.substring(0, path.lastIndexOf("\\"));
+            }
+        }
+        log.info("getJarPath, final path={}", path);
+        return path;
     }
 }
