@@ -108,4 +108,11 @@ public class TestGetJarPath {
         log.info("getJarPath, final path={}", path);
         return path;
     }
+
+    public static void main(String[] args) {
+        System.out.println(Long.MAX_VALUE);
+        System.out.println(Math.pow(2,61));
+        System.out.println(999_99999_99999_99999L*4);
+    }
+
 }
