@@ -22,7 +22,7 @@ import java.util.List;
 public class FileController {
     @RequestMapping("/upload")
     @ResponseBody
-    public String upload(@RequestParam("file") List<CommonsMultipartFile> files,
+    public String upload(@RequestParam("file") List<CommonsMultipartFile> files,  //这个地方也可以使用CommonsMultipartFile[]数组类型
                          @RequestParam("formParam") String formParam,
                          @RequestParam("urlParam") String urlParam
     ) throws IOException {
