@@ -2,6 +2,7 @@ package basic.读取yml和properties;
 
 import org.junit.Test;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -39,6 +40,10 @@ public class ReadYml {
         //内存文件，将文件保存在内存中
         ByteArrayInputStream ba = new ByteArrayInputStream(b);
         InputStreamResource inputStreamResource = new InputStreamResource(ba);
+
+        //可以直接使用byteArrayResource
+        //ByteArrayResource byteArrayResource = new ByteArrayResource(b);
+
         YamlPropertiesFactoryBean yamlPropertiesFactoryBean = new YamlPropertiesFactoryBean();
 
         yamlPropertiesFactoryBean.setResources(inputStreamResource);
