@@ -2,6 +2,8 @@ package basic;
 
 import org.junit.Test;
 
+import java.lang.reflect.Field;
+
 public class TestString {
 
     @Test
@@ -24,9 +26,22 @@ public class TestString {
     }
 
     @Test
-    public void testEndWith(){
+    public void testEndWith() {
         System.out.println("sdfff.properties".endsWith(".properties"));
         System.out.println("sss.properties".endsWith(".properties"));
         System.out.println("sss.yml".endsWith(".yml"));
+    }
+
+    @Test
+    public void testModifyString() throws NoSuchFieldException, IllegalAccessException {
+        String target = "abcd";
+        System.out.println("------before modify------");
+        System.out.println(target);
+        Field value = String.class.getDeclaredField("value");
+        value.setAccessible(true);
+        char[] o = (char[]) value.get(target);
+        o[1] = 'x';
+        System.out.println("------after modify------");
+        System.out.println(target);
     }
 }
