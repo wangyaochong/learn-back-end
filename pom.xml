@@ -24,7 +24,6 @@
         <module>rabbitmq-spring-cloud-stream</module>
         <module>spring-security-boot</module>
         <module>netty</module>
-        <module>kotlin</module>
         <module>mockito</module>
         <module>mockito-power</module>
     </modules>
