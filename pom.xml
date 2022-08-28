@@ -19,11 +19,6 @@
         <module>swagger-springboot</module>
         <module>cloud-stream</module>
         <module>zookeeper-simple</module>
-        <module>dubbo-consumer</module>
-        <module>dubbo-provider</module>
-        <module>dubbo-api</module>
-        <module>dubbo-springboot-consumer</module>
-        <module>dubbo-springboot-provider</module>
         <module>rabbitmq-simple</module>
         <module>rabbitmq-springboot</module>
         <module>rabbitmq-spring-cloud-stream</module>
