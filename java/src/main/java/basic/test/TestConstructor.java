@@ -1,4 +1,4 @@
-package basic;
+package basic.test;
 
 public class TestConstructor {
     public TestConstructor() {

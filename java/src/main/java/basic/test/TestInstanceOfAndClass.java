@@ -1,4 +1,4 @@
-package basic;
+package basic.test;
 
 import cn.hutool.core.util.ClassUtil;
 

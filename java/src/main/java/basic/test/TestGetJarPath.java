@@ -1,4 +1,4 @@
-package basic;
+package basic.test;
 
 import cn.hutool.core.io.FileUtil;
 import lombok.extern.slf4j.Slf4j;

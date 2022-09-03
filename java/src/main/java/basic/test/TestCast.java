@@ -1,4 +1,4 @@
-package basic;
+package basic.test;
 
 public class TestCast {
     static class A {
