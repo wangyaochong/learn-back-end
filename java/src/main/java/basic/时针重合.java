@@ -1,5 +1,8 @@
 package basic;
 
+import java.util.Map;
+import java.util.Properties;
+
 /**
  * @author wangyaochong
  * @date 2020/3/26 17:49
@@ -20,5 +23,9 @@ public class 时针重合 {
             }
         }
         System.out.println(meet);
+        Map<String, String> getenv = System.getenv();
+        System.out.println(getenv);
+        Properties properties = System.getProperties();
+        System.out.println(properties);
     }
 }
